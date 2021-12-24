@@ -4,6 +4,11 @@ const moment = require('moment')
 
 
 module.exports = {
+  port: 60000,
+  head: [
+    ['link', { rel: 'icon', href: '/logo.png' }]
+  ],
+
   title: '知识库',
   description: '知识库',
   markdown: {
@@ -32,7 +37,7 @@ module.exports = {
           const lastUpdateTime = moment(timestamp);
           const fromNow = lastUpdateTime.fromNow();
           const date = lastUpdateTime.format('YYYY-MM-DD HH:mm:ss')
-          return `${date} (${fromNow})`;
+          return `${date} ( ${fromNow} )`;
         }
       }
     ],
@@ -75,7 +80,7 @@ function getGroups() {
 
     const group = {
       title: groupDir,
-      collapsable: false,
+      collapsable: true,
       children: [
         ...menu
       ]
