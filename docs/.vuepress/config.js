@@ -2,7 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const moment = require('moment')
 
-
 module.exports = {
   port: 60000,
   // base: '/blog/docs/.vuepress/dist',
