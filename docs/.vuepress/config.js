@@ -5,6 +5,7 @@ const moment = require('moment')
 
 module.exports = {
   port: 60000,
+  // base: '/blog/docs/.vuepress/dist',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
