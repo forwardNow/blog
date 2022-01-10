@@ -62,7 +62,7 @@ function getGroups() {
   const getFileNameList = (dir) => {
     const pagesDirPath = path.join(__dirname, dir);
 
-    return fs.readdirSync(pagesDirPath);
+    return fs.readdirSync(pagesDirPath).sort();
   }
 
   const groupList = [];
