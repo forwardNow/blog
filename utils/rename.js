@@ -1,18 +1,17 @@
 /**
- * @fileoverview 切换到 utils/ 目录下执行该文件
+ * @fileOverview 切换到 utils/ 目录下执行该文件
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const docsPath = path.join('../', 'docs', 'others')
+const targetDir = 'specs';
+const docsPath = path.join(__dirname, '../', 'docs', targetDir);
 
 const files = [
-  '09.nginx.md',
-  '10.Git 常用命令.md',
-  '01.破解webstorm.md',
-  '02.nodejs常用API.md',
-  '11.nodejs多版本管理.md',
+  '02.规范.md',
+  '01.styleLint.md',
+  '02.vue-press.md',
 ];
 
 files.forEach((originFilename, index) => {

@@ -68,7 +68,7 @@ function getGroups() {
   const groupList = [];
   const rootPath = '../';
 
-  const groupDirList = getFileNameList(rootPath).filter((dir) => {
+  let groupDirList = getFileNameList(rootPath).filter((dir) => {
     if (dir.startsWith('.')) {
       return false;
     }
@@ -79,6 +79,17 @@ function getGroups() {
 
     return true;
   });
+
+  groupDirList = [
+    'framework',
+    'specs',
+    'theme',
+    'component',
+    'frontend',
+    'webpack',
+    'nodejs',
+    'others',
+  ];
 
   groupDirList.forEach((groupDir) => {
     const markdownFileNames = getFileNameList(path.join(rootPath, groupDir))
@@ -92,7 +103,7 @@ function getGroups() {
 
     const group = {
       title: groupDir,
-      collapsable: true,
+      collapsable: false,
       children: [
         ...menu
       ]
