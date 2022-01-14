@@ -3,4 +3,4 @@ node_modules
 .idea
 dist
 
-code/*.zip
+/docs/.vuepress/public/code/
