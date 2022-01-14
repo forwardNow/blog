@@ -12,25 +12,34 @@ const compression = {
     'node_modules',
   ],
 
+  workspacePath: 'D:/dev/projects/frontend',
+
+  targetDirPath: path.join(__dirname, '../docs/.vuepress/public/code'),
+
   compress() {
     this.compressPlatform();
     this.compressUiTheme();
   },
 
   compressPlatform() {
-    const src = path.join('', 'D:\\dev\\projects\\hlhz_platform');
-    const dest = path.join(__dirname, 'public/code/hlhz_platform.zip')
+    const { src, dest } = this.getCompressPaths('hlhz_platform');
+
     const excludedFilenames = this.excludedFilenames;
 
     this.compressToZip(src, dest, excludedFilenames);
   },
 
+  getCompressPaths(projectName) {
+    const src = path.join(this.workspacePath,  projectName);
+    const dest = path.join(this.targetDirPath, `${projectName}.zip`);
+
+    return { src, dest };
+  },
+
   compressUiTheme() {
-    const src = path.join('', 'D:\\dev\\projects\\frontend\\ui-theme');
-    const dest = path.join(__dirname, 'public/code/ui-theme.zip')
-    const excludedFilenames = this.excludedFilenames.concat([
-      'lib'
-    ]);
+    const { src, dest } = this.getCompressPaths('ui-theme');
+
+    const excludedFilenames = this.excludedFilenames.concat(['lib']);
 
     this.compressToZip(src, dest, excludedFilenames);
   },
