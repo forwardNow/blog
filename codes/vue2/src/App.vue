@@ -1,32 +1,39 @@
 <template>
   <div id="app">
-    <Panel>
-      内容
-    </Panel>
-
-    <Panel>
-      内容
-
-      <template v-slot:footer>
-        页脚
-      </template>
-    </Panel>
-
-    <Panel>
-      <template v-slot:test="{ list }">
-        <div v-for="item in list" :key="item">{{ item }}</div>
-      </template>
-    </Panel>
+    <hui-curd-card>
+      <hui-criteria-queries></hui-criteria-queries>
+      <hui-operate-buttons></hui-operate-buttons>
+      <hui-data-table></hui-data-table>
+      <hui-pagination></hui-pagination>
+    </hui-curd-card>
   </div>
 </template>
-
 <script>
-import Panel from './Panel.vue';
+import HuiCurdCard from './cards/CrudCard.vue';
+import HuiDataTable from './cards/DataTable.vue';
+import HuiOperateButtons from './cards/OperateButtons.vue';
+import HuiPagination from './cards/Pagination.vue';
+import HuiCriteriaQueries from './cards/CriteriaQueries.vue';
 
 export default {
-  name: 'App',
   components: {
-    Panel
-  }
+    HuiCurdCard,
+    HuiDataTable,
+    HuiOperateButtons,
+    HuiPagination,
+    HuiCriteriaQueries,
+  },
+  data() {
+    return {
+    };
+  },
 }
 </script>
+<style>
+.ww-graph {
+  width: 800px;
+  height: 600px;
+
+  margin: 40px;
+}
+</style>
