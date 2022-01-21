@@ -83,8 +83,8 @@ function getGroups() {
   groupDirList = [
     'framework',
     'specs',
-    'theme',
-    'component',
+    'style-library',
+    'component-library',
     'frontend',
     'webpack',
     'nodejs',
