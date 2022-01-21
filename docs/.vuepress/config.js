@@ -89,6 +89,7 @@ function getGroups() {
     'webpack',
     'nodejs',
     'others',
+    'win10',
   ];
 
   groupDirList.forEach((groupDir) => {
