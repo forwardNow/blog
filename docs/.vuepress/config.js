@@ -8,7 +8,8 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
     // rel="stylesheet" href="../dist/flex.css"
-    ['link', { rel: 'stylesheet', href: '/bootstrap-utilities.css' }]
+    ['link', { rel: 'stylesheet', href: '/bootstrap-utilities.css' }],
+    ['link', { rel: 'stylesheet', href: '/base.css' }],
   ],
 
   title: '知识库',
