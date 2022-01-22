@@ -6,7 +6,9 @@ module.exports = {
   port: 60000,
   // base: '/blog/docs/.vuepress/dist',
   head: [
-    ['link', { rel: 'icon', href: '/logo.png' }]
+    ['link', { rel: 'icon', href: '/logo.png' }],
+    // rel="stylesheet" href="../dist/flex.css"
+    ['link', { rel: 'stylesheet', href: '/bootstrap-utilities.css' }]
   ],
 
   title: '知识库',
