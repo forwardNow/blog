@@ -1,4 +1,5 @@
-.bd-highlight * {
+.bd-example,
+.bd-example * {
     box-sizing: border-box;
 }
 
