@@ -36,3 +36,16 @@
     content: none
 }
 
+.bd-example-ratios .ratio {
+    display: inline-block;
+    width: 10rem;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.bd-example-ratios .ratio>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

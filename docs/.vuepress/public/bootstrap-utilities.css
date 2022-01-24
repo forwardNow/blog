@@ -43,6 +43,62 @@
   content: "";
 }
 
+.link-primary {
+  color: #5b8aff;
+}
+.link-primary:hover, .link-primary:focus {
+  color: #7ca1ff;
+}
+
+.link-secondary {
+  color: #666;
+}
+.link-secondary:hover, .link-secondary:focus {
+  color: #525252;
+}
+
+.link-success {
+  color: #2ac395;
+}
+.link-success:hover, .link-success:focus {
+  color: #55cfaa;
+}
+
+.link-info {
+  color: #8e99ab;
+}
+.link-info:hover, .link-info:focus {
+  color: #a5adbc;
+}
+
+.link-warning {
+  color: #ff7c48;
+}
+.link-warning:hover, .link-warning:focus {
+  color: #ff966d;
+}
+
+.link-danger {
+  color: #ff4e60;
+}
+.link-danger:hover, .link-danger:focus {
+  color: #ff7180;
+}
+
+.link-light {
+  color: #f8f9fa;
+}
+.link-light:hover, .link-light:focus {
+  color: #f9fafb;
+}
+
+.link-dark {
+  color: #333;
+}
+.link-dark:hover, .link-dark:focus {
+  color: #292929;
+}
+
 .ratio {
   position: relative;
   width: 100%;
