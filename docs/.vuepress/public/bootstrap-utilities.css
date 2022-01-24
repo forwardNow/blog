@@ -1576,44 +1576,52 @@
   padding-left: 40px !important;
 }
 
-.fs-100 {
+.fs-1 {
   font-size: 14px !important;
 }
 
-.fs-125 {
-  font-size: 17.5px !important;
+.fs-2 {
+  font-size: 18px !important;
 }
 
-.fs-150 {
+.fs-3 {
   font-size: 21px !important;
 }
 
-.fs-175 {
-  font-size: 24.5px !important;
+.fs-4 {
+  font-size: 25px !important;
 }
 
-.fs-200 {
+.fs-5 {
   font-size: 28px !important;
 }
 
-.font-size-100 {
+.fs-6 {
+  font-size: 32px !important;
+}
+
+.font-size-1 {
   font-size: 14px !important;
 }
 
-.font-size-125 {
-  font-size: 17.5px !important;
+.font-size-2 {
+  font-size: 18px !important;
 }
 
-.font-size-150 {
+.font-size-3 {
   font-size: 21px !important;
 }
 
-.font-size-175 {
-  font-size: 24.5px !important;
+.font-size-4 {
+  font-size: 25px !important;
 }
 
-.font-size-200 {
+.font-size-5 {
   font-size: 28px !important;
+}
+
+.font-size-6 {
+  font-size: 32px !important;
 }
 
 .fst-italic {
@@ -1633,43 +1641,43 @@
 }
 
 .fw-light {
-  : 300 !important;
+  font-weight: 300 !important;
 }
 
 .fw-lighter {
-  : lighter !important;
+  font-weight: lighter !important;
 }
 
 .fw-normal {
-  : 400 !important;
+  font-weight: 400 !important;
 }
 
 .fw-bold {
-  : 700 !important;
+  font-weight: 700 !important;
 }
 
 .fw-bolder {
-  : bolder !important;
+  font-weight: bolder !important;
 }
 
 .font-weight-light {
-  : 300 !important;
+  font-weight: 300 !important;
 }
 
 .font-weight-lighter {
-  : lighter !important;
+  font-weight: lighter !important;
 }
 
 .font-weight-normal {
-  : 400 !important;
+  font-weight: 400 !important;
 }
 
 .font-weight-bold {
-  : 700 !important;
+  font-weight: 700 !important;
 }
 
 .font-weight-bolder {
-  : bolder !important;
+  font-weight: bolder !important;
 }
 
 .lh-1 {
@@ -1705,10 +1713,18 @@
 }
 
 .text-start {
+  text-align: start !important;
+}
+
+.text-left {
   text-align: left !important;
 }
 
 .text-end {
+  text-align: end !important;
+}
+
+.text-right {
   text-align: right !important;
 }
 
