@@ -20,9 +20,12 @@ module.exports = {
     // // 输出文件名会被推导为 `subpage.html`。
 
     // 01-src-echarts.html
-    '01-src-echarts': '01-src-echarts/main.js',
+    // '01-src-echarts': '01-src-echarts/main.js',
 
     // 02-src-v-model.html
-    '02-src-v-model': '02-src-v-model/main.js',
+    // '02-src-v-model': '02-src-v-model/main.js',
+
+    // 03-src-sync.html
+    '03-src-sync': '03-src-sync/main.js',
   }
 }
