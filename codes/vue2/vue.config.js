@@ -26,6 +26,9 @@ module.exports = {
     // '02-src-v-model': '02-src-v-model/main.js',
 
     // 03-src-sync.html
-    '03-src-sync': '03-src-sync/main.js',
+    // '03-src-sync': '03-src-sync/main.js',
+
+    // 04-src-dialog.html
+    '04-src-dialog': '04-src-dialog/main.js',
   }
 }
