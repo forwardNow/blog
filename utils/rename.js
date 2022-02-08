@@ -5,14 +5,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const targetDir = 'win10';
+const targetDir = 'framework';
 const docsPath = path.join(__dirname, '../', 'docs', targetDir);
 
 const files = [
-  '04.win10远程桌面连接.md',
-  '06.win10配置固定IP.md',
-  '07.win10家庭普通版升级专业版.md',
-  '08.win10修改默认字体.md',
+  '00.framework.md',
+  '01.前端工程化.md',
+  '02.plan.md',
 ];
 
 files.forEach((originFilename, index) => {
