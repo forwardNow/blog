@@ -32,6 +32,9 @@ module.exports = {
     // '04-src-dialog': '04-src-dialog/main.js',
 
     // 05-src-tree.html
-    '05-src-tree': '05-src-tree/main.js',
+    // '05-src-tree': '05-src-tree/main.js',
+
+    // 06-src-router.html
+    '06-src-router': '06-src-router/main.js',
   }
 }
