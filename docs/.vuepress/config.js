@@ -91,6 +91,7 @@ function getGroups() {
     'frontend',
     'webpack',
     'nodejs',
+    'books',
     'others',
     'win10',
   ];
