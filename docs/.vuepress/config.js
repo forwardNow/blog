@@ -10,6 +10,7 @@ module.exports = {
     // rel="stylesheet" href="../dist/flex.css"
     ['link', { rel: 'stylesheet', href: '/bootstrap-utilities.css' }],
     ['link', { rel: 'stylesheet', href: '/base.css' }],
+    ['script', { src: '/echarts.min.js' }],
   ],
 
   title: '知识库',
@@ -84,16 +85,17 @@ function getGroups() {
   });
 
   groupDirList = [
+    'frontend',
+    'nodejs',
+    'books',
+    'echarts',
+    'webpack',
+    'win10',
+    'others',
     'framework',
     'specs',
     'style-library',
     'component-library',
-    'frontend',
-    'webpack',
-    'nodejs',
-    'books',
-    'others',
-    'win10',
   ];
 
   groupDirList.forEach((groupDir) => {
