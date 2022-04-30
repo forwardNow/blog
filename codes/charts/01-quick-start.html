@@ -2,9 +2,7 @@
 
 <div id="main" style="width: 600px; height: 400px;"></div>
 <script>
-  const myCharts = echarts.init(document.querySelector('#main'));
-
-  myCharts.setOption({
+  echarts.init(document.querySelector('#main')).setOption({
     xAxis: {
       type: 'category', // 类目轴
       data: ['张三', '李四', '王五'] // 设置三个类目
