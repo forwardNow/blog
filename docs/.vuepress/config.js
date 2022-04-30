@@ -16,7 +16,7 @@ module.exports = {
   title: '知识库',
   description: '知识库',
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
   },
   themeConfig: {
     sidebar: [
@@ -72,19 +72,19 @@ function getGroups() {
   const groupList = [];
   const rootPath = '../';
 
-  let groupDirList = getFileNameList(rootPath).filter((dir) => {
-    if (dir.startsWith('.')) {
-      return false;
-    }
+  // const groupDirList = getFileNameList(rootPath).filter((dir) => {
+  //   if (dir.startsWith('.')) {
+  //     return false;
+  //   }
+  //
+  //   if (dir === 'README.md') {
+  //     return false;
+  //   }
+  //
+  //   return true;
+  // });
 
-    if (dir === 'README.md') {
-      return false;
-    }
-
-    return true;
-  });
-
-  groupDirList = [
+  const groupDirList = [
     'frontend',
     'nodejs',
     'books',

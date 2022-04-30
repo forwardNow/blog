@@ -1,33 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>quick-start</title>
-  <script src="../../docs/.vuepress/public/echarts.min.js"></script>
-</head>
-<body>
-  <div id="main" style="width: 600px; height: 400px;"></div>
-  <script>
-    const myCharts = echarts.init(document.querySelector('#main'));
+<script src="../../docs/.vuepress/public/echarts.min.js"></script>
 
-    myCharts.setOption({
-      xAxis: {
-        type: 'category', // 类目轴
-        data: ['张三', '李四', '王五'] // 设置三个类目
-      },
-      yAxis: {
-        type: 'value',  // 数值轴
-      },
-      series: [ // 给数值轴设置数据
-        {
-          name: '语文',
-          type: 'bar',
-          data: [ 90, 62, 85 ]
-        }
-      ]
-    });
-  </script>
-</body>
-</html>
+<div id="main" style="width: 600px; height: 400px;"></div>
+<script>
+  const myCharts = echarts.init(document.querySelector('#main'));
+
+  myCharts.setOption({
+    xAxis: {
+      type: 'category', // 类目轴
+      data: ['张三', '李四', '王五'] // 设置三个类目
+    },
+    yAxis: {
+      type: 'value',  // 数值轴
+    },
+    series: [ // 给数值轴设置数据
+      {
+        name: '语文',
+        type: 'bar',
+        data: [ 90, 62, 85 ]
+      }
+    ]
+  });
+</script>
