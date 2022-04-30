@@ -1,0 +1,47 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="../../docs/.vuepress/public/echarts.min.js"></script>
+
+<div id="box_08-common-config-tooltip" style="width: 600px; height: 400px;"></div>
+<script>
+  echarts.init(document.querySelector('#box_08-common-config-tooltip')).setOption({
+    dataset: {
+      dimensions: ['name', 'chinese', 'math'],
+      source: [
+        { name: '张三', chinese: 60, math: 90 },
+        { name: '李四', chinese: 70, math: 80 },
+        { name: '王五', chinese: 80, math: 70 },
+        { name: '赵六', chinese: 90, math: 60 },
+      ],
+    },
+    tooltip: {
+      trigger: 'item', // 'item' | 'axis'
+      triggerOn: 'click', // 'mousemove' | 'click'
+      formatter(params) {
+        const {
+          seriesName,
+          name,
+        } = params;
+        const value = params.value[params.dimensionNames[params.encode.y[0]]];
+        console.log(params);
+        return `${name} 的 ${seriesName} 成绩是 ${value}`;
+      }
+    },
+    xAxis: {
+      type: 'category',
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        name: '语文',
+        type: 'bar',
+        encode: {
+          x: 'name',
+          y: 'chinese',
+          tooltip: 'chinese',
+        }
+      },
+    ]
+  });
+</script>
