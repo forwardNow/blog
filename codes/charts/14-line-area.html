@@ -1,9 +1,9 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <script src="../../docs/.vuepress/public/echarts.min.js"></script>
 
-<div id="box_11-line-basic" style="width: 600px; height: 400px;"></div>
+<div id="box_14-line-area" style="width: 600px; height: 400px;"></div>
 <script>
-  echarts.init(document.querySelector('#box_11-line-basic')).setOption({
+  echarts.init(document.querySelector('#box_14-line-area')).setOption({
     dataset: {
       dimensions: ['month', 'amount'],
       source: [
@@ -34,7 +34,8 @@
         encode: {
           x: 'month',
           y: 'amount',
-        }
+        },
+        areaStyle: {}
       },
     ]
   });

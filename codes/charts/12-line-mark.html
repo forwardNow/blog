@@ -1,9 +1,9 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <script src="../../docs/.vuepress/public/echarts.min.js"></script>
 
-<div id="box_11-line-basic" style="width: 600px; height: 400px;"></div>
+<div id="box_12-line-mark" style="width: 600px; height: 400px;"></div>
 <script>
-  echarts.init(document.querySelector('#box_11-line-basic')).setOption({
+  echarts.init(document.querySelector('#box_12-line-mark')).setOption({
     dataset: {
       dimensions: ['month', 'amount'],
       source: [
@@ -34,7 +34,24 @@
         encode: {
           x: 'month',
           y: 'amount',
-        }
+        },
+        markPoint: {
+          data: [
+            { type: 'max', name: '最大值' },
+            { type: 'min', name: '最小值' },
+          ],
+        },
+        markLine: {
+          data: [
+            { type: 'average', name: '平均值' }
+          ]
+        },
+        markArea: {
+          data: [
+            [ {xAxis: '2月'}, { xAxis: '4月' } ],
+            [ {xAxis: '8月'}, { xAxis: '9月' } ],
+          ]
+        },
       },
     ]
   });

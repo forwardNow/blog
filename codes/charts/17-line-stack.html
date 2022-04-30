@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="../../docs/.vuepress/public/echarts.min.js"></script>
+
+<div id="box_17-line-stack" style="width: 600px; height: 400px;"></div>
+<script>
+  echarts.init(document.querySelector('#box_17-line-stack')).setOption({
+    dataset: {
+      dimensions: ['month', 'wuhanAmount', 'changshaAmount', 'shenzhenAmount'],
+      source: [
+        { month: '1月', wuhanAmount: 1200, changshaAmount: 900, shenzhenAmount: 1900 },
+        { month: '2月', wuhanAmount: 1900, changshaAmount: 1300, shenzhenAmount: 2300 },
+        { month: '3月', wuhanAmount: 900, changshaAmount: 1100, shenzhenAmount: 2100 },
+        { month: '4月', wuhanAmount: 1000, changshaAmount: 1200, shenzhenAmount: 2200 },
+      ],
+    },
+    xAxis: {
+      type: 'category',
+    },
+    yAxis: {
+      type: 'value',
+    },
+    tooltip: {},
+    series: [
+      { name: '武汉月销量', type: 'line', areaStyle: {}, stack: 'total', encode: { x: 'month', y: 'wuhanAmount' } },
+      { name: '长沙月销量', type: 'line', areaStyle: {}, stack: 'total', encode: { x: 'month', y: 'changshaAmount' } },
+      { name: '深圳月销量', type: 'line', areaStyle: {}, stack: 'total',encode: { x: 'month', y: 'shenzhenAmount' } },
+    ]
+  });
+</script>
