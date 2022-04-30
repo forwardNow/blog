@@ -1,9 +1,9 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <script src="../../docs/.vuepress/public/echarts.min.js"></script>
 
-<div id="box_02-bar-basic" style="width: 600px; height: 400px;"></div>
+<div id="box_21-rectangular-coordinate-grid" style="width: 600px; height: 400px; background: #eee;"></div>
 <script>
-  echarts.init(document.querySelector('#box_02-bar-basic')).setOption({
+  echarts.init(document.querySelector('#box_21-rectangular-coordinate-grid')).setOption({
     dataset: {
       dimensions: ['name', 'chinese', 'math'],
       source: [
@@ -13,6 +13,11 @@
         { name: '赵六', chinese: 90, math: 60 },
       ],
     },
+    grid: {
+      show: true,
+      top: 100,
+      left: 100
+    },
     xAxis: {
       type: 'category',
     },
@@ -20,22 +25,7 @@
       type: 'value',
     },
     series: [
-      {
-        name: '语文',
-        type: 'bar',
-        encode: {
-          x: 'name',
-          y: 'chinese',
-        }
-      },
-      {
-        name: '数学',
-        type: 'bar',
-        encode: {
-          x: 'name',
-          y: 'math',
-        }
-      }
+      { name: '语文', type: 'bar', encode: { x: 'name', y: 'chinese' } },
     ]
   });
 </script>
