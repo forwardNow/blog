@@ -10,7 +10,7 @@ module.exports = {
     // rel="stylesheet" href="../dist/flex.css"
     ['link', { rel: 'stylesheet', href: '/bootstrap-utilities.css' }],
     ['link', { rel: 'stylesheet', href: '/base.css' }],
-    ['script', { src: '/echarts.min.js' }],
+    ['script', { src: '/echarts/echarts.min.js' }],
   ],
 
   title: '知识库',
@@ -111,6 +111,7 @@ function getGroups() {
     const group = {
       title: groupDir,
       collapsable: false,
+      sidebarDepth: 2,
       children: [
         ...menu
       ]
