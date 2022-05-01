@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="../../docs/.vuepress/public/echarts.min.js"></script>
+
+<div id="box_27-pie-roseType" style="width: 600px; height: 400px;"></div>
+<script>
+  echarts.init(document.querySelector('#box_27-pie-roseType')).setOption({
+    dataset: {
+      dimensions: ['eCommerce', 'money'],
+      source: [
+        { eCommerce: '淘宝', money: 11231 },
+        { eCommerce: '京东', money: 22673 },
+        { eCommerce: '唯品会', money: 6123 },
+        { eCommerce: '一号店', money: 8989 },
+        { eCommerce: '聚美优品', money: 6788 },
+      ],
+    },
+    series: [
+      {
+        name: '各电商平台消费统计',
+        type: 'pie',
+        encode: { value: 'money' },
+        label: { formatter: '{@eCommerce} ￥{@money} \n{d}%', color: 'auto' },
+        roseType: 'radius',
+      },
+    ]
+  });
+</script>
