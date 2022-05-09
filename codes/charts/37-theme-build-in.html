@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="../../docs/.vuepress/public/echarts/echarts.min.js"></script>
+
+<div style="display: flex;">
+  <div id="box_37-theme-build-in_1" style="width: 300px; height: 300px;"></div>
+  <div id="box_37-theme-build-in_2" style="width: 300px; height: 300px;"></div>
+</div>
+<script type="module">
+  const option = {
+    dataset: {
+      dimensions: ['name', 'chinese', 'math'],
+      source: [
+        { name: '张三', chinese: 60, math: 90 }, { name: '李四', chinese: 70, math: 80 },
+        { name: '王五', chinese: 80, math: 70 }, { name: '赵六', chinese: 90, math: 60 },
+      ],
+    },
+    xAxis: { type: 'category' },
+    yAxis: {type: 'value' },
+    series: [
+      { name: '语文', type: 'bar', encode: { x: 'name', y: 'chinese' } },
+      { name: '数学', type: 'bar', encode: { x: 'name', y: 'math' }}
+    ]
+  };
+  echarts.init(document.querySelector('#box_37-theme-build-in_1'), 'light').setOption(option);
+  echarts.init(document.querySelector('#box_37-theme-build-in_2'), 'dark').setOption(option);
+</script>
