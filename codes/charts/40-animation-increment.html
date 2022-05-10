@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="../../docs/.vuepress/public/echarts/echarts.min.js"></script>
+
+<div id="box_40-animation-increment" style="width: 600px; height: 400px;"></div>
+<script type="module">
+  const myChart = echarts.init(document.querySelector('#box_40-animation-increment'));
+  myChart.setOption({
+    dataset: {
+      dimensions: ['name', 'math'],
+      source: [],
+    },
+    yAxis: { type: 'category'},
+    xAxis: { type: 'value'},
+    series: [
+      { name: '语文', type: 'bar', label: {show: true}, barWidth: '30%',
+        encode: { y: 'name', x: 'math'}
+      },
+    ]
+  });
+  let source = [
+    { name: '张三', math: 90 }, { name: '李四', math: 80 },
+    { name: '王五', math: 70 }, { name: '赵六', math: 60 },
+  ];
+  setInterval(() => {
+    source = source.map(({name, math}) => ({ name, math: math + Math.floor(Math.random() * 10) }))
+    myChart.setOption({ dataset: { source } })
+  }, 1000);
+</script>
