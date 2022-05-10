@@ -22,7 +22,7 @@
     { name: '王五', math: 70 }, { name: '赵六', math: 60 },
   ];
   setInterval(() => {
-    source = source.map(({name, math}) => ({ name, math: math + Math.floor(Math.random() * 10) }))
+    source = source.map(({name, math}) => ({ name, math: math + Math.floor(Math.random() * 10) }));
     myChart.setOption({ dataset: { source } })
   }, 1000);
 </script>
