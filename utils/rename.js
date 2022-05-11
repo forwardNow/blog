@@ -5,13 +5,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const targetDir = 'framework';
+const targetDir = 'others';
 const docsPath = path.join(__dirname, '../', 'docs', targetDir);
 
 const files = [
-  '00.framework.md',
-  '01.前端工程化.md',
-  '02.plan.md',
+  '01.nginx.md',
+  '02.Git 常用命令.md',
+  '08.网页字体.md',
 ];
 
 files.forEach((originFilename, index) => {
