@@ -87,6 +87,7 @@ function getGroups() {
   const groupDirList = [
     'frontend',
     'nodejs',
+    'koa',
     'echarts',
     'webpack',
     'software',
