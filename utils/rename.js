@@ -5,13 +5,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const targetDir = 'others';
+const targetDir = 'software';
 const docsPath = path.join(__dirname, '../', 'docs', targetDir);
 
 const files = [
-  '01.nginx.md',
-  '02.Git 常用命令.md',
-  '08.网页字体.md',
+  '01.webstorm.md',
+  '02.FTP-FileZilla.md',
+  '03.xmind2021.md',
+  '04.虚拟机.md',
+  '05.电脑硬件检测工具.md',
+  '07.MySQL.md',
+  '06.NavicatPremium.md',
 ];
 
 files.forEach((originFilename, index) => {
