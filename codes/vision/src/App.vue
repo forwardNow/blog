@@ -1,5 +1,5 @@
 <template>
   <div class="app">
-    hh
+    <router-view></router-view>
   </div>
 </template>
