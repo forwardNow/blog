@@ -21,6 +21,7 @@
   "homepage": "https://github.com/forwardNow/blog#readme",
   "dependencies": {
     "archiver": "^5.3.0",
+    "ejs": "^3.1.8",
     "express": "^4.17.2",
     "moment": "^2.29.1"
   },
