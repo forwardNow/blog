@@ -12,7 +12,7 @@ const data = {
 };
 
 // 渲染
-const html = ejs.render(str, data);
+const html = ejs.render(template, data);
 
 console.log(html);
 //=> My name is 张三
