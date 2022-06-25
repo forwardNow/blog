@@ -99,7 +99,6 @@ function getGroups() {
     'framework',
     'specs',
     'style-library',
-    'component-library',
   ];
 
   groupDirList.forEach((groupDir) => {
