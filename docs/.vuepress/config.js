@@ -87,18 +87,23 @@ function getGroups() {
   const groupDirList = [
     'css',
     'vue',
-    'nodejs',
     'echarts',
     'webpack',
+    'fe-libs',
+
     'frontend',
+
+    'nodejs',
     'koa',
+
     'software',
     'books',
     'win10',
     'others',
-    'framework',
-    'specs',
-    'style-library',
+
+    // 'framework',
+    // 'specs',
+    // 'style-library',
   ];
 
   groupDirList.forEach((groupDir) => {

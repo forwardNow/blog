@@ -5,13 +5,18 @@
 const fs = require('fs');
 const path = require('path');
 
-const targetDir = 'vue';
+const targetDir = 'nodejs';
 const docsPath = path.join(__dirname, '../docs', targetDir);
 
 const files = [
-  '02.vue2.md',
-  '04.Vue调试工具.md',
-  '08.vue-router.md',
+  '01.nodejs常用API.md',
+  '02.npm常用工具包.md',
+  '04.npm安装私有git包.md',
+  '05.npm常用命令.md',
+  '06.node应用打包.md',
+  '07.在Linux上安装node.js.md',
+  '08.npm私有仓.md',
+  '09.SQL.md',
 ];
 
 files.forEach((originFilename, index) => {
