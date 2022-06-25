@@ -85,12 +85,13 @@ function getGroups() {
   // });
 
   const groupDirList = [
-    'frontend',
     'css',
+    'vue',
     'nodejs',
     'echarts',
-    'koa',
     'webpack',
+    'frontend',
+    'koa',
     'software',
     'books',
     'win10',
