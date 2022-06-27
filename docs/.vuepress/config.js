@@ -3,21 +3,31 @@ const fs = require('fs');
 const moment = require('moment')
 
 const roots = [
-  'css',
-  'vue',
-  'echarts',
-  'webpack',
-  'fe-libs',
+  'front-end',
 
-  'frontend',
-
-  'nodejs',
-  'koa',
+  'back-end',
 
   'software',
-  'books',
-  'win10',
+
+  'os',
+
   'others',
+
+  // 'css',
+  // 'vue',
+  // 'echarts',
+  // 'webpack',
+  // 'fe-libs',
+  //
+  // 'frontend',
+  //
+  // 'nodejs',
+  // 'koa',
+  //
+  // 'software',
+  // 'books',
+  // 'win10',
+  // 'others',
 
   // 'framework',
   // 'specs',
