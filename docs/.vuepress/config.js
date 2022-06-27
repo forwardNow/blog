@@ -2,13 +2,34 @@ const path = require('path');
 const fs = require('fs');
 const moment = require('moment')
 
+const roots = [
+  'css',
+  'vue',
+  'echarts',
+  'webpack',
+  'fe-libs',
+
+  'frontend',
+
+  'nodejs',
+  'koa',
+
+  'software',
+  'books',
+  'win10',
+  'others',
+
+  // 'framework',
+  // 'specs',
+  // 'style-library',
+].map((dir) => path.resolve(__dirname, '../', dir));
+
 module.exports = {
   port: 60000,
   // base: '/blog/docs/.vuepress/dist',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
-    // rel="stylesheet" href="../dist/flex.css"
-    ['link', { rel: 'stylesheet', href: '/bootstrap-utilities.css' }],
+    // ['link', { rel: 'stylesheet', href: '/bootstrap-utilities.css' }],
     ['link', { rel: 'stylesheet', href: '/base.css' }],
     ['script', { src: '/echarts/echarts.min.js' }],
   ],
@@ -20,15 +41,23 @@ module.exports = {
   },
   themeConfig: {
     sidebar: [
-      ['/', 'Introduction'],
+      // ['/', '介绍'],
+
       // {
-      //   title: '2021/12',
+      //   title: 'backend',
       //   collapsable: false,
       //   children: [
-      //     '/2021/12/01.nginx.md'
+      //     {
+      //       title: 'koa',
+      //       collapsable: false,
+      //       children: [
+      //         [ 'backend/koa/1.md', '111' ]
+      //       ]
+      //     }
       //   ]
       // },
-      ...getGroups(),
+
+      ...buildMenus(roots),
     ]
   },
 
@@ -62,73 +91,54 @@ module.exports = {
   ]
 }
 
-function getGroups() {
-  const getFileNameList = (dir) => {
-    const pagesDirPath = path.join(__dirname, dir);
+function buildMenus(filePaths) {
+  const menus = [];
 
-    return fs.readdirSync(pagesDirPath).sort();
-  }
+  filePaths.forEach((filePath) => {
+    const menu = buildMenu(filePath);
 
-  const groupList = [];
-  const rootPath = '../';
+    if (isDirectory(filePath)) {
+      const childFilePaths = getFilePathsOfDir(filePath);
+      menu.children = buildMenus(childFilePaths);
+    }
 
-  // const groupDirList = getFileNameList(rootPath).filter((dir) => {
-  //   if (dir.startsWith('.')) {
-  //     return false;
-  //   }
-  //
-  //   if (dir === 'README.md') {
-  //     return false;
-  //   }
-  //
-  //   return true;
-  // });
-
-  const groupDirList = [
-    'css',
-    'vue',
-    'echarts',
-    'webpack',
-    'fe-libs',
-
-    'frontend',
-
-    'nodejs',
-    'koa',
-
-    'software',
-    'books',
-    'win10',
-    'others',
-
-    // 'framework',
-    // 'specs',
-    // 'style-library',
-  ];
-
-  groupDirList.forEach((groupDir) => {
-    const markdownFileNames = getFileNameList(path.join(rootPath, groupDir))
-      .filter(filename => filename.endsWith('.md'));
-
-    const menu = markdownFileNames.map((filename) => {
-      const path = `/${groupDir}/${filename}`;
-      const name = filename.replace('.md', '');
-      return [path, name];
-    })
-
-    const group = {
-      title: groupDir,
-      collapsable: false,
-      sidebarDepth: 2,
-      children: [
-        ...menu
-      ]
-    };
-
-    groupList.push(group);
+    menus.push(menu);
   });
 
-  return groupList;
+  return menus;
 }
 
-// console.log('groupList', groupList);
+function buildMenu(filePath) {
+  const filename = path.basename(filePath);
+  const isDir = isDirectory(filePath);
+
+  if (isDir) {
+    return {
+      title: filename,
+      collapsable: false,
+    };
+  }
+
+  const title = filename.replace('.md', '');
+  const docPath = getDocPath(filePath);
+
+  return [ docPath, title ];
+}
+
+function isDirectory(filePath) {
+  return fs.lstatSync(filePath).isDirectory();
+}
+
+function getFilePathsOfDir(dirPath) {
+  const filenames = fs.readdirSync(dirPath, { encoding: 'utf8' })
+  return filenames.map((filename) => path.join(dirPath, filename))
+}
+
+function getDocPath(filePath) {
+  const paths = filePath.split(path.sep);
+  const indexOfDocs = paths.findIndex((item) => item === 'docs');
+  const docPath = paths.slice(indexOfDocs + 1).join('/');
+  return docPath;
+}
+
+console.log(JSON.stringify(buildMenus(roots), null, 4));
