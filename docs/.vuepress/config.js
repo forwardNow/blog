@@ -4,35 +4,19 @@ const moment = require('moment')
 
 const roots = [
   'front-end',
-
   'back-end',
-
   'software',
-
   'os',
-
   'others',
-
-  // 'css',
-  // 'vue',
-  // 'echarts',
-  // 'webpack',
-  // 'fe-libs',
-  //
-  // 'frontend',
-  //
-  // 'nodejs',
-  // 'koa',
-  //
-  // 'software',
-  // 'books',
-  // 'win10',
-  // 'others',
-
-  // 'framework',
-  // 'specs',
-  // 'style-library',
 ].map((dir) => path.resolve(__dirname, '../', dir));
+
+const EXCLUDED_FILES = [
+  'images'
+];
+
+const COLLAPSED_GROUPS = [
+  'echarts'
+];
 
 module.exports = {
   port: 60000,
@@ -107,6 +91,10 @@ function buildMenus(filePaths) {
   filePaths.forEach((filePath) => {
     const menu = buildMenu(filePath);
 
+    if (!menu) {
+      return;
+    }
+
     if (isDirectory(filePath)) {
       const childFilePaths = getFilePathsOfDir(filePath);
       menu.children = buildMenus(childFilePaths);
@@ -120,12 +108,18 @@ function buildMenus(filePaths) {
 
 function buildMenu(filePath) {
   const filename = path.basename(filePath);
+
+  if (isExcludedFile(filename)) {
+    return null;
+  }
+
   const isDir = isDirectory(filePath);
 
   if (isDir) {
     return {
       title: filename,
-      collapsable: false,
+      collapsable: isGroupCollapsable(filename),
+      sidebarDepth: 0,
     };
   }
 
@@ -133,6 +127,14 @@ function buildMenu(filePath) {
   const docPath = getDocPath(filePath);
 
   return [ docPath, title ];
+}
+
+function isExcludedFile(filename) {
+  return EXCLUDED_FILES.includes(filename);
+}
+
+function isGroupCollapsable(filename) {
+  return COLLAPSED_GROUPS.includes(filename);
 }
 
 function isDirectory(filePath) {
