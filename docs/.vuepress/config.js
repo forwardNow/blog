@@ -11,7 +11,8 @@ const roots = [
 ].map((dir) => path.resolve(__dirname, '../', dir));
 
 const EXCLUDED_FILES = [
-  'images'
+  'images',
+  'codes',
 ];
 
 const COLLAPSED_GROUPS = [
