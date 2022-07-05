@@ -24,8 +24,7 @@ module.exports = {
   // base: '/blog/docs/.vuepress/dist',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
-    // ['link', { rel: 'stylesheet', href: '/bootstrap-utilities.css' }],
-    ['link', { rel: 'stylesheet', href: '/base.css' }],
+    // ['link', { rel: 'stylesheet', href: '/base.css' }],
     ['script', { src: '/echarts/echarts.min.js' }],
   ],
 
