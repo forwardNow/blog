@@ -23,13 +23,12 @@ module.exports = {
   port: 60000,
   // base: '/blog/docs/.vuepress/dist',
   head: [
-    ['link', { rel: 'icon', href: '/logo.png' }],
-    // ['link', { rel: 'stylesheet', href: '/base.css' }],
+    ['link', { rel: 'stylesheet', href: '/theme.css' }],
     ['script', { src: '/echarts/echarts.min.js' }],
   ],
 
-  title: '知识库',
-  description: '知识库',
+  title: 'Blog',
+  description: 'Blog',
   markdown: {
     lineNumbers: false,
   },
