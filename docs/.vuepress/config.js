@@ -16,7 +16,8 @@ const EXCLUDED_FILES = [
 ];
 
 const COLLAPSED_GROUPS = [
-  'echarts'
+  'echarts',
+  'guide',
 ];
 
 module.exports = {
