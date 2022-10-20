@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const moment = require('moment')
 
-const roots = [
+const ROOTS = [
   'front-end',
   'back-end',
   'software',
@@ -51,7 +51,7 @@ module.exports = {
       //   ]
       // },
 
-      ...buildMenus(roots),
+      ...buildMenus(ROOTS),
     ]
   },
 
@@ -153,4 +153,4 @@ function getDocPath(filePath) {
   return docPath;
 }
 
-console.log(JSON.stringify(buildMenus(roots), null, 4));
+console.log(JSON.stringify(buildMenus(ROOTS), null, 4));
