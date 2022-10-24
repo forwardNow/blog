@@ -155,4 +155,4 @@ function getDocPath(filePath) {
   return docPath;
 }
 
-console.log(JSON.stringify(buildMenus(ROOTS), null, 4));
+// console.log(JSON.stringify(buildMenus(ROOTS), null, 4));
