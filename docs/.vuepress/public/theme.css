@@ -1,14 +1,3 @@
-#app .page-edit,
-#app .page-nav,
-#app .theme-default-content:not(.custom) {
-  max-width: 1000px;
-}
-
-#app .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable) {
-  opacity: 0.9;
-  font-size: 1em;
-}
-
 ::-webkit-scrollbar{
   width: 8px;
   height: 8px;
@@ -20,4 +9,17 @@
 ::-webkit-scrollbar-track{
   border-radius: 100px;
   background-color: rgba(50,50,50,0.1);
+}
+
+
+#app .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable) {
+  opacity: 0.9;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+
+#app a.sidebar-link {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
 }
