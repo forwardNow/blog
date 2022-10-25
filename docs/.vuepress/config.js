@@ -9,6 +9,7 @@ const ROOTS = [
   'server',
   'os',
   'software',
+  'hardware',
   'others',
 ].map((dir) => path.resolve(__dirname, '../', dir));
 
