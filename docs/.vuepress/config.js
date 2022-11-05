@@ -16,6 +16,7 @@ const ROOTS = [
 const EXCLUDED_FILES = [
   'images',
   'codes',
+  '.gitignore',
 ];
 
 const COLLAPSED_GROUPS = [
