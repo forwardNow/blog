@@ -10,6 +10,11 @@ public class ArrayTraverse {
         for (int i = 0; i < arr.length; i++) {
         }
 
+        // arr.forr
+        for (int i = arr.length - 1; i >= 0; i--) {
+
+        }
+
         // sout
         System.out.println();
     }
