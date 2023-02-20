@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>07.计算属性</title>
+</head>
+<body>
+  <div id="root">
+    <p>姓：<input v-model="firstName"></p>
+    <p>名：<input v-model="lastName"></p>
+    <p>全名：<input v-model="fullName"></p>
+    {{ fullName }}
+    {{ fullName }}
+    {{ getFullName() }}
+    {{ getFullName() }}
+  </div>
+  
+<script src="https://unpkg.com/vue@2.7.0/dist/vue.js"></script>
+<script>
+  Vue.config.productionTip = false; // 关闭生产提示
+
+  const vm = new Vue({
+    el: '#root',
+    data: {
+      firstName: '张',
+      lastName: '三',
+    },
+    methods: {
+      // 一旦数据发生变化，模板重新解析，该方法会重复执行很多次
+      getFullName(event){
+        console.log('getFullName() 被调用');
+        return this.firstName + this.lastName;
+      },
+    },
+    computed: {
+      // 一旦数据发生变化，模板重新解析，getter 只会执行一次
+      fullName: {
+        get() {
+          console.log('fullName.get() 被调用');
+          return this.firstName + this.lastName;
+        }
+      },
+
+      // 简写形式
+      fullName2() {
+        return this.firstName + this.lastName;
+      }
+    },
+  });
+</script>
+</body>
+</html>
