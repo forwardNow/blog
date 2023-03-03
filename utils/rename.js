@@ -5,18 +5,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const targetDir = 'nodejs';
+const targetDir = 'software/jetbrains';
 const docsPath = path.join(__dirname, '../docs', targetDir);
 
 const files = [
-  '01.nodejs常用API.md',
-  '02.npm常用工具包.md',
-  '04.npm安装私有git包.md',
-  '05.npm常用命令.md',
-  '06.node应用打包.md',
-  '07.在Linux上安装node.js.md',
-  '08.npm私有仓.md',
-  '09.SQL.md',
+  '01.idea快捷键.md',
+  '01.webstorm.md',
 ];
 
 files.forEach((originFilename, index) => {
