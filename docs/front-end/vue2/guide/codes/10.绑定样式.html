@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>10.绑定样式</title>
+  <style>
+    .basic {
+      margin: 20px;
+      width: 200px;
+      height: 60px;
+      border: solid 1px gray;
+    }
+
+    .color-red {
+      color: red;
+    }
+    .color-green {
+      color: green;
+    }
+    .color-blue {
+      color: blue;
+    }
+
+    .radius {
+      border-radius: 10px;
+    }
+    .font-big {
+      font: 24px;
+    }
+    .border {
+      border-width: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <!-- 绑定class样式--字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+    <div class="basic" :class="classStr">111</div>
+
+    <!-- 绑定class样式--数组写法，适用于：要绑定的样式个数不确定、名字也不确定 -->
+    <div class="basic" :class="classArr">222</div>
+    
+    <!-- 绑定class样式--对象写法，适用于：要绑定的样式个数确定、名字也确定，但要动态决定用不用 -->
+    <div class="basic" :class="classObj">333</div>
+
+    <!-- 绑定style样式--对象写法 -->
+    <div class="basic" :style="styleObj">444</div>
+    <!-- 绑定style样式--数组写法 -->
+    <div class="basic" :style="styleArr">555</div>
+  </div>
+  
+<script src="https://unpkg.com/vue@2.7.0/dist/vue.js"></script>
+<script>
+  Vue.config.productionTip = false; // 关闭生产提示
+
+  const vm = new Vue({
+    el: '#root',
+    data: {
+      classStr: 'color-red',
+
+      classArr: ['color-green', 'font-big'],
+
+      classObj: {
+        radius: true,
+        'font-big': false,
+        border: true,
+      },
+
+      styleObj: {
+        'font-size': '24px',
+        'border-radius': '3px'
+      },
+
+      styleArr: [
+        { fontSize: '12px', color: 'red' },
+        { backgroundColor: 'pink' }
+      ],
+    },
+  });
+</script>
+</body>
+</html>
