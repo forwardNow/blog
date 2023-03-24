@@ -5,6 +5,7 @@ const moment = require('moment')
 const ROOTS = [
   'front-end',
   'back-end',
+  'algorithm',
   'database',
   'server',
   'os',
