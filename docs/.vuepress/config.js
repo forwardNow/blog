@@ -27,7 +27,7 @@ const COLLAPSED_GROUPS = [
 
 module.exports = {
   port: 60000,
-  // base: '/blog/docs/.vuepress/dist',
+  base: '/docs/.vuepress/dist/',
   head: [
     ['link', { rel: 'stylesheet', href: '/theme.css' }],
     ['script', { src: '/echarts/echarts.min.js' }],
