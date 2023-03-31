@@ -11,11 +11,16 @@
   background-color: rgba(50,50,50,0.1);
 }
 
+/* 一级标题 */
+.sidebar-heading {
+  font-size: 1.2em;
+}
 
+/* 子标题 */
 #app .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable) {
-  opacity: 0.9;
-  font-size: 1em;
-  font-weight: 500;
+  opacity: 0.5;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 
