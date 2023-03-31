@@ -148,7 +148,33 @@ function isDirectory(filePath) {
 
 function getFilePathsOfDir(dirPath) {
   const filenames = fs.readdirSync(dirPath, { encoding: 'utf8' })
+  sortFilenames(filenames);
   return filenames.map((filename) => path.join(dirPath, filename))
+}
+
+function sortFilenames(filenames) {
+  const regex = /[a-zA-Z]*([0-9]+)\./;
+  
+  const getNum = (filename) => {
+    const results = regex.exec(filename);
+
+    if (!results) {
+      return null;
+    }
+
+    return parseInt(results[1]);
+  };
+
+  filenames.sort((name1, name2) => {
+    const num1 = getNum(name1);
+    const num2 = getNum(name2);
+
+    if (!getNum(name1)) {
+      return 0;
+    }
+
+    return num1 - num2;
+  });
 }
 
 function getDocPath(filePath) {
