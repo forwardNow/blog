@@ -62,15 +62,16 @@ function solution2(root) {
     queue.push(root);
 
     while(queue.length > 0) {
-        res.push([]);
-
+        const currentLevelRes = [];
         const currentLevelSize = queue.length;
+
+        res.push(currentLevelRes);
 
         for (let i = 0, len = currentLevelSize; i < len; i++) {
             const node = queue.shift();
             const { val, left, right } = node;
 
-            res[res.length - 1].push(val);
+            currentLevelRes.push(val);
 
             if (left) {
                 queue.push(left);
