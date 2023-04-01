@@ -11,6 +11,11 @@
   background-color: rgba(50,50,50,0.1);
 }
 
+/* 标题链接 */
+a.sidebar-link {
+  font-size: 0.95em;
+}
+
 /* 一级标题 */
 .sidebar-heading {
   font-size: 1.2em;

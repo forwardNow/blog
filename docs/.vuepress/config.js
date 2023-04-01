@@ -1,3 +1,6 @@
+/*
+  BUG: 在目录（dir）里创建 readme.md 文件，会导致侧边栏 dir 为空
+ */ 
 const path = require('path');
 const fs = require('fs');
 const moment = require('moment')
