@@ -90,6 +90,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@require '../styles/vars';
+
 .home
   padding $navbarHeight 2rem 0
   max-width $homePageWidth
@@ -138,7 +140,6 @@ export default {
     max-width 30%
     h2
       font-size 1.4rem
-      font-weight 500
       border-bottom none
       padding-bottom 0
       color lighten($textColor, 10%)

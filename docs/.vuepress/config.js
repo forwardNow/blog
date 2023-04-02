@@ -24,9 +24,13 @@ const EXCLUDED_FILES = [
 ];
 
 const COLLAPSED_GROUPS = [
-  'echarts',
-  'guide',
+  // 'echarts',
+  // 'guide',
 ];
+
+const IS_ALL_COLLAPSED = true;
+
+const IS_ALL_EXPAND = false;
 
 module.exports = {
   port: 60000,
@@ -141,6 +145,14 @@ function isExcludedFile(filename) {
 }
 
 function isGroupCollapsable(filename) {
+  if (IS_ALL_COLLAPSED) {
+    return true;
+  }
+
+  if (IS_ALL_EXPAND) {
+    return false;
+  }
+
   return COLLAPSED_GROUPS.includes(filename);
 }
 

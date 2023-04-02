@@ -1,3 +1,5 @@
+@require './vars'
+
 @require './config'
 @require './code'
 @require './custom-blocks'
@@ -53,7 +55,6 @@ body
   bottom 0
   box-sizing border-box
   border-right 1px solid $borderColor
-  overflow-y auto
 
 {$contentClass}:not(.custom)
   @extend $wrapper
@@ -79,12 +80,10 @@ body
     max-width 100%
 
 a
-  font-weight 500
   color $accentColor
   text-decoration none
 
 p a code
-  font-weight 400
   color $accentColor
 
 kbd

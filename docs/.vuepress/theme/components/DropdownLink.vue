@@ -133,6 +133,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@require '../styles/vars';
+
 .dropdown-wrapper
   cursor pointer
   .dropdown-title
@@ -144,7 +146,6 @@ export default {
     line-height 1.4rem
     background transparent
     border none
-    font-weight 500
     color $textColor
     &:hover
       border-color transparent
@@ -155,7 +156,6 @@ export default {
   .mobile-dropdown-title
     @extends .dropdown-title
     display none
-    font-weight 600
     font-size inherit
       &:hover
         color $accentColor
@@ -177,7 +177,6 @@ export default {
         line-height 1.7rem
         position relative
         border-bottom none
-        font-weight 400
         margin-bottom 0
         padding 0 1.5rem 0 1.25rem
         &:hover

@@ -49,7 +49,7 @@
 
     <DropdownTransition>
       <SidebarLinks
-        v-if="open || !collapsable"
+        v-show="open || !collapsable"
         class="sidebar-group-items"
         :items="item.children"
         :sidebar-depth="item.sidebarDepth"
@@ -92,6 +92,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@require '../styles/vars';
+
 .sidebar-group
   .sidebar-group
     padding-left 0.5em
@@ -102,7 +104,6 @@ export default {
 
       opacity: 1;
       font-size: 14px
-      font-weight: bold;
       cursor: default;
   // refine styles of nested sidebar groups
   &.is-sub-group
@@ -130,7 +131,6 @@ export default {
   /*font-size 1.1em*/
   font-size: 14px
   cursor: default;
-  font-weight bold
   // text-transform uppercase
   padding 0.35rem 1.5rem 0.35rem 1.25rem
   width 100%
@@ -146,7 +146,6 @@ export default {
     //left 0.5em
   &.clickable
     &.active
-      font-weight 600
       color $accentColor
       border-left-color $accentColor
     &:hover
@@ -155,5 +154,5 @@ export default {
 .sidebar-group-items
   transition height .1s ease-out
   font-size 14px
-  overflow hidden
+  //overflow hidden
 </style>

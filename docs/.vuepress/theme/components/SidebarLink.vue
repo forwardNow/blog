@@ -127,14 +127,16 @@ function renderExternal (h, to, text) {
 </script>
 
 <style lang="stylus">
+@require '../styles/vars';
+
 .sidebar .sidebar-sub-headers
   padding-left 1rem
   font-size 14px
 
 a.sidebar-link
+  position relative
   //font-size 1em
   font-size 14px
-  font-weight 400
   display inline-block
   color $textColor
   border-left 0.25rem solid transparent
@@ -144,18 +146,32 @@ a.sidebar-link
   line-height 1.4
   width: 100%
   box-sizing: border-box
+
+  &:before {
+    display: none;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: $sidebarWidth;
+    background-color: #ecf5ff;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+
   &:hover
-    color $accentColor
+    &:before
+      display block
   &.active
-    font-weight 600
     color $accentColor
-    border-left-color $accentColor
+    &:before
+      display block
   .sidebar-group &
     padding-left 2rem
   .sidebar-sub-headers &
     padding-top 0.25rem
     padding-bottom 0.25rem
     border-left none
-    &.active
-      font-weight 500
 </style>

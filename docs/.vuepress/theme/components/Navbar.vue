@@ -108,7 +108,6 @@ $navbar-horizontal-padding = 20px
     vertical-align top
   .site-name
     font-size 1.3rem
-    font-weight 600
     color $textColor
     position relative
   .links
