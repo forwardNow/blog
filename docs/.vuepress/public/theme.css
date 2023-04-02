@@ -10,28 +10,3 @@
   border-radius: 100px;
   background-color: rgba(50,50,50,0.1);
 }
-
-/* 标题链接 */
-a.sidebar-link {
-  font-size: 0.95em;
-}
-
-/* 一级标题 */
-.sidebar-heading {
-  font-size: 1.2em;
-  cursor: default;
-}
-
-/* 子标题 */
-#app .sidebar-group.is-sub-group > .sidebar-heading:not(.clickable) {
-  opacity: 0.5;
-  font-size: 1.2em;
-  font-weight: bold;
-  cursor: default;
-}
-
-
-#app a.sidebar-link {
-  padding-top: 0.15rem;
-  padding-bottom: 0.15rem;
-}
