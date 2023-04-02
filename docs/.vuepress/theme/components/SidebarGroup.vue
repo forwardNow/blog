@@ -37,15 +37,11 @@
         class="sidebar-heading__arrow"
         :class="open ? 'down' : 'right'"
       >
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 1.5L9 5.5L5 9.5" stroke="#808080" stroke-width="1.3"/>
-        </svg>
+        <IconMenuArrow />
       </span>
 
       <span class="sidebar-heading__icon icon_folder">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-          <path fill="#4f9eee" fill-opacity=".8" fill-rule="evenodd" d="M1,13 L15,13 L15,4 L7.98457,4 L6.69633,2.71149 C6.22161957,2.28559443 5.61570121,2.03457993 4.97888,2 L1.05128,2 C1.02295884,2 1,2.02295884 1,2.05128 L1,13 Z"/>
-        </svg>
+        <IconFolder />
       </span>
 
       <span class="sidebar-heading__title">{{ item.title }}</span>
@@ -67,12 +63,16 @@
 <script>
 import { isActive } from '../util'
 import DropdownTransition from './DropdownTransition.vue'
+import IconFolder from './IconFolder.vue';
+import IconMenuArrow from './IconMenuArrow.vue';
 
 export default {
   name: 'SidebarGroup',
 
   components: {
-    DropdownTransition
+    DropdownTransition,
+    IconFolder,
+    IconMenuArrow
   },
 
   props: [

@@ -1,5 +1,6 @@
 <script>
 import { isActive, hashRE, groupHeaders } from '../util'
+import IconRouteLink from './IconRouteLink.vue';
 
 export default {
   functional: true,
@@ -73,7 +74,31 @@ function renderLink (h, to, text, active, level) {
     }
   }
 
-  return h('RouterLink', component, text)
+  return h(
+    'RouterLink',
+    component,
+    [
+      h(
+        'span',
+        {
+          class: {
+            'sidebar-link__icon': true
+          }
+        },
+        [ h(IconRouteLink) ]
+      ),
+      h(
+        'span',
+        {
+          class: {
+            'sidebar-link__text': true
+          }
+        },
+        text
+      ),
+
+    ],
+  )
 }
 
 function renderChildren (h, children, path, route, maxDepth, depth = 1) {
