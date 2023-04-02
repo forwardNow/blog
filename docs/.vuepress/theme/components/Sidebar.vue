@@ -52,7 +52,11 @@ export default {
   props: ['items'],
 
   created() {
-    window.xxVm = this;
+    // window.xxVm = this;
+  },
+
+  mounted() {
+    this.handleClickLocate();
   },
 
   methods: {
@@ -63,26 +67,40 @@ export default {
       expandAll(this);
     },
     handleClickLocate() {
-      console.log(this);
-
-      const activeSidebarLink = findActiveSidebarLink();
-      const nearestSidebarGroup = findNearestSidebarGroup(activeSidebarLink);
+      const activeSidebarLink = findActiveSidebarLink(this);
+      const nearestSidebarGroup = findNearestParentSidebarGroup(activeSidebarLink);
 
       nearestSidebarGroup.scrollIntoView({ behavior: "smooth" });
     },
   }
 }
 
-function findActiveSidebarLink() {
+function findActiveSidebarLink(sidebarVm) {
   let activeSidebarLink = document.querySelector('.active.sidebar-link');
 
-  if (!activeSidebarLink) {
-  }
+  // SidebarGroup
+  let vm = sidebarVm;
+
+  const routePath = vm.$route.path
+  const sidebarGroupTitleList = routePath.split('/').slice(1, -1);
+
+  let vueComponent = vm;
+  let sidebarGroupVm;
+
+  sidebarGroupTitleList.forEach((sidebarGroupTitle) => {
+    const decodedTitle = decodeURIComponent(sidebarGroupTitle);
+    sidebarGroupVm = findNearestChildSidebarGroup(vueComponent, decodedTitle);
+    vueComponent = sidebarGroupVm;
+
+    if(!sidebarGroupVm.open) {
+      sidebarGroupVm.$emit('toggle');
+    }
+  });
 
   return activeSidebarLink;
 }
 
-function findNearestSidebarGroup(activeSidebarLink) {
+function findNearestParentSidebarGroup(activeSidebarLink) {
   let count = 10;
 
   let parentElt = activeSidebarLink.parentElement;
@@ -102,6 +120,27 @@ function findNearestSidebarGroup(activeSidebarLink) {
   }
 
   return target;
+}
+
+function findNearestChildSidebarGroup(vm, title) {
+  // SidebarGroup item.title
+  if (vm && vm.$options.name === 'SidebarGroup' && vm.item.title === title) {
+    return vm;
+  }
+
+  if (vm.$children && vm.$children.length > 0) {
+    for (let i = 0; i < vm.$children.length; i++) {
+      const childVm = vm.$children[i];
+
+      const target = findNearestChildSidebarGroup(childVm, title);
+
+      if (target) {
+        return target;
+      }
+    }
+  }
+
+  return null;
 }
 
 function collapseAll(vueComponent) {
