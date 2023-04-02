@@ -124,7 +124,8 @@ function buildMenu(filePath) {
   if (isDir) {
     return {
       title: filename,
-      collapsable: isGroupCollapsable(filename),
+      _collapsed: isGroupCollapsable(filename),
+      collapsable: true,
       sidebarDepth: 0,
     };
   }

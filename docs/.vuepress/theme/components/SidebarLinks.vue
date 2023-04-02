@@ -10,7 +10,7 @@
       <SidebarGroup
         v-if="item.type === 'group'"
         :item="item"
-        :open="open"
+        :open="openedItems[i]"
         :collapsable="item.collapsable || item.collapsible"
         :depth="depth"
 
@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import SidebarGroup from '@theme/components/SidebarGroup.vue'
-import SidebarLink from '@theme/components/SidebarLink.vue'
+import SidebarGroup from './SidebarGroup.vue'
+import SidebarLink from './SidebarLink.vue'
 import { isActive } from '../util'
 
 export default {
@@ -44,9 +44,9 @@ export default {
 
   data () {
     return {
-      open: true,
+      openGroupIndex: this.initialOpenGroupIndex || 0,
 
-      openGroupIndex: this.initialOpenGroupIndex || 0
+      openedItems: [],
     }
   },
 
@@ -57,6 +57,7 @@ export default {
   },
 
   created () {
+    this.openedItems = this.items.map((item) => !item._collapsed);
     this.refreshIndex()
   },
 
@@ -69,11 +70,13 @@ export default {
       if (index > -1) {
         this.openGroupIndex = index
       }
+
     },
 
     toggleGroup (index) {
-      // this.openGroupIndex = index === this.openGroupIndex ? -1 : index
-      this.open = !this.open;
+      this.openGroupIndex = index === this.openGroupIndex ? -1 : index
+
+      this.$set(this.openedItems, index, !this.openedItems[index])
     },
 
     isActive (page) {

@@ -33,12 +33,22 @@
       :class="{ open }"
       @click="$emit('toggle')"
     >
-      <span>{{ item.title }}</span>
       <span
-        v-if="collapsable"
-        class="arrow"
+        class="sidebar-heading__arrow"
         :class="open ? 'down' : 'right'"
-      />
+      >
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 1.5L9 5.5L5 9.5" stroke="#808080" stroke-width="1.3"/>
+        </svg>
+      </span>
+
+      <span class="sidebar-heading__icon icon_folder">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <path fill="#4f9eee" fill-opacity=".8" fill-rule="evenodd" d="M1,13 L15,13 L15,4 L7.98457,4 L6.69633,2.71149 C6.22161957,2.28559443 5.61570121,2.03457993 4.97888,2 L1.05128,2 C1.02295884,2 1,2.02295884 1,2.05128 L1,13 Z"/>
+        </svg>
+      </span>
+
+      <span class="sidebar-heading__title">{{ item.title }}</span>
     </p>
 
     <DropdownTransition>
@@ -56,7 +66,7 @@
 
 <script>
 import { isActive } from '../util'
-import DropdownTransition from '@theme/components/DropdownTransition.vue'
+import DropdownTransition from './DropdownTransition.vue'
 
 export default {
   name: 'SidebarGroup',
@@ -74,7 +84,7 @@ export default {
 
   // ref: https://vuejs.org/v2/guide/components-edge-cases.html#Circular-References-Between-Components
   beforeCreate () {
-    this.$options.components.SidebarLinks = require('@theme/components/SidebarLinks.vue').default
+    this.$options.components.SidebarLinks = require('./SidebarLinks.vue').default
   },
 
   methods: { isActive }
@@ -90,24 +100,24 @@ export default {
       /*cursor auto*/
       color inherit
 
-      opacity: 0.5;
-      font-size: 1.2em;
+      opacity: 1;
+      font-size: 14px
       font-weight: bold;
       cursor: default;
   // refine styles of nested sidebar groups
   &.is-sub-group
     padding-left 0
     & > .sidebar-heading
-      font-size 0.95em
-      line-height 1.4
+      font-size 14px
+      line-height 16px
       font-weight normal
       padding-left 2rem
       &:not(.clickable)
-        opacity 0.5
+        opacity 1
     & > .sidebar-group-items
       padding-left 1rem
       & > li > .sidebar-link
-        font-size: 0.95em;
+        font-size: 14px
         border-left none
   &.depth-2
     & > .sidebar-heading
@@ -118,7 +128,7 @@ export default {
   transition color .15s ease
   /*cursor pointer*/
   /*font-size 1.1em*/
-  font-size: 1.2em;
+  font-size: 14px
   cursor: default;
   font-weight bold
   // text-transform uppercase
@@ -131,9 +141,9 @@ export default {
   &.open, &:hover
     color inherit
   .arrow
-    position relative
-    top -0.12em
-    left 0.5em
+    //position relative
+    //top -0.12em
+    //left 0.5em
   &.clickable
     &.active
       font-weight 600
@@ -144,6 +154,6 @@ export default {
 
 .sidebar-group-items
   transition height .1s ease-out
-  font-size 0.95em
+  font-size 14px
   overflow hidden
 </style>
