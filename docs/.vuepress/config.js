@@ -1,6 +1,6 @@
 /*
   BUG: 在目录（dir）里创建 readme.md 文件，会导致侧边栏 dir 为空
- */ 
+ */
 const path = require('path');
 const fs = require('fs');
 const moment = require('moment')
@@ -31,7 +31,6 @@ const COLLAPSED_GROUPS = [
 module.exports = {
   port: 60000,
   head: [
-    ['link', { rel: 'stylesheet', href: '/theme.css' }],
     ['script', { src: '/echarts/echarts.min.js' }],
   ],
 
@@ -156,7 +155,7 @@ function getFilePathsOfDir(dirPath) {
 
 function sortFilenames(filenames) {
   const regex = /[a-zA-Z]*([0-9]+)\./;
-  
+
   const getNum = (filename) => {
     const results = regex.exec(filename);
 
