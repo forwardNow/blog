@@ -146,7 +146,7 @@ function openSidebarGroupByPath(vm, path) {
     sidebarGroupVm = findNearestChildSidebarGroup(vueComponent, title);
     vueComponent = sidebarGroupVm;
 
-    if(!sidebarGroupVm.open) {
+    if(sidebarGroupVm && sidebarGroupVm.open === false) {
       sidebarGroupVm.$emit('toggle');
     }
   });
