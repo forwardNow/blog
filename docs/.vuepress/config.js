@@ -35,7 +35,7 @@ const IS_ALL_EXPAND = false;
 module.exports = {
   port: 60000,
   head: [
-    ['script', { src: '/echarts/echarts.min.js' }],
+    ['script', { src: '/echarts/echarts.min.js', defer: true }],
   ],
 
   title: 'Blog',
