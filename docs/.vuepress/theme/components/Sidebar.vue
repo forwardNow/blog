@@ -68,6 +68,11 @@ export default {
     },
     handleClickLocate() {
       const activeSidebarLink = findActiveSidebarLink(this);
+
+      if (!activeSidebarLink) {
+        return;
+      }
+
       const nearestSidebarGroup = findNearestParentSidebarGroup(activeSidebarLink);
 
       nearestSidebarGroup.scrollIntoView({ behavior: "smooth" });
@@ -103,6 +108,11 @@ function findActiveSidebarLink(sidebarVm) {
 function findNearestParentSidebarGroup(activeSidebarLink) {
   let count = 10;
 
+  if (!activeSidebarLink) {
+    console.warn('activeSidebarLink is null');
+    return;
+  }
+
   let parentElt = activeSidebarLink.parentElement;
   let target;
 
@@ -111,7 +121,11 @@ function findNearestParentSidebarGroup(activeSidebarLink) {
       break;
     }
 
-    if (parentElt && parentElt.classList.contains('sidebar-group')) {
+    if (!parentElt) {
+      break;
+    }
+
+    if (parentElt.classList.contains('sidebar-group')) {
       target = parentElt;
       break;
     }
