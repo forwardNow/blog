@@ -54,9 +54,9 @@ export default {
   props: ['items'],
 
   created() {
-    window.xxVm = this;
-    window.getSidebarExpandedGroupPaths = getSidebarExpandedGroupPaths.bind(null, this);
-    window.setSidebarExpandedGroupsByPaths = setSidebarExpandedGroupsByPaths.bind(null, this);
+    // window.xxVm = this;
+    // window.getSidebarExpandedGroupPaths = getSidebarExpandedGroupPaths.bind(null, this);
+    // window.setSidebarExpandedGroupsByPaths = setSidebarExpandedGroupsByPaths.bind(null, this);
   },
 
   async mounted() {
@@ -86,9 +86,9 @@ export default {
 
       openSidebarGroupByRoutePath(this);
 
-      const nearestSidebarGroup = findNearestParentSidebarGroup(activeSidebarLink);
+      const groupElement = findGroupElementContainingActiveLink(activeSidebarLink);
 
-      nearestSidebarGroup.scrollIntoView({ behavior: "smooth" });
+      groupElement.scrollIntoView({ behavior: "smooth" });
     },
 
     addListeners() {
@@ -152,15 +152,15 @@ function openSidebarGroupByPath(vm, path) {
   });
 }
 
-function findNearestParentSidebarGroup(activeSidebarLink) {
+function findGroupElementContainingActiveLink(activeSidebarLinkElement) {
   let count = 10;
 
-  if (!activeSidebarLink) {
+  if (!activeSidebarLinkElement) {
     console.warn('activeSidebarLink is null');
     return;
   }
 
-  let parentElt = activeSidebarLink.parentElement;
+  let parentElt = activeSidebarLinkElement.parentElement;
   let target;
 
   while(true) {
