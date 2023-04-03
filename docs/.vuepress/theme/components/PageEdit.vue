@@ -120,6 +120,7 @@ export default {
 </script>
 
 <style lang="stylus">
+@require '../styles/vars';
 @require '../styles/wrapper.styl'
 
 .page-edit

@@ -3,8 +3,8 @@
 
     <ActionIconGroup>
       <ActionIcon @click.native="handleClickLocate"><IconLocate /></ActionIcon>
-      <ActionIcon @click.native="handleClickCollapseAll"><IconCollapseAll /></ActionIcon>
       <ActionIcon @click.native="handleClickExpandAll"><IconExpandAll /></ActionIcon>
+      <ActionIcon @click.native="handleClickCollapseAll"><IconCollapseAll /></ActionIcon>
     </ActionIconGroup>
 
     <NavLinks />
@@ -191,6 +191,8 @@ function expandAll(vueComponent) {
 </script>
 
 <style lang="stylus">
+@require '../styles/vars';
+
 .sidebar
   ul
     padding 0

@@ -165,9 +165,10 @@ a.sidebar-link
     &:before
       display block
   &.active
-    color $accentColor
+    color #fff
     &:before
       display block
+      background-color #4B6EAF
   .sidebar-group &
     padding-left 2rem
   .sidebar-sub-headers &
