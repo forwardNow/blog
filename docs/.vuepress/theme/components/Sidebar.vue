@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import SidebarLinks from './SidebarLinks.vue'
-import NavLinks from './NavLinks.vue'
+import SidebarLinks from './SidebarLinks.vue';
+import NavLinks from './NavLinks.vue';
 
 import ActionIconGroup from './action-icon/ActionIconGroup.vue';
 import ActionIcon from './action-icon/ActionIcon.vue';
@@ -31,6 +31,8 @@ import IconExpandAll from './action-icon/IconExpandAll.vue';
 import IconHideToolWindow from './action-icon/IconHideToolWindow.vue';
 import IconLocate from './action-icon/IconLocate.vue';
 import IconDivider from './action-icon/IconDivider.vue';
+
+const KEY = 'SIDEBAR_EXPANDED_GROUP_PATHS';
 
 export default {
   name: 'Sidebar',
@@ -52,11 +54,17 @@ export default {
   props: ['items'],
 
   created() {
-    // window.xxVm = this;
+    window.xxVm = this;
+    window.getSidebarExpandedGroupPaths = getSidebarExpandedGroupPaths.bind(null, this);
+    window.setSidebarExpandedGroupsByPaths = setSidebarExpandedGroupsByPaths.bind(null, this);
   },
 
-  mounted() {
-    this.handleClickLocate();
+  async mounted() {
+    await this.restoreSidebarExpandedGroups();
+
+    this.makeActiveSidebarLinkScrollIntoView();
+
+    this.addListeners();
   },
 
   methods: {
@@ -67,42 +75,81 @@ export default {
       expandAll(this);
     },
     handleClickLocate() {
-      const activeSidebarLink = findActiveSidebarLink(this);
+      this.makeActiveSidebarLinkScrollIntoView();
+    },
+    makeActiveSidebarLinkScrollIntoView() {
+      const activeSidebarLink = findActiveSidebarLink();
 
       if (!activeSidebarLink) {
         return;
       }
 
+      openSidebarGroupByRoutePath(this);
+
       const nearestSidebarGroup = findNearestParentSidebarGroup(activeSidebarLink);
 
       nearestSidebarGroup.scrollIntoView({ behavior: "smooth" });
     },
+
+    addListeners() {
+      window.addEventListener('beforeunload', (event) => {
+        this.saveSidebarExpandedGroups();
+      });
+    },
+
+    saveSidebarExpandedGroups() {
+      const paths = getSidebarExpandedGroupPaths(this);
+      const value = JSON.stringify(paths);
+      localStorage.setItem(KEY, value);
+    },
+
+    restoreSidebarExpandedGroups() {
+      const pathsJsonStr = localStorage.getItem(KEY) || '[]';
+      const paths = JSON.parse(pathsJsonStr);
+      return setSidebarExpandedGroupsByPaths(this, paths);
+    }
   }
 }
 
-function findActiveSidebarLink(sidebarVm) {
-  let activeSidebarLink = document.querySelector('.active.sidebar-link');
+function findActiveSidebarLink() {
+  return document.querySelector('.active.sidebar-link');
+}
 
+function openSidebarGroupByRoutePath(vm) {
   // SidebarGroup
-  let vm = sidebarVm;
-
   const routePath = vm.$route.path
-  const sidebarGroupTitleList = routePath.split('/').slice(1, -1);
 
+  openSidebarGroupByPath(vm, routePath);
+}
+
+function openSidebarGroupByPath(vm, path) {
   let vueComponent = vm;
   let sidebarGroupVm;
 
-  sidebarGroupTitleList.forEach((sidebarGroupTitle) => {
-    const decodedTitle = decodeURIComponent(sidebarGroupTitle);
-    sidebarGroupVm = findNearestChildSidebarGroup(vueComponent, decodedTitle);
+  // /a/%E5%89%8D%E7%AB%AF/c.html -> ['', 'a', '前端', 'c.html'] -> [ 'a', '前端']
+  const sidebarGroupTitles = path
+    .split('/')
+    .map((item) => {
+      return decodeURIComponent(item);
+    })
+    .filter((item) => {
+      if (item === '') {
+        return false;
+      }
+      if (item.endsWith('.html')) {
+        return false;
+      }
+      return true;
+    });
+
+  sidebarGroupTitles.forEach((title) => {
+    sidebarGroupVm = findNearestChildSidebarGroup(vueComponent, title);
     vueComponent = sidebarGroupVm;
 
     if(!sidebarGroupVm.open) {
       sidebarGroupVm.$emit('toggle');
     }
   });
-
-  return activeSidebarLink;
 }
 
 function findNearestParentSidebarGroup(activeSidebarLink) {
@@ -186,6 +233,49 @@ function expandAll(vueComponent) {
     $children.forEach((childVueComponent) => {
       expandAll(childVueComponent);
     });
+  }
+}
+
+function getSidebarExpandedGroupPaths(vm, parentPath = '', results = []) {
+  if (!vm) {
+    return results;
+  }
+
+  let currentSidebarGroupPath;
+
+  // vm.$options.name === 'SidebarGroup' && vm.item.title === title
+  if (vm.$options.name === 'SidebarGroup') {
+    // vm.item.title
+    // vm.open
+    const {
+      item: { title },
+      open
+    } = vm;
+
+    if (open && title) {
+      currentSidebarGroupPath = `${parentPath}/${title}`;
+      results.push(currentSidebarGroupPath);
+    }
+  }
+
+  const childVms = vm.$children;
+
+  if (childVms && childVms.length > 0) {
+    for (let i = 0, len = childVms.length; i < len; i++) {
+      const childVm = childVms[i];
+      const path = currentSidebarGroupPath || parentPath;
+
+      getSidebarExpandedGroupPaths(childVm, path, results);
+    }
+  }
+
+  return results;
+}
+
+async function setSidebarExpandedGroupsByPaths(sidebarVm, expendedGroupPaths) {
+  for (let i = 0; i < expendedGroupPaths.length; i++) {
+    await sidebarVm.$nextTick();
+    openSidebarGroupByPath(sidebarVm, expendedGroupPaths[i]);
   }
 }
 </script>
