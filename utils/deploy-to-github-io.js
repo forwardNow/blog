@@ -1,22 +1,22 @@
 const path = require('path');
 const fs = require('fs');
 const { exec } = require("child_process");
+const moment = require('moment');
 
 const BLOG_PATH = path.resolve(__dirname, '../');
 const GITHUB_IO_PATH = path.resolve(BLOG_PATH, '../forwardNow.github.io');
 
-const BLOG_DIST_PATH = path.resolve(BLOG_PATH, 'blog/docs/.vuepress/dist');
-
+const BLOG_DIST_PATH = path.resolve(BLOG_PATH, './docs/.vuepress/dist');
 
 async function run()  {
   // build: blog
-  // await buildBlog();
+  await buildBlog();
 
   // copy: blog/docs/.vuepress/dist/** -> forwardNow.github.io/
   copyDistToGithubIo();
 
   // push: forwardNow.github.io
-  // pushGithubIo();
+  await pushGithubIo();
 }
 
 function buildBlog() {
@@ -44,45 +44,48 @@ function copyDistToGithubIo() {
     for (let i = 0; i < filenameList.length; i++) {
       const filename = filenameList[i];
 
-      const isDir = fs.lstatSync(filename).isDirectory();
-      
+      const filePath = path.join(dir, filename);
+
+      const isDir = fs.lstatSync(filePath).isDirectory();
+
+      callback({filename, filePath, isDir, parentDir: dir});
+
       if (isDir) {
         const subDirPath = path.join(dir, filename);
         traverse(subDirPath, callback);
       }
+    }
+  };
 
-      const filePath = path.join(dir, filename);
-
-      callback({filename, filePath, isDir, parentDir});
+  traverse(srcRootPath, ({ filePath, isDir}) => {
+    if (isDir) {
+      copyDir(filePath);
+      return;
     }
 
-    traverse(srcRootPath, ({ filePath, isDir}) => {
-      if (isDir) {
-        copyDir(filePath);
-        return;
-      }
-
-      copyFile(filePath);
-    });
-  };
+    copyFile(filePath);
+  });
 }
 
 async function pushGithubIo() {
   await execCommand('git pull', { cwd: GITHUB_IO_PATH });
+
+  const addCommand = 'git config core.autocrlf false && git add -A';
+
+  await execCommand(addCommand, { cwd: GITHUB_IO_PATH })
+          .catch((e) => execCommand(addCommand, { cwd: GITHUB_IO_PATH }));
+
+  const comment = moment().format('vYYYYMMDDHHmmss');
+  await execCommand(`git commit -am "${comment}"`, { cwd: GITHUB_IO_PATH });
+
   await execCommand('git push', { cwd: GITHUB_IO_PATH });
 }
 
-run();
-
-
-//--
-
-function execCommand(command, options) {
+function execCommand(command, options = {}) {
   console.log(`start executing command: ${command}`);
+
   return new Promise((resolve, reject) => {
-    exec(
-      command, 
-      (error, stdout, stderr) => {
+    exec(command, options, (error, stdout, stderr) => {
         if (error) {
           reject(error);
           console.log(`[ ${command} ] error: ${error.message}`);
@@ -97,7 +100,10 @@ function execCommand(command, options) {
         resolve(stdout);
         console.log(`[ ${command} ] stdout: ${stdout}`);
       }, 
-      options,
     );
   });
 }
+
+//-- 
+
+run();
