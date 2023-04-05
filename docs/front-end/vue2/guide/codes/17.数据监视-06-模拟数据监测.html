@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>17.数据监视-06-模拟数据监测</title>
+</head>
+<body>
+
+<div id="name">张三</div>
+<div id="age">18</div>
+
+<script>
+  let data = {
+    name: '张三',
+    age: 18,
+  };
+
+  let vm = {};
+
+  const dataObserver = new Observer(data);
+
+  vm._data = dataObserver;
+  data = dataObserver;
+
+  // 监测 obj 的所有属性
+  function Observer(obj) {
+    const keys = Object.keys(obj);
+
+    keys.forEach((key) => {
+      Object.defineProperty(this, key, {
+        get() {
+          return obj[key];
+        },
+        set(value) {
+          obj[key] = value;
+          console.log(`${key} 被修改了, 进行后续的操作（解析模板、生成虚拟DOM）`);
+          document.getElementById(key).innerText = value;
+        }
+      });
+    });
+  }
+</script>
+</body>
+</html>

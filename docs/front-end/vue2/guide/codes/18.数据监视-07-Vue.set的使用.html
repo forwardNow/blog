@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>18.数据监视-07-Vue.set的使用</title>
+</head>
+<body>
+  <div id="root">
+    <h2>人员信息：</h2>
+    <ul>
+      <li v-for="(value, key) in person" :key="key">{{key}}: {{value}}</li>
+    </ul>
+    <p>新属性名：<input v-model="prop"></p>
+    <p>新属性值：<input v-model="value"></p>
+    <p><button @click="add">新增</button></p>
+  </div>
+  
+<script src="https://unpkg.com/vue@2.7.0/dist/vue.js"></script>
+<script>
+  Vue.config.productionTip = false; // 关闭生产提示
+
+  const vm = new Vue({
+    el:'#root',
+    data:{
+      prop: '',
+      value: '',
+
+      person: {
+        name: '张三'
+      },
+    },
+    methods: {
+      add() {
+        this.$set(this.person, this.prop, this.value);
+      },
+    }
+  });
+</script>
+</body>
+</html>
