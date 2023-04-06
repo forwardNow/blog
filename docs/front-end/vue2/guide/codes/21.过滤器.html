@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>21.过滤器</title>
+</head>
+<body>
+  <div id="root">
+    <p>getFormattedTime: {{ getFormattedTime(time) }}</p>
+    <p>formattedTime: {{ formattedTime }}</p>
+    <p>formatTime: {{ time | formatTime }}</p>
+    <p>formatTime: {{ time | formatTime('YYYY-MM-DD') }}</p>
+    <p>formatTime and slice: {{ time | formatTime | slice(0, 4) }}</p>
+  </div>
+  
+<script src="https://unpkg.com/vue@2.7.0/dist/vue.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.7/dayjs.min.js"></script>
+<script>
+  Vue.config.productionTip = false; // 关闭生产提示
+
+  const vm = new Vue({
+    el:'#root',
+    data:{
+      time: new Date(),
+    },
+    methods: {
+      getFormattedTime(time) {
+        return format(time);
+      },
+    },
+    computed: {
+      formattedTime() {
+        return format(this.time);
+      }
+    },
+    filters: {
+      formatTime(value, pattern) {
+        return format(value, pattern);
+      },
+      slice(value, start, end) {
+        return value.slice(start, end);
+      }
+    }
+  });
+
+  function format(date, pattern = 'YYYY-MM-DD HH:mm:ss') {
+    return dayjs(date).format(pattern);
+  }
+</script>
+</body>
+</html>
