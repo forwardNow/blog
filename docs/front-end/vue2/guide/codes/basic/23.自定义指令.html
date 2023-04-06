@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>23.自定义指令</title>
+</head>
+<body>
+  <div id="root">
+    <h2>n 的原始值： {{n}}</h2>
+    <h2>(n + 1) 乘以 10 后的值：<span v-big:text="n + 1"></span></h2>
+    <h2><input type="text" v-focus-bind:value="n"></h2>
+    <p><button @click="n++">n++</button></p>
+  </div>
+  
+<script src="https://unpkg.com/vue@2.7.0/dist/vue.js"></script>
+<script>
+  Vue.config.productionTip = false; // 关闭生产提示
+
+  Vue.directive('focus-bind', {
+    // 指令与元素成功绑定时（一上来）
+    bind(element, binding) {
+      element.value = binding.value;
+    },
+    // 指令所在元素被插入页面时
+    inserted(element, binding) {
+      element.focus();
+    },
+    // 指令所在的模板被重新解析时
+    update(element, binding) {
+      element.value = binding.value;
+    }
+  });
+
+  const vm = new Vue({
+    el:'#root',
+    data:{
+      n: 1,
+    },
+
+    directives: {
+      /*
+      big函数何时会被调用？
+        1. 指令与元素成功绑定时（一上来）。
+        2. 指令所在的模板被重新解析时。
+      */
+      big(element, binding) {
+        const {
+          expression, // "n + 1"
+          value,      // 2
+          arg,        // "text"
+
+        } = binding;
+
+        element.innerText = value * 10;
+      },
+    }
+  });
+
+</script>
+</body>
+</html>
