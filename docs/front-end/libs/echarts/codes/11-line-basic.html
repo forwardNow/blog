@@ -1,0 +1,41 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.min.js"></script>
+
+<div id="box_11-line-basic" style="width: 600px; height: 400px;"></div>
+<script>
+  echarts.init(document.querySelector('#box_11-line-basic')).setOption({
+    dataset: {
+      dimensions: ['month', 'amount'],
+      source: [
+        { month: '1月', amount: 3000 },
+        { month: '2月', amount: 2800 },
+        { month: '3月', amount: 900 },
+        { month: '4月', amount: 1000 },
+        { month: '5月', amount: 800 },
+        { month: '6月', amount: 700 },
+        { month: '7月', amount: 1400 },
+        { month: '8月', amount: 1300 },
+        { month: '9月', amount: 900 },
+        { month: '10月', amount: 1000 },
+        { month: '11月', amount: 800 },
+        { month: '12月', amount: 600 },
+      ],
+    },
+    xAxis: {
+      type: 'category',
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        name: '月销量',
+        type: 'line',
+        encode: {
+          x: 'month',
+          y: 'amount',
+        }
+      },
+    ]
+  });
+</script>

@@ -1,0 +1,38 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.min.js"></script>
+
+<div id="box_23-rectangular-coordinate-dataZoom" style="width: 600px; height: 400px; background: #eee;"></div>
+<script>
+  echarts.init(document.querySelector('#box_23-rectangular-coordinate-dataZoom')).setOption({
+    dataset: {
+      dimensions: ['name', 'chinese', 'math'],
+      source: [
+        { name: '张三', chinese: 60, math: 90 },
+        { name: '李四', chinese: 70, math: 80 },
+        { name: '王五', chinese: 80, math: 70 },
+        { name: '赵六', chinese: 90, math: 60 },
+      ],
+    },
+    dataZoom: [
+      {
+        xAxisIndex: 0,  // 配置在第 0 个x轴上
+        type: 'slider', // 'slider': 通过滑块控制区域。 'inside': 通过鼠标滚轮控制
+      },
+      {
+        yAxisIndex: 0,
+        type: 'slider',
+        start: 50,   // 数据窗口的起始位置，单位 %
+        end: 90      // 数据窗口的结束位置，单位 %
+      }
+    ],
+    xAxis: {
+      type: 'category',
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      { name: '语文', type: 'bar', encode: { x: 'name', y: 'chinese' } },
+    ]
+  });
+</script>

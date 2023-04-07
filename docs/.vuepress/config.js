@@ -35,7 +35,7 @@ const IS_ALL_EXPAND = false;
 module.exports = {
   port: 60000,
   head: [
-    ['script', { src: '/echarts/echarts.min.js', defer: true }],
+    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.min.js', defer: 'defer' }],
   ],
 
   title: 'Blog',

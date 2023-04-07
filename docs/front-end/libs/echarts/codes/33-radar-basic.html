@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.min.js"></script>
+
+<div id="box_33-radar-basic" style="width: 600px; height: 600px; border: solid 1px #ddd;"></div>
+<script type="module">
+  echarts.init(document.querySelector('#box_33-radar-basic')).setOption({
+    legend: {
+      data: [ '华为', '小米' ],
+      bottom: 16,
+    },
+    radar: {
+      indicator: [
+        { name: '易用性', max: 100 }, { name: '功能', max: 100 },
+        { name: '拍照', max: 100 }, { name: '外观', max: 100 },
+        { name: '续航', max: 100 },
+      ],
+    },
+    series: [
+      {
+        type: 'radar',
+        data: [
+          { name: '华为',  value: [ 80, 90, 90, 82, 90 ] },
+          { name: '小米', value: [ 70, 82, 75, 70, 78 ] }
+        ]
+      },
+    ],
+  });
+</script>

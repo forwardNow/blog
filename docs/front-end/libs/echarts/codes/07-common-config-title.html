@@ -1,0 +1,44 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.min.js"></script>
+
+<div id="box_07-common-config-title" style="width: 600px; height: 400px;"></div>
+<script>
+  echarts.init(document.querySelector('#box_07-common-config-title')).setOption({
+    dataset: {
+      dimensions: ['name', 'chinese', 'math'],
+      source: [
+        { name: '张三', chinese: 60, math: 90 },
+        { name: '李四', chinese: 70, math: 80 },
+        { name: '王五', chinese: 80, math: 70 },
+        { name: '赵六', chinese: 90, math: 60 },
+      ],
+    },
+    title: {
+      text: '成绩统计表',
+      textStyle: {
+        color: 'blue',
+      },
+      borderWidth: 4,
+      borderColor: 'blue',
+      borderRadius: 4,
+      top: 10,
+      left: 20
+    },
+    xAxis: {
+      type: 'category',
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        name: '语文',
+        type: 'bar',
+        encode: {
+          x: 'name',
+          y: 'chinese',
+        }
+      },
+    ]
+  });
+</script>
