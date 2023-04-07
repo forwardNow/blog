@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>26.非单文件组件-内置关系</title>
+</head>
+<body>
+  <div id="root">
+  </div>
+  
+<script src="https://unpkg.com/vue@2.7.0/dist/vue.js"></script>
+<script>
+  // Vue 构造函数
+  Vue;
+
+  // Vue 的实例对象
+  const vm = new Vue({ el: '#root' });
+
+  // VueComponent 构造函数
+  const VC = Vue.extend({ template: `<div></div>` }); 
+
+  console.log(Vue);
+  console.log(Vue.prototype); // 构造函数上有 prototype 属性，指向其原型
+
+  console.log(vm.__proto__); // 实例上有 __proto__ 属性，指向原型
+  console.log(vm.__proto__ === Vue.prototype); // true
+
+  console.log(VC);
+  console.log(VC.prototype);
+  console.log(VC.prototype.__proto__);
+
+  console.log(VC.prototype.__proto__ === Vue.prototype); // true
+</script>
+</body>
+</html>
