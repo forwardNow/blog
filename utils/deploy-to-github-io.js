@@ -34,8 +34,9 @@ function copyDistToGithubIo() {
     fs.copyFileSync(srcFilePath, destFilePath);
   };
 
-  const copyDir = (dir) => {
-    fs.mkdirSync(dir, { recursive: true });
+  const copyDir = (srcDir) => {
+    const destDir = srcDir.replace(srcRootPath, destRootPath);
+    fs.mkdirSync(destDir, { recursive: true });
   };
 
   const traverse = (dir, callback) => {
@@ -51,7 +52,7 @@ function copyDistToGithubIo() {
       callback({filename, filePath, isDir, parentDir: dir});
 
       if (isDir) {
-        const subDirPath = path.join(dir, filename);
+        const subDirPath = filePath;
         traverse(subDirPath, callback);
       }
     }
