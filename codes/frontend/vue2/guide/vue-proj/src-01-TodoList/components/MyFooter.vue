@@ -13,7 +13,7 @@
 <script>
 export default {
   name: 'MyFooter',
-  props: ['todos'],
+  props: ['todos', 'setDoneOfAllTodos', 'deleteTodosOfDone'],
   data() {
     return {
     };
@@ -33,13 +33,13 @@ export default {
         return this.total === this.doneTotal;
       },
       set(value) {
-        this.$emit('setDoneOfAllTodos', value);
+        this.setDoneOfAllTodos(value);
       },
     },
   },
   methods: {
     handleClickClearButton() {
-      this.$emit('deleteTodosOfDone');
+      this.deleteTodosOfDone();
     },
   },
 };

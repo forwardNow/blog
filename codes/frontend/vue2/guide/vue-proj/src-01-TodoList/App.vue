@@ -2,16 +2,12 @@
   <div id="root">
     <div class="todo-container">
       <div class="todo-wrap">
-        <MyHeader
-          @addTodo="addTodo"
-        />
-        <MyList
-          :todos="todos"
-        />
+        <MyHeader :addTodo="addTodo" />
+        <MyList :todos="todos" :toggleTodoDone="toggleTodoDone" :deleteTodo="deleteTodo" />
         <MyFooter
           :todos="todos"
-          @setDoneOfAllTodos="setDoneOfAllTodos"
-          @deleteTodosOfDone="deleteTodosOfDone"
+          :setDoneOfAllTodos="setDoneOfAllTodos"
+          :deleteTodosOfDone="deleteTodosOfDone"
         />
       </div>
     </div>
@@ -36,14 +32,6 @@ export default {
     const todosStr = localStorage.getItem(KEY);
     const todos = JSON.parse(todosStr) || [];
     this.todos = todos;
-  },
-  mounted() {
-    this.$bus.$on('toggleTodoDone', this.toggleTodoDone);
-    this.$bus.$on('deleteTodo', this.deleteTodo);
-  },
-  beforeCreate() {
-    this.$bus.$off('toggleTodoDone');
-    this.$bus.$off('deleteTodo');
   },
   data() {
     return {

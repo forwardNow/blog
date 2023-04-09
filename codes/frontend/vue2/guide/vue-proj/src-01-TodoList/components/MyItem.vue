@@ -11,13 +11,13 @@
 <script>
 export default {
   name: 'MyItem',
-  props: ['todo'],
+  props: ['todo', 'toggleTodoDone', 'deleteTodo'],
   methods: {
     handleChange(id) {
-      this.$bus.$emit('toggleTodoDone', id);
+      this.toggleTodoDone(id);
     },
     handleClickDeleteButton(id) {
-      this.$bus.$emit('deleteTodo', id);
+      this.deleteTodo(id);
     },
   },
 };
