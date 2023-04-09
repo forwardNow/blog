@@ -1,137 +1,63 @@
 <template>
   <div id="root">
-    <div class="todo-container">
-      <div class="todo-wrap">
-        <MyHeader
-          @addTodo="addTodo"
-        />
-        <MyList
-          :todos="todos"
-        />
-        <MyFooter
-          :todos="todos"
-          @setDoneOfAllTodos="setDoneOfAllTodos"
-          @deleteTodosOfDone="deleteTodosOfDone"
-        />
-      </div>
-    </div>
+    <button @click="handleClick">显示/隐藏</button>
+    <!--
+      name
+        指定动画类的前缀，默认值为 v
+
+      appear
+        一出现就播放，适用于元素初始状态就是 显示 的元素
+    -->
+    <transition
+      name="my"
+      appear
+    >
+      <h1 v-show="visible">我是张三</h1>
+    </transition>
   </div>
 </template>
 
 <script>
-import MyHeader from './components/MyHeader.vue';
-import MyList from './components/MyList.vue';
-import MyFooter from './components/MyFooter.vue';
-
-const KEY = 'TODOS';
-
 export default {
   name: 'App',
-  components: {
-    MyHeader,
-    MyList,
-    MyFooter,
-  },
-  created() {
-    const todosStr = localStorage.getItem(KEY);
-    const todos = JSON.parse(todosStr) || [];
-    this.todos = todos;
-  },
-  mounted() {
-    this.$bus.$on('updateTodo', this.updateTodo);
-    this.$bus.$on('deleteTodo', this.deleteTodo);
-  },
-  beforeCreate() {
-    this.$bus.$off('updateTodo');
-    this.$bus.$off('deleteTodo');
-  },
   data() {
     return {
-      todos: [
-        // { id: '001', title: '抽烟', done: true, isEdit: false, },
-        // { id: '002', title: '喝酒', done: false, isEdit: false, },
-        // { id: '003', title: '开车', done: true, isEdit: false, },
-      ],
+      visible: true,
     };
   },
-  watch: {
-    todos: {
-      deep: true,
-      handler(value) {
-        localStorage.setItem(KEY, JSON.stringify(value));
-      },
-    },
-  },
   methods: {
-    addTodo(todo) {
-      this.todos.unshift(todo);
-    },
-    updateTodo(todo) {
-      const index = this.todos.findIndex((item) => item.id === todo.id);
-      this.todos.splice(index, 1, todo);
-    },
-    deleteTodo(id) {
-      const targetTodoIndex = this.todos.findIndex((todo) => todo.id === id);
-
-      if (targetTodoIndex !== -1) {
-        this.todos.splice(targetTodoIndex, 1);
-      }
-    },
-    setDoneOfAllTodos(done) {
-      this.todos = this.todos.map((todo) => {
-        // eslint-disable-next-line no-param-reassign
-        todo.done = done;
-        return todo;
-      });
-    },
-    deleteTodosOfDone() {
-      this.todos = this.todos.filter((todo) => !todo.done);
+    handleClick() {
+      this.visible = !this.visible;
     },
   },
 };
 </script>
 
 <style>
-/*base*/
-body {
-  background: #fff;
+h1 {
+  height: 100px;
+  margin: 48px 0;
+  background-color: pink;
 }
 
-.btn {
-  display: inline-block;
-  padding: 4px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
+/* 进入就激活 */
+.v-enter-active,
+.my-enter-active {
+  animation: my-animation 1s;
 }
 
-.btn-danger {
-  color: #fff;
-  background-color: #da4f49;
-  border: 1px solid #bd362f;
+/* 离开就激活 */
+.v-leave-active,
+.my-leave-active {
+  animation: my-animation 1s reverse; /* 倒着播放 */
 }
 
-.btn-danger:hover {
-  color: #fff;
-  background-color: #bd362f;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.todo-container {
-  width: 600px;
-  margin: 0 auto;
-}
-.todo-container .todo-wrap {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+@keyframes my-animation {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 </style>
