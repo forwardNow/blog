@@ -38,19 +38,19 @@ export default {
     this.todos = todos;
   },
   mounted() {
-    this.$bus.$on('toggleTodoDone', this.toggleTodoDone);
+    this.$bus.$on('updateTodo', this.updateTodo);
     this.$bus.$on('deleteTodo', this.deleteTodo);
   },
   beforeCreate() {
-    this.$bus.$off('toggleTodoDone');
+    this.$bus.$off('updateTodo');
     this.$bus.$off('deleteTodo');
   },
   data() {
     return {
       todos: [
-        // { id: '001', title: '抽烟', done: true },
-        // { id: '002', title: '喝酒', done: false },
-        // { id: '003', title: '开车', done: true },
+        // { id: '001', title: '抽烟', done: true, isEdit: false, },
+        // { id: '002', title: '喝酒', done: false, isEdit: false, },
+        // { id: '003', title: '开车', done: true, isEdit: false, },
       ],
     };
   },
@@ -66,9 +66,9 @@ export default {
     addTodo(todo) {
       this.todos.unshift(todo);
     },
-    toggleTodoDone(id) {
-      const targetTodo = this.todos.find((todo) => todo.id === id);
-      targetTodo.done = !targetTodo.done;
+    updateTodo(todo) {
+      const index = this.todos.findIndex((item) => item.id === todo.id);
+      this.todos.splice(index, 1, todo);
     },
     deleteTodo(id) {
       const targetTodoIndex = this.todos.findIndex((todo) => todo.id === id);

@@ -1,10 +1,12 @@
 <template>
   <li>
     <label>
-      <input type="checkbox" :checked="todo.done" @change="handleChange(todo.id)"/>
-      <span>{{ todo.title }}</span>
+      <input type="checkbox" :checked="todo.done" @change="handleChange()"/>
+      <span v-if="!todo.isEdit">{{ todo.title }}</span>
+      <input v-else type="text" :value="todo.title" @blur="handleBlur" ref="input">
     </label>
     <button class="btn btn-danger" @click="handleClickDeleteButton(todo.id)">删除</button>
+    <button class="btn btn-primary" @click="handleClickEditButton()">编辑</button>
   </li>
 </template>
 
@@ -13,11 +15,41 @@ export default {
   name: 'MyItem',
   props: ['todo'],
   methods: {
-    handleChange(id) {
-      this.$bus.$emit('toggleTodoDone', id);
+    handleChange() {
+      this.$bus.$emit('updateTodo', {
+        ...this.todo,
+        done: !this.todo.done,
+      });
     },
     handleClickDeleteButton(id) {
       this.$bus.$emit('deleteTodo', id);
+    },
+    handleClickEditButton() {
+      this.$bus.$emit('updateTodo', {
+        ...this.todo,
+        isEdit: true,
+      });
+
+      this.$nextTick(() => {
+        this.$refs.input.focus();
+      });
+    },
+    handleBlur(e) {
+      const title = e.target.value;
+
+      if (!title.trim()) {
+        this.$bus.$emit('updateTodo', {
+          ...this.todo,
+          isEdit: false,
+        });
+        return;
+      }
+
+      this.$bus.$emit('updateTodo', {
+        ...this.todo,
+        isEdit: false,
+        title,
+      });
     },
   },
 };

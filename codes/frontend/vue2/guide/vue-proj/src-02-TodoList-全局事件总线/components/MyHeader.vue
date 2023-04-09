@@ -30,6 +30,7 @@ export default {
         id: nanoid(),
         title: this.title,
         done: false,
+        isEdit: false,
       };
 
       this.$emit('addTodo', todo);
