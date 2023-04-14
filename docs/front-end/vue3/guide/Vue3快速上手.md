@@ -49,7 +49,7 @@ Vue3 可以更好的支持 TypeScript
 
 ### 3.1. 使用 vue-cli 创建
 
-官方文档：https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create
+官方文档：[https://cli.vuejs.org/zh/guide/creating-a-project.html](https://cli.vuejs.org/zh/guide/creating-a-project.html)
 
 ```bash
 ## 查看 @vue/cli 版本，确保 @vue/cli 版本在 4.5.0 以上
@@ -77,9 +77,9 @@ npm run serve
 
 ### 3.2. 使用 vite 创建
 
-vite官网：https://vitejs.cn
+vite官网：[https://vitejs.cn](https://vitejs.cn)
 
-什么是vite？—— 新一代前端构建工具。
+什么是 vite？—— 新一代前端构建工具。
 
 优势如下：
 - 开发环境中，无需打包操作，可快速的冷启动。
@@ -88,9 +88,11 @@ vite官网：https://vitejs.cn
 
 传统构建 与 vite构建对比图：
 
-* ![webpack](https://cn.vitejs.dev/assets/bundler.37740380.png)
+* ![bundle-based-dev-server](./images/bundle-based-dev-server.svg)
 
-* ![vite](https://cn.vitejs.dev/assets/esm.3070012d.png)
+* ![native-esm-based-dev-server](./images/native-esm-based-dev-server.svg)
+
+创建项目：
 
 ```bash
 # node 16+
