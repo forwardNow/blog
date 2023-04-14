@@ -75,7 +75,7 @@ cd vue3-proj-by-cli
 npm run serve
 ```
 
-## 4. 使用 vite 创建
+### 3.2. 使用 vite 创建
 
 vite官网：https://vitejs.cn
 
