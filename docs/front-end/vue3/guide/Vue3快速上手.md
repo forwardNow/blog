@@ -111,3 +111,31 @@ npm create vite@latest
 #   npm install
 #   npm run dev
 ```
+
+## 4. 分析工程结构
+
+main.js:
+
+```javascript
+// 引入的不再是 Vue 构造函数了，引入的是一个名为 createApp 的工厂函数
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// 创建应用实例对象 —— app (类似于之前 Vue2 中的 vm，但 app 比 vm 更“轻”)
+const app = createApp(App)
+
+// 挂载
+app.mount('#app')
+```
+
+App.vue:
+
+```html
+<template>
+	<!-- Vue3 组件中的模板结构可以没有根标签 -->
+	<img alt="Vue logo" src="./assets/logo.png">
+	<HelloWorld msg="Welcome to Your Vue.js App"/>
+</template>
+```
+
+
