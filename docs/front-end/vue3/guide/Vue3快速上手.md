@@ -334,7 +334,7 @@ export default {
 
 * 通过 `Object.defineProperty()` 对属性的读取、修改进行拦截（数据劫持）。
 
-  ```js
+  ```javascript
   Object.defineProperty(data, 'count', {
     get () {}, 
     set () {},
@@ -347,8 +347,8 @@ export default {
 
 存在问题：
 
-* 直接新增属性、直接删除属性, 界面不会更新。
-* 直接通过下标修改数组, 界面不会自动更新。
+* `defineProperty` 只能劫持到对已有属性的修改；直接新增属性、直接删除属性，界面不会更新
+* 直接通过下标修改数组, 界面不会自动更新
 
   ```javascript
   data = {
@@ -356,11 +356,8 @@ export default {
     nums: [ 1, 2, 3]
   };
 
-  // 新增 属性
+  // 新增/修改 属性
   this.$set(this.person, 'gender', '李四');
-
-  // 修改 属性
-  this.$set(this.person, 'name', '李四');
 
   // 删除 属性
   this.$delete(this.person, 'name');
@@ -370,3 +367,32 @@ export default {
   this.nums.splice(1, 1, 100);  // 将 index 为 1 的元素删掉，再插入 100
   ```
 
+模拟实现：
+
+```javascript
+const data = {
+  name: '张三',
+};
+
+const $data = {};
+
+Object.defineProperty($data, 'name', {
+  configurable: true, // 让 name 属性可删除
+  get() {
+    return data.name;
+  },
+  set(value) {
+    console.log('name 被更改，去更新界面了')
+    data.name = value;
+  }
+});
+
+// 修改已有属性，可以监测到
+$data.name = '李四';
+
+// 添加新属性，监测不到
+$data.age = 18;
+
+// 删除已有属性，监测不到
+delete $data.name;
+```
