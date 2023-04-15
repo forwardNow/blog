@@ -325,3 +325,48 @@ export default {
 }
 </script>
 ```
+
+## 6. vue2 与 vue3 响应式原理
+
+### 6.1. vue2 的响应式
+
+对象类型：
+
+* 通过 `Object.defineProperty()` 对属性的读取、修改进行拦截（数据劫持）。
+
+  ```js
+  Object.defineProperty(data, 'count', {
+    get () {}, 
+    set () {},
+  })
+  ```
+  
+数组类型：
+
+* 通过重写更新数组的一系列方法来实现拦截。（对数组的变更方法进行了包裹）。
+
+存在问题：
+
+* 直接新增属性、直接删除属性, 界面不会更新。
+* 直接通过下标修改数组, 界面不会自动更新。
+
+  ```javascript
+  data = {
+    person: { name: '张三', age: 18 },
+    nums: [ 1, 2, 3]
+  };
+
+  // 新增 属性
+  this.$set(this.person, 'gender', '李四');
+
+  // 修改 属性
+  this.$set(this.person, 'name', '李四');
+
+  // 删除 属性
+  this.$delete(this.person, 'name');
+
+  // 修改数组元素
+  this.$set(this.nums, 1, 100); // 将 index 为 1 的元素改为 100
+  this.nums.splice(1, 1, 100);  // 将 index 为 1 的元素删掉，再插入 100
+  ```
+
