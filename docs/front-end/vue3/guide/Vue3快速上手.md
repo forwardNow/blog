@@ -326,13 +326,13 @@ export default {
 </script>
 ```
 
-## 6. vue2 与 vue3 响应式原理
+### 5.4. vue2 与 vue3 响应式原理
 
-### 6.1. vue2 的响应式
+#### 5.4.1. vue2 的响应式
 
 对象类型：
 
-* 通过 `Object.defineProperty()` 对属性的读取、修改进行拦截（数据劫持）。
+* 通过 `Object.defineProperty()` 对 属性的读取、修改 进行拦截（数据劫持）。
 
   ```javascript
   Object.defineProperty(data, 'count', {
@@ -397,7 +397,7 @@ $data.age = 18;
 delete $data.name;
 ```
 
-### 6.2. vue3 的响应式
+#### 5.4.2. vue3 的响应式
 
 实现原理: 
 
@@ -449,3 +449,94 @@ proxy.age = 18;       // 增 属性: age
 
 delete proxy.age;     // 删 属性: age
 ```
+
+### 5.5. ref vs reactive
+
+| 对比 | ref | reactive |
+| - | - | - |
+| 定义数据 | 基本类型数据 | 对象（或数组）类型数据 |
+| 原理 | `Object.defineProperty()` 的 get/set 进行数据劫持 | Proxy 数据劫持；Reflect 修改源对象 |
+| 使用 | JS中需要加`.value`，模板中不需要 | JS、模板中都不需要 `.value` |
+
+备注：
+
+* ref 也可以用来定义对象（或数组）类型数据，它内部会自动通过 `reactive` 转为 Proxy 实例对象
+
+### 5.6. setup 的两个注意点
+
+setup 执行的时机:
+
+* 在 beforeCreate 之前执行一次，this 是 undefined 。
+
+vue2 中的 $attrs 和 $slots:
+
+* $attrs: 用于接收未被 props 选项声明的属性，捡漏的
+* $slots: 存放父组件往当前组件里分发的 vNode，如 `$slots: { default: [ vNode, ... ] }`
+
+setup 的参数:
+- props：值为对象，组件外部传递过来 且 组件内部声明接收了的属性。
+- context：上下文对象
+  - attrs: 值为对象，组件外部传递过来 但 没有在 props 配置中声明的属性, 相当于 `this.$attrs`。
+  - slots: 收到的插槽内容, 相当于 `this.$slots`, 要使用 `v-slot:default` 写法。
+  - emit: 分发自定义事件的函数, 相当于 `this.$emit`。
+
+示例：
+
+* App.vue
+
+  ```html
+  <template>
+    <Demo name="张三" :age="18" gender="男" @show="handleShow" >
+      <template #default><span>xxx</span></template>
+    </Demo>
+  </template>
+
+  <script>
+  import Demo from './Demo.vue';
+
+  export default {
+    name: 'App',
+    components: { Demo },
+    setup() {
+      function handleShow(value) {
+        alert(`handleShow(${value})`);
+      }
+
+      return { handleShow }
+    }
+  }
+  </script>
+  ```
+
+* Demo.vue
+
+  ```html
+  <template>
+    <p>{{ name }} - {{ age }}</p>
+    <button @click="handleClick">show</button>
+  </template>
+
+  <script>
+  export default {
+    name: 'Demo',
+    props: [ 'name', 'age', /* 'gender' */ ],
+    emits: [ 'show' ],
+    setup(props, context) {
+      // Proxy(Object) {name: '张三', age: 18}
+      console.log('props:', props); 
+
+      // Proxy(Object) {gender: '男'}
+      console.log('context.attrs:', context.attrs);
+
+      // Proxy(Object) {default: ƒ}
+      console.log('context.slots:', context.slots);
+
+      function handleClick() {
+        context.emit('show', 666);
+      }
+
+      return { handleClick };
+    }
+  }
+  </script>
+  ```
