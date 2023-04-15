@@ -396,3 +396,56 @@ $data.age = 18;
 // 删除已有属性，监测不到
 delete $data.name;
 ```
+
+### 6.2. vue3 的响应式
+
+实现原理: 
+
+* 通过 Proxy（代理）: 拦截对象中任意属性的变化（属性值的读写、属性的添加、属性的删除）
+* 通过 Reflect（反射）: 对源对象的属性进行操作。
+
+MDN 文档：
+
+* [Proxy](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+* [Reflect](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
+
+模拟实现：
+
+```javascript
+const data = {
+  name: '张三',
+};
+
+const proxy = new Proxy(data, {
+  get(target, propName) {
+    console.log('读 属性:', propName);
+
+    // return target[propName];
+    return Reflect.get(target, propName);
+  },
+  set(target, propName, value) {
+    if (target.hasOwnProperty(propName)) {
+      console.log('改 属性:', propName);
+    } else {
+      console.log('增 属性:', propName);
+    }
+
+    // target[propName] = value;
+    Reflect.set(target, propName, value);
+  },
+  deleteProperty(target, propName) {
+    console.log('删 属性:', propName);
+
+    // return delete target[propName];
+    return Reflect.defineProperty(target, propName);
+  }
+});
+
+proxy.name;           // 读 属性: name
+
+proxy.name = '李四';  // 改 属性: name
+
+proxy.age = 18;       // 增 属性: age
+
+delete proxy.age;     // 删 属性: age
+```
