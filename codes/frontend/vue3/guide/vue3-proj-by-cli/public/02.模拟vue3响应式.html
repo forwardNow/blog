@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模拟vue3响应式</title>
+</head>
+<body>
+  <script>
+    const data = {
+      name: '张三',
+    };
+
+    const proxy = new Proxy(data, {
+      get(target, propName) {
+        console.log('读 属性:', propName);
+
+        // return target[propName];
+        return Reflect.get(target, propName);
+      },
+      set(target, propName, value) {
+        if (target.hasOwnProperty(propName)) {
+          console.log('改 属性:', propName);
+        } else {
+          console.log('增 属性:', propName);
+        }
+
+        // target[propName] = value;
+        Reflect.set(target, propName, value);
+      },
+      deleteProperty(target, propName) {
+        console.log('删 属性:', propName);
+
+        // return delete target[propName];
+        return Reflect.defineProperty(target, propName);
+      }
+    });
+
+    proxy.name; // 读 属性: name
+
+    proxy.name = '李四';  // 改 属性: name
+
+    proxy.age = 18; // 增 属性: age
+
+    delete proxy.age; // 删 属性: age
+  </script>
+</body>
+</html>
