@@ -248,12 +248,10 @@ console.log (person.value );
   
   <p><button @click="change">change</button></p>
 </template>
-
 <script>
 import { ref } from 'vue';
 
 export default {
-  name: 'App',
   setup() {
     const name = ref('张三');
     const age = ref(18);
@@ -267,12 +265,62 @@ export default {
       person.value.age = 29;
     }
 
-    return {
-      name,
-      age,
-      person,
-      change,
+    return { name, age, person, change };
+  }
+}
+</script>
+```
+
+### 5.3. reactive 函数
+
+作用: 定义一个对象类型的响应式数据（基本类型不要用它，要用 `ref` 函数）
+
+语法：
+
+```javascript
+// 接收一个对象（或数组），
+// 返回一个代理对象（Proxy的实例对象，简称proxy对象）
+const 代理对象 = reactive(源对象)
+```
+
+说明：
+
+- reactive 定义的响应式数据是“深层次的”。
+- 可直接通过 index 修改数组的元素
+- 内部基于 ES6 的 Proxy 实现，通过代理对象操作源对象内部数据进行操作。
+
+示例：
+
+```html
+<template>
+  <p>姓名：{{ person.name }}</p>
+  <p>年龄：{{ person.age }}</p>
+  <p>爱好：{{ hobby }}</p>
+
+  <p><button @click="change">change</button></p>
+</template>
+
+<script>
+import { reactive } from 'vue';
+
+export default {
+  setup() {
+    const person = reactive({
+      name: '张三',
+      age: 18,
+    });
+
+    // 可直接通过 index 修改数组的元素
+    const hobby = reactive([ '踢球', '打篮球', '打乒乓球' ]);
+
+    function change() {
+      person.name = '李四';
+      person.age = 28;
+
+      hobby[1] = '学习';
     }
+
+    return { person, hobby, change };
   }
 }
 </script>
