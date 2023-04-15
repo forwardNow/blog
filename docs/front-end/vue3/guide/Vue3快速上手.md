@@ -190,3 +190,90 @@ export default {
 }
 </script>
 ```
+
+### 5.2. ref 函数
+
+作用: 定义一个响应式的数据
+
+语法: 
+
+```javascript
+import { ref } from 'vue';
+
+// RefImpl 是 Ref 的实现
+// varName 是 RefImpl 的实例，称 varName 为引用对象（reference对象，简称ref对象）
+// RefImp { value, ..., }
+const varName = ref(initValue)
+```
+
+在 JS 中读写数据：
+
+```javascript
+// 基本类型数据
+const name = ref('张三');
+
+// 对象类型数据
+const person = ref({ name: '李四', age: 18 });
+
+// 通过 defineProperty 的 get 获取到 name 的值
+console.log( name.value );
+
+// Proxy { name, age }，内部使用了 reactive 函数
+console.log (person.value );
+```
+
+在 模板 中读取数据：
+
+```html
+<template>
+  <!-- 不需要加 .value -->
+  <div>{{ name }}</div>
+  <div>{{ person.name }}</div>
+</template>
+```
+
+响应式数据：
+
+- 基本类型的数据：响应式依然是靠 `Object.defineProperty()` 的 `get` 与 `set` 完成的。
+- 对象类型的数据：内部“求助”了 Vue3 中的一个新函数 —— `reactive` 函数。
+
+示例：
+
+```html
+<template>
+  <p>姓名：{{ name }}</p>
+  <p>年龄：{{ age }}</p>
+
+  <p>{{ person.name }} - {{ person.age }}</p>
+  
+  <p><button @click="change">change</button></p>
+</template>
+
+<script>
+import { ref } from 'vue';
+
+export default {
+  name: 'App',
+  setup() {
+    const name = ref('张三');
+    const age = ref(18);
+    const person = ref({ name: '李四', age: 19 })
+
+    function change() {
+      name.value = '张三2';
+      age.value = 28;
+
+      person.value.name = '李四2';
+      person.value.age = 29;
+    }
+
+    return {
+      name,
+      age,
+      person,
+      change,
+    }
+  }
+}
+</script>
+```
