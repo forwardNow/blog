@@ -563,10 +563,12 @@ export default {
       lastName: '三',
     });
 
+    // 简写，只读
     person.fullName = computed(() => {
       return person.firstName + '-' + person.lastName;
     });
 
+    // 完整，读写
     person.editableFullName = computed({
       get() {
         return person.firstName + '-' + person.lastName;
@@ -581,3 +583,16 @@ export default {
 }
 </script>
 ```
+
+### 5.8. watch 函数
+
+与 Vue2 中 watch 配置功能一致
+
+两个小“坑”：
+
+- 监视 reactive 定义的响应式数据时：oldValue 无法正确获取、强制开启了深度监视（deep配置失效）。
+- 监视 reactive 定义的响应式数据中某个属性时：deep 配置有效。
+
+示例：
+
+<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-06-watch/App.vue
