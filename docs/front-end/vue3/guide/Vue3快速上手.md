@@ -665,3 +665,40 @@ App.vue:
 usePoint.js:
 
 <<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-08-hooks/hooks/usePoint.js
+
+### 5.12. toRef & toRefs
+
+#### 5.12.1. toRef
+
+作用：创建一个 ref 对象，其 value 值指向另一个对象中的某个属性。
+
+应用: 要将响应式对象中的某个属性单独提供给外部使用时。
+
+语法：
+
+```javascript
+const person = reactive({ name: 'zs', age: 18 });
+
+// ObjectRefImpl { ..., value }, value 指向 student.name
+const name = toRef(student, 'name');
+```
+
+示例：
+
+<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-09-ref/ToRefTest.vue
+
+
+#### 5.12.2. toRefs
+
+作用：将对象的第一层属性转为 ref 对象
+
+语法：
+
+```javascript
+// {name: ObjectRefImpl, age: ObjectRefImpl}
+const studentRefs = toRefs(student);
+```
+
+示例：
+
+<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-09-ref/ToRefsTest.vue
