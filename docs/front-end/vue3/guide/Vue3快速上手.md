@@ -629,7 +629,7 @@ watchEffect 有点像 computed：
 | beforeUpdate | beforeUpdate | onBeforeUpdate() |
 | updated | updated | onUpdated() |
 | **beforeDestroy** | **beforeUnmount** | onBeforeUnmount() |
-| **destroy** | **unmounted** | onUnmounted() |
+| **destroyed** | **unmounted** | onUnmounted() |
 
 注意：
 
@@ -637,3 +637,31 @@ watchEffect 有点像 computed：
   - ```beforeDestroy``` 改名为 ```beforeUnmount```
   - ```destroyed``` 改名为  ```unmounted```
 * vue3 中的组合式钩子函数比配置项先执行
+
+### 5.11. 自定义 hook 函数
+
+什么是 hook ？—— 本质是一个函数，把 setup 函数中使用的 Composition API 进行了封装 。
+
+类似于 vue2 中的 mixin 。
+
+自定义 hook 的优势: 复用代码, 让 setup 中的逻辑更清楚易懂 。
+
+#### 5.11.1. 示例
+
+目录结构：
+
+```text
+proj/
+  src/
+    hooks/
+      usePoint.js
+    App.vue
+```
+
+App.vue:
+
+<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-08-hooks/App.vue
+
+usePoint.js:
+
+<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-08-hooks/hooks/usePoint.js
