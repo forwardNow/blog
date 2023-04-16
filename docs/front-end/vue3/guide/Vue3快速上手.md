@@ -596,3 +596,18 @@ export default {
 示例：
 
 <<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-06-watch/App.vue
+
+### 5.9. watchEffect 函数
+
+watch 的套路是：既要指明监视的属性，也要指明监视的回调。
+
+watchEffect 的套路是：不用指明监视哪个属性，监视的回调中用到哪个属性，那就监视哪个属性。
+
+watchEffect 有点像 computed：
+
+- 但 computed 注重的计算出来的值（回调函数的返回值），所以必须要写返回值。
+- 而 watchEffect 更注重的是过程（回调函数的函数体），所以不用写返回值。
+
+示例:
+
+<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-07-watchEffect/App.vue

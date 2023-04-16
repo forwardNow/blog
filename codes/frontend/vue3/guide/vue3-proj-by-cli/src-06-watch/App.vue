@@ -71,7 +71,7 @@ export default {
     // 监视 reactive 对象
     watch(
       dog,
-      // oldValue 无效
+      // oldValue 无效，其值与 newValue 一样
       (newValue, oldValue) => {
         console.log('dog', newValue, oldValue);
       }
