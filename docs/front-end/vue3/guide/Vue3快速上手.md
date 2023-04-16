@@ -633,6 +633,7 @@ watchEffect 有点像 computed：
 
 注意：
 
-* Vue3 中可以继续使用 Vue2 中的生命周期钩子，但有有两个被更名：
+* vue3 中可以继续使用 vue2 中的生命周期钩子，但有有两个被更名：
   - ```beforeDestroy``` 改名为 ```beforeUnmount```
   - ```destroyed``` 改名为  ```unmounted```
+* vue3 中的组合式钩子函数比配置项先执行
