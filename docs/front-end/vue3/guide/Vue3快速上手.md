@@ -611,3 +611,28 @@ watchEffect 有点像 computed：
 示例:
 
 <<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-07-watchEffect/App.vue
+
+### 5.10. 生命周期
+
+图示：
+
+![lifecycle-v2-v3.png](./images/lifecycle-v2-v3.png)
+
+对比图：
+
+| vue2 钩子配置项 | vue3 钩子配置项 | vue3 组合式API |
+| - | - | - |
+| beforeCreate | beforeCreate | **setup()** |
+| created | created | **setup()** |
+| beforeMount | beforeMount | onBeforeMount() |
+| mounted | mounted | onMounted() |
+| beforeUpdate | beforeUpdate | onBeforeUpdate() |
+| updated | updated | onUpdated() |
+| **beforeDestroy** | **beforeUnmount** | onBeforeUnmount() |
+| **destroy** | **unmounted** | onUnmounted() |
+
+注意：
+
+* Vue3 中可以继续使用 Vue2 中的生命周期钩子，但有有两个被更名：
+  - ```beforeDestroy``` 改名为 ```beforeUnmount```
+  - ```destroyed``` 改名为  ```unmounted```
