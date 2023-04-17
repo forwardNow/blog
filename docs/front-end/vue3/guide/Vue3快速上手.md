@@ -854,3 +854,30 @@ setup() {
     }
     ```
 
+### 6.6. 响应式数据的判断
+
+```javascript
+import { 
+  ref, 
+  reactive, 
+  readonly, 
+
+  isRef,      // 是否为一个 ref 对象
+  isReactive, // 是否是由 `reactive` 创建的响应式代理
+  isReadonly, // 是否是由 `readonly` 创建的只读代理
+  isProxy     // 是否是由 `reactive` 或者 `readonly` 方法创建的代理
+} from 'vue';
+
+export default {
+  setup() {
+    const numRef = ref(0);
+    const personReactive = reactive({});
+    const personReadonly = readonly(personReactive)
+    
+    console.log(isRef(numRef)); // true
+    console.log(isReactive(personReactive)) // true
+    console.log(isReadonly(personReadonly)) // true
+    console.log(isProxy(personReactive)) // true
+  }
+}
+```
