@@ -820,3 +820,37 @@ setup() {
 实现防抖效果：
 
 <<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-10-customRef/App.vue
+
+### 6.5. provide 与 inject
+
+图示：
+
+![provide-inject](./images/provide-inject.png)
+
+作用：实现 祖与后代 组件间通信
+
+套路：组组件有一个 `provide` 选项来提供数据，后代组件有一个 `inject` 选项来开始使用这些数据
+
+写法：
+
+1. 祖组件中：
+
+    ```javascript
+    setup(){
+      let car = reactive({ name:'奔驰', price:'40万' });
+      // 提供数据
+      provide('car',car);
+      // ...
+    }
+    ```
+
+2. 后代组件中：
+
+    ```javascript
+    setup(props,context){
+      // 使用数据
+      const car = inject('car');
+      // ...
+    }
+    ```
+
