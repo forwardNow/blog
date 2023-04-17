@@ -993,3 +993,85 @@ export default {
 }
 </script>
 ```
+
+## 9. 其他
+
+### 9.1. 全局 API 的转移
+
+vue2 有许多全局 API 和配置，如：
+
+```javascript
+// 1. 添加全局过滤器
+Vue.filter(/* .... */)
+
+// 2. 添加全局指令
+Vue.directive(/* .... */)
+
+// 3. 配置全局混入(合)
+Vue.mixin(/* .... */)
+
+// 4. 配置全局组件
+Vue.component(/* ... */);
+```
+
+::: v-pre
+vue3 中对这些API做出了调整：（将 `Vue.xxx` 转移到 `app` 上了）
+
+| 2.x 全局 API（```Vue```） | 3.x 实例 API (`app`)                        |
+| ------------------------- | ------------------------------------------- |
+| Vue.config.xxxx           | app.config.xxxx                             |
+| Vue.config.productionTip  | 移除                                        |
+| Vue.component             | app.component                               |
+| Vue.directive             | app.directive                               |
+| Vue.mixin                 | app.mixin                                   |
+| Vue.use                   | app.use                                     |
+| Vue.prototype             | app.config.globalProperties                 |
+:::
+
+### 9.2. 其他改变
+
+* data 选项应始终被声明为一个函数
+
+* 过度类名的更改：
+
+  * vue2:
+
+    ```css
+    .v-enter,
+    .v-leave-to { /*  */ }
+
+    .v-leave,
+    .v-enter-to { /*  */ }
+    ```
+  * vue3:
+  
+    ```css
+    .v-enter-from,
+    .v-leave-to { /*  */ }
+
+    .v-leave-from,
+    .v-enter-to { /*  */ }
+    ```
+
+* 移除 keyCode 作为 v-on 的修饰符，也不再支持 `config.keyCodes`
+
+* 移除 `v-on.native` 修饰符：
+
+  - 父组件中绑定事件
+
+    ```html
+    <my-component
+      v-on:close="handleComponentEvent"
+      v-on:click="handleNativeClickEvent"
+    />
+    ```
+
+  - 子组件中声明自定义事件，未声明的 `click` 就是原生事件
+
+    ```javascript
+    export default {
+      emits: ['close']
+    }
+    ```
+
+* 移除 过滤器（filter）
