@@ -791,7 +791,6 @@ setup() {
 }
 ```
 
-
 #### 6.3.2. markRaw
 
 作用：标记一个对象，使其永远不会再成为响应式对象。
@@ -813,3 +812,11 @@ setup() {
   person.car = markRaw({ name: '比亚迪', price: 15 });
 }
 ```
+
+### 6.4. customRef
+
+作用：创建一个自定义的 ref，并对其依赖项跟踪和更新触发进行显式控制。
+
+实现防抖效果：
+
+<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-10-customRef/App.vue
