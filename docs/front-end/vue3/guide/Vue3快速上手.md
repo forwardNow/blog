@@ -702,3 +702,29 @@ const studentRefs = toRefs(student);
 示例：
 
 <<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-09-ref/ToRefsTest.vue
+
+## 6. 其它 Composition API
+
+### 6.1. shallowReactive 与 shallowRef
+
+shallowReactive: 只处理对象最外层属性的响应式（浅响应式）。
+
+shallowRef: 只处理基本数据类型的响应式, 不进行对象的响应式处理。
+
+示例：
+
+```javascript
+import {shallowReactive, shallowRef} from 'vue';
+
+setup() {
+  // person.school.name 不是响应式的
+  const person = shallowReactive({
+    name: '张三',
+    age: 18,
+    school: { name: '第一中学' }
+  });
+
+  // student.name 不是响应式的
+  const student = shallowRef({ name: 'zs' });
+}
+```
