@@ -906,7 +906,7 @@ export default {
 
 好处: 减少标签层级, 减小内存占用
 
-### 8.2. teleport (传送)
+### 8.2. teleport (移动)
 
 作用：`<teleport>` 将包裹的 HTML 元素移动到（append）指定位置
 
@@ -937,4 +937,59 @@ interface TeleportProps {
     <h3>我是一个弹窗</h3>
   </div>
 </teleport>
+```
+
+### 8.3. suspense
+
+作用：等待异步组件时渲染一些额外内容，让应用有更好的用户体验
+
+Demo.vue：（setup 是异步）
+
+```html
+<template>
+  <div>我是 Demo 组件</div>
+</template>
+<script>
+export default {
+  setup() {
+    const res = {};
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(res);
+      }, 2000);
+    });
+  }
+}
+</script>
+```
+
+App.vue:
+
+```html
+<template>
+  <div class="app">
+    我是 App 组件
+    <suspense>
+      <template #default>
+        <Demo />
+      </template>
+      <!-- 后备内容 -->
+      <template #fallback>
+        <div>
+          loading demo......
+        </div>
+      </template>
+    </suspense>
+  </div>
+</template>
+<script>
+import { defineAsyncComponent } from 'vue';
+
+// 定义一个异步组件
+const Demo = defineAsyncComponent(() => import('./Demo.vue'));
+
+export default {
+  components: { Demo },
+}
+</script>
 ```
