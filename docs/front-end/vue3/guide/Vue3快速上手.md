@@ -728,3 +728,37 @@ setup() {
   const student = shallowRef({ name: 'zs' });
 }
 ```
+
+### 6.2. readonly 与 shallowReadonly
+
+readonly: 让一个响应式数据变为只读的（深只读）。
+
+shallowReadonly：让一个响应式数据变为只读的（浅只读）。
+
+应用场景: 不希望数据被修改时。比如别的组件传过来的数据，你可以使用 readonly 将其保护起来，避免无意间被修改。
+
+示例：
+
+```javascript
+import { reactive, ref, readonly, shallowReadonly } from 'vue';
+
+setup() {
+  const num = ref(0);
+  const person = reactive({
+    name: '张三',
+    school: { name: '第一中学' }
+  });
+
+  // 所有属性都不允许修改
+  const readonlyPerson = readonly(person);
+
+  // 第一层属性不允许修改，
+  // shallowReadonlyPerson.school       不能修改
+  // shallowReadonlyPerson.school.name  可以修改
+  const shallowReadonlyPerson = shallowReadonly(person);
+
+  // 都不允许修改
+  const readonlyNum = readonly(num);
+  const shallowReadonlyNum = shallowReadonly(num);
+}
+```
