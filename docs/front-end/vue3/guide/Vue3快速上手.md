@@ -762,3 +762,54 @@ setup() {
   const shallowReadonlyNum = shallowReadonly(num);
 }
 ```
+
+### 6.3. toRaw 与 markRaw
+
+#### 6.3.1. toRaw
+
+作用：将一个由 `reactive` 生成的响应式对象转为普通对象。
+
+使用场景：用于读取响应式对象对应的普通对象，对这个普通对象的所有操作，不会引起页面更新。
+
+示例：
+
+```javascript
+import { reactive, toRaw } from 'vue';
+
+setup() {
+  // 原始数据
+  const data = {
+    loginName: 'root',
+    password: '123456',
+  };
+
+  // 将原始数据变为响应式数据
+  const reactiveData = reactive(data); // Proxy {...}
+
+  // 将响应式数据变为原始数据
+  const originData = toRaw(reactiveData); // {...}
+}
+```
+
+
+#### 6.3.2. markRaw
+
+作用：标记一个对象，使其永远不会再成为响应式对象。
+
+应用场景:
+
+1. 有些值不应被设置为响应式的，例如复杂的第三方类库等。
+2. 当渲染具有不可变数据源的大列表时，跳过响应式转换可以提高性能。
+
+示例：
+
+```javascript
+import { reactive, markRaw } from 'vue';
+
+setup() {
+  const person = reactive({ name: '张三' });
+
+  // 无论怎么修改 person.car 的属性都不会引起页面更新
+  person.car = markRaw({ name: '比亚迪', price: 15 });
+}
+```
