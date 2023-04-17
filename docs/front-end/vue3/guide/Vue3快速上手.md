@@ -898,10 +898,43 @@ export default {
 
 ## 8. 新的组件
 
-### 8.1. Fragment
+### 8.1. fragment
 
 在 vue2 中，组件必须有一个根标签
 
-在 vue3 中，组件可以没有根标签，内部会将多个标签包含在一个 Fragment 虚拟元素中
+在 vue3 中，组件可以没有根标签，内部会将多个标签包含在一个 `<fragment>` 虚拟元素中
 
 好处: 减少标签层级, 减小内存占用
+
+### 8.2. teleport (传送)
+
+作用：`<teleport>` 将包裹的 HTML 元素移动到（append）指定位置
+
+props:
+
+```typescript
+interface TeleportProps {
+  /**
+   * 必填项。指定目标容器。
+   * 可以是选择器或实际元素。
+   */
+  to: string | HTMLElement
+  /**
+   * 当值为 `true` 时，内容将保留在其原始位置
+   * 而不是移动到目标容器中。
+   * 可以动态更改。
+   */
+  disabled?: boolean
+}
+```
+
+示例：
+
+```html
+<teleport to="body">
+  <!-- append dialog to body -->
+  <div class="dialog">
+    <h3>我是一个弹窗</h3>
+  </div>
+</teleport>
+```
