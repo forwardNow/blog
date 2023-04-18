@@ -83,7 +83,8 @@ async function pushGithubIo() {
 }
 
 function execCommand(command, options = {}) {
-  console.log(`start executing command: ${command}`);
+  console.log(`~~~~~~~~~~~~ [ ${command} ] start executing ~~~~~~~~`);
+  console.log(`\n\n`);
 
   return new Promise((resolve, reject) => {
     exec(command, options, (error, stdout, stderr) => {
@@ -91,6 +92,7 @@ function execCommand(command, options = {}) {
           console.error(`~~~~~~~~~~~~ [ ${command} ] error start ~~~~~~~~~~~~`);
           console.error(error.message);
           console.error(`~~~~~~~~~~~~ [ ${command} ] error end ~~~~~~~~~~~~~~`);
+          console.log(`\n\n`);
           reject(error);
           return;
         }
@@ -99,12 +101,14 @@ function execCommand(command, options = {}) {
           console.warn(`~~~~~~~~~~~~ [ ${command} ] stderr start ~~~~~~~~~~~~`);
           console.warn(stderr);
           console.warn(`~~~~~~~~~~~~ [ ${command} ] stderr end ~~~~~~~~~~~~~~`);
+          console.log(`\n\n`);
         }
         
         if (stdout) {
           console.log(`~~~~~~~~~~~~ [ ${command} ] stdout start ~~~~~~~~~~~~`);
           console.log(stdout);
           console.log(`~~~~~~~~~~~~ [ ${command} ] stdout end ~~~~~~~~~~~~~~`);
+          console.log(`\n\n`);
         }
 
         resolve(stdout);
