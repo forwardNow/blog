@@ -93,13 +93,14 @@ function execCommand(command, options = {}) {
           return;
         }
         if (stderr) {
-          reject(new Error(stderr));
-          console.log(`[ ${command} ] stderr: ${stderr}`);
-          return;
+          console.error(`[ ${command} ] stderr: ${stderr}`);
+        }
+        
+        if (stdout) {
+          console.log(`[ ${command} ] stdout: ${stdout}`);
         }
 
         resolve(stdout);
-        console.log(`[ ${command} ] stdout: ${stdout}`);
       }, 
     );
   });
