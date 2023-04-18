@@ -10,9 +10,9 @@
 
 ### 2.1. 性能的提升
 
-- 打包大小减少41%
-- 初次渲染快55%, 更新渲染快133%
-- 内存减少54%
+- 打包大小减少 41%
+- 初次渲染快 55%, 更新渲染快 133%
+- 内存减少 54%
 - ......
 
 ### 2.2. 源码的升级
@@ -28,10 +28,10 @@ Vue3 可以更好的支持 TypeScript
 ### 2.4. 新的特性
 
 1. Composition API（组合API）
-   - setup配置
-   - ref与reactive
-   - watch与watchEffect
-   - provide与inject
+   - setup 配置
+   - ref 与 reactive
+   - watch 与 watchEffect
+   - provide 与 inject
    - ......
 
 2. 新的内置组件
@@ -86,7 +86,7 @@ vite官网：[https://vitejs.cn](https://vitejs.cn)
 - 轻量快速的热重载（HMR）。
 - 真正的按需编译，不再等待整个应用编译完成。
 
-传统构建 与 vite构建对比图：
+传统构建 与 vite 构建对比图：
 
 * ![bundle-based-dev-server](./images/bundle-based-dev-server.svg)
 
@@ -466,7 +466,7 @@ delete proxy.age;     // 删 属性: age
 
 setup 执行的时机:
 
-* 在 beforeCreate 之前执行一次，this 是 undefined 。
+* 在 beforeCreate 之前执行 且只执行一次，this 是 undefined 。
 
 vue2 中的 $attrs 和 $slots:
 
@@ -815,7 +815,7 @@ setup() {
 
 ### 6.4. customRef
 
-作用：创建一个自定义的 ref，并对其依赖项跟踪和更新触发进行显式控制。
+作用：创建一个自定义的 ref，并对其**依赖项跟踪**和**更新触发**进行显式控制。
 
 实现防抖效果：
 
@@ -829,7 +829,7 @@ setup() {
 
 作用：实现 祖与后代 组件间通信
 
-套路：组组件有一个 `provide` 选项来提供数据，后代组件有一个 `inject` 选项来开始使用这些数据
+套路：祖组件有一个 `provide` 选项来提供数据，后代组件有一个 `inject` 选项来使用这些数据
 
 写法：
 
