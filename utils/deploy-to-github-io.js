@@ -83,38 +83,42 @@ async function pushGithubIo() {
 }
 
 function execCommand(command, options = {}) {
-  console.log(`~~~~~~~~~~~~ [ ${command} ] start executing ~~~~~~~~`);
+  console.log(`~~~~~~~~~~~~ [ ${command} ] start executing ~~~~~~~~~`);
   console.log(`\n\n`);
 
   return new Promise((resolve, reject) => {
     exec(command, options, (error, stdout, stderr) => {
         if (error) {
-          console.error(`~~~~~~~~~~~~ [ ${command} ] error start ~~~~~~~~~~~~`);
-          console.error(error.message);
-          console.error(`~~~~~~~~~~~~ [ ${command} ] error end ~~~~~~~~~~~~~~`);
-          console.log(`\n\n`);
+          formatLog(command, error.message, 'error');
           reject(error);
           return;
         }
 
         if (stderr) {
-          console.warn(`~~~~~~~~~~~~ [ ${command} ] stderr start ~~~~~~~~~~~~`);
-          console.warn(stderr);
-          console.warn(`~~~~~~~~~~~~ [ ${command} ] stderr end ~~~~~~~~~~~~~~`);
-          console.log(`\n\n`);
+          formatLog(command, stderr, 'warn');
         }
         
         if (stdout) {
-          console.log(`~~~~~~~~~~~~ [ ${command} ] stdout start ~~~~~~~~~~~~`);
-          console.log(stdout);
-          console.log(`~~~~~~~~~~~~ [ ${command} ] stdout end ~~~~~~~~~~~~~~`);
-          console.log(`\n\n`);
+          formatLog(command, stdout, 'log');
         }
 
         resolve(stdout);
       }, 
     );
   });
+}
+
+function formatLog(command, output, level = 'log') {
+  const log = console[level];
+
+  const prefix = '~'.repeat(10);
+  const suffix = '~'.repeat(10);
+  const time = moment().format('YYYY-MM-DD HH:mm:ss');
+  const formattedLevel = (level + ' '.repeat(5)).substring(0, 5);
+
+  log(`\n${prefix}[${formattedLevel}] [${time}] [${command}] start ${suffix}\n`);
+  log(output);
+  log(`\n${prefix}[${formattedLevel}] [${time}] [${command}] end   ${suffix}\n`);
 }
 
 //-- 
