@@ -83,42 +83,49 @@ async function pushGithubIo() {
 }
 
 function execCommand(command, options = {}) {
-  console.log(`~~~~~~~~~~~~ [ ${command} ] start executing ~~~~~~~~~`);
-  console.log(`\n\n`);
+  printFormattedLog(command, 'executing begin', 'log');
 
   return new Promise((resolve, reject) => {
     exec(command, options, (error, stdout, stderr) => {
         if (error) {
-          formatLog(command, error.message, 'error');
+          printFormattedLog(command, 'error begin', 'error');
+          console.error(error.message);
+          printFormattedLog(command, 'error end', 'error');
           reject(error);
           return;
         }
 
         if (stderr) {
-          formatLog(command, stderr, 'warn');
+          printFormattedLog(command, 'stderr begin', 'warn');
+          console.warn(stderr);
+          printFormattedLog(command, 'stderr end', 'warn');
         }
         
         if (stdout) {
-          formatLog(command, stdout, 'log');
+          printFormattedLog(command, 'stdout begin', 'log');
+          console.log(stdout);
+          printFormattedLog(command, 'stdout end', 'log');
         }
 
         resolve(stdout);
       }, 
     );
+  }).finally(() => {
+    printFormattedLog(command, 'executing end', 'log');
   });
 }
 
-function formatLog(command, output, level = 'log') {
+function printFormattedLog(command, message, level = 'log') {
   const log = console[level];
 
-  const prefix = '~'.repeat(10);
-  const suffix = '~'.repeat(10);
-  const time = moment().format('YYYY-MM-DD HH:mm:ss');
-  const formattedLevel = (level + ' '.repeat(5)).substring(0, 5);
+  const time = getNowTime();
 
-  log(`\n${prefix}[${formattedLevel}] [${time}] [${command}] start ${suffix}\n`);
-  log(output);
-  log(`\n${prefix}[${formattedLevel}] [${time}] [${command}] end   ${suffix}\n`);
+  log(`\n[${level}] [${time}] [${command}] ${message} \n`);
+}
+
+function getNowTime() {
+  const time = moment().format('YYYY-MM-DD HH:mm:ss');
+  return time;
 }
 
 //-- 
