@@ -11,3 +11,4 @@ import './fonts/iconfont.css';
 
 console.log( sum(1, 2, 3) );
 console.log( subtract(10, 9) );
+console.log(1 == '2')
