@@ -1,0 +1,93 @@
+{
+  "id": "2999507",
+  "name": "crm",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7215994",
+      "name": "客户管理",
+      "font_class": "kehuguanli",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "4237318",
+      "name": "无数据1",
+      "font_class": "wushuju",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "8286865",
+      "name": "菜单管理",
+      "font_class": "caidanguanli",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "6439443",
+      "name": "申请",
+      "font_class": "shenqing",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "26526329",
+      "name": "费用管理",
+      "font_class": "fee",
+      "unicode": "ea99",
+      "unicode_decimal": 60057
+    },
+    {
+      "icon_id": "996208",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "11536193",
+      "name": "基础信息管理_line",
+      "font_class": "basic-information_line",
+      "unicode": "e728",
+      "unicode_decimal": 59176
+    },
+    {
+      "icon_id": "20342413",
+      "name": "个人信息",
+      "font_class": "gerenxinxi",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "16350233",
+      "name": "对",
+      "font_class": "dui",
+      "unicode": "e715",
+      "unicode_decimal": 59157
+    },
+    {
+      "icon_id": "12593436",
+      "name": "refresh",
+      "font_class": "refresh",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "11741016",
+      "name": "arrow_down",
+      "font_class": "arrow_down",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "3522455",
+      "name": "目录",
+      "font_class": "mulu",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    }
+  ]
+}
