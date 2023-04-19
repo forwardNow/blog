@@ -120,7 +120,7 @@ function printFormattedLog(command, message, level = 'log') {
 
   const time = getNowTime();
 
-  log(`\n[${level}] [${time}] [${command}] ${message} \n`);
+  log(`\n[${time}] [${level}] [${command}] ${message} \n`);
 }
 
 function getNowTime() {
