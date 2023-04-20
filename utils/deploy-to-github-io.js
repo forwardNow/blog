@@ -2,6 +2,9 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require("child_process");
 const moment = require('moment');
+const chalkModule = import('chalk');
+
+let chalk = null;
 
 const BLOG_PATH = path.resolve(__dirname, '../');
 const GITHUB_IO_PATH = path.resolve(BLOG_PATH, '../forwardNow.github.io');
@@ -82,51 +85,58 @@ async function pushGithubIo() {
   await execCommand('git push', { cwd: GITHUB_IO_PATH });
 }
 
-function execCommand(command, options = {}) {
-  printFormattedLog(command, 'executing begin', 'log');
+const Log = {
+  info(message) {
+    this.log(message);
+  },
+  warn(message) {
+    this.log(message, 'warn');
+  },
+  error(message) {
+    this.log(message, 'error');
+  },
+  log(message, level = 'info') {
+    const time = moment().format('YYYY-MM-DD HH:mm:ss');
+
+    const colour = ({
+      info: chalk.blueBright,
+      warn: chalk.yellow,
+      error: chalk.red,
+    })[level];
+
+    console.log(colour(`\n[${time}] [${level}] ${message}\n`));
+  }
+};
+
+async function execCommand(command, options = {}) {
+  chalk = await chalkModule.then(({ default: chalk }) => chalk);
+
+  Log.info(`[${command}] start executing`);
 
   return new Promise((resolve, reject) => {
     exec(command, options, (error, stdout, stderr) => {
         if (error) {
-          printFormattedLog(command, 'error begin', 'error');
-          console.error(error.message);
-          printFormattedLog(command, 'error end', 'error');
+          Log.error(`[${command}] error:\n${error.message}`);
           reject(error);
           return;
         }
 
         if (stderr) {
-          printFormattedLog(command, 'stderr begin', 'warn');
-          console.warn(stderr);
-          printFormattedLog(command, 'stderr end', 'warn');
+          Log.error(`[${command}] stderr:\n${stderr}`);
         }
         
         if (stdout) {
-          printFormattedLog(command, 'stdout begin', 'log');
-          console.log(stdout);
-          printFormattedLog(command, 'stdout end', 'log');
+          Log.error(`[${command}] stdout:\n${stdout}`);
         }
 
         resolve(stdout);
       }, 
     );
   }).finally(() => {
-    printFormattedLog(command, 'executing end', 'log');
+    Log.info(`[${command}] finish executing`);
   });
 }
 
-function printFormattedLog(command, message, level = 'log') {
-  const log = console[level];
-
-  const time = getNowTime();
-
-  log(`\n[${time}] [${level}] [${command}] ${message} \n`);
-}
-
-function getNowTime() {
-  const time = moment().format('YYYY-MM-DD HH:mm:ss');
-  return time;
-}
 
 //-- 
 
