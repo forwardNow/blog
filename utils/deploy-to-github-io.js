@@ -98,7 +98,7 @@ const Log = {
     const time = moment().format('YYYY-MM-DD HH:mm:ss');
 
     const colour = ({
-      info: chalk.blueBright,
+      info: chalk.white,
       warn: chalk.yellow,
       error: chalk.red,
     })[level];
