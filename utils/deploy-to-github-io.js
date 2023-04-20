@@ -2,9 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require("child_process");
 const moment = require('moment');
-const chalkModule = import('chalk');
-
-let chalk = null;
 
 const BLOG_PATH = path.resolve(__dirname, '../');
 const GITHUB_IO_PATH = path.resolve(BLOG_PATH, '../forwardNow.github.io');
@@ -85,6 +82,8 @@ async function pushGithubIo() {
   await execCommand('git push', { cwd: GITHUB_IO_PATH });
 }
 
+let chalk;
+
 const Log = {
   info(message) {
     this.log(message);
@@ -109,7 +108,7 @@ const Log = {
 };
 
 async function execCommand(command, options = {}) {
-  chalk = await chalkModule.then(({ default: chalk }) => chalk);
+  ({ default: chalk } = await import('chalk'));
 
   Log.info(`[${command}] start executing`);
 
