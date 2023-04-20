@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@vuepress/plugin-medium-zoom": "^1.9.5",
+    "chalk": "^5.2.0",
     "vuepress": "1.9.2",
     "vuepress-plugin-smooth-scroll": "0.0.10"
   }
