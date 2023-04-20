@@ -104,7 +104,7 @@ const Log = {
       error: chalk.red,
     })[level];
 
-    console.log(colour(`\n[${time}] [${level}] ${message}\n`));
+    console.log(colour(`[${time}] [${level}] ${message}`));
   }
 };
 
@@ -122,11 +122,11 @@ async function execCommand(command, options = {}) {
         }
 
         if (stderr) {
-          Log.error(`[${command}] stderr:\n${stderr}`);
+          Log.warn(`[${command}] stderr:\n${stderr}`);
         }
         
         if (stdout) {
-          Log.error(`[${command}] stdout:\n${stdout}`);
+          Log.info(`[${command}] stdout:\n${stdout}`);
         }
 
         resolve(stdout);
