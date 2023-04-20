@@ -6,6 +6,8 @@
 }
 .box-1 {
   background-color: pink;
+  transition: all;
+  user-select: none;
 }
 
 .loading {
