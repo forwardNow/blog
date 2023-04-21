@@ -27,6 +27,8 @@ const getStyleLoaders = (preProcessor) => {
 module.exports = {
   mode: 'production',
 
+  devtool: 'source-map',
+
   entry: path.resolve(ROOT_PATH, './src/main.js'),
   
   output: {

@@ -7,6 +7,8 @@ const ROOT_PATH = path.join(__dirname, '../');
 module.exports = {
   mode: 'development',
 
+  devtool: 'cheap-module-source-map',
+
   devServer: {
     host: 'localhost',
     port: '3000',
