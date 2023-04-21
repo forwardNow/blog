@@ -2,5 +2,5 @@
 
 cd /w/dev/blog/utils
 
-start node deploy-to-github-io.js
+start node deploy-to-github-io.js &
 
