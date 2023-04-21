@@ -82,9 +82,9 @@ async function pushGithubIo() {
   await execCommand('git push', { cwd: GITHUB_IO_PATH });
 }
 
-let chalk;
-
 const Log = {
+  chalk: null,
+
   info(message) {
     this.log(message);
   },
@@ -98,9 +98,11 @@ const Log = {
     const time = moment().format('YYYY-MM-DD HH:mm:ss');
 
     const colour = ({
-      info: chalk.white,
-      warn: chalk.yellow,
-      error: chalk.red,
+      info: this.chalk.white,
+      warn: this.chalk.yellow,
+      error: this.chalk.red,
+
+      green: this.chalk.green,
     })[level];
 
     console.log(colour(`[${time}] [${level}] ${message}`));
@@ -108,7 +110,7 @@ const Log = {
 };
 
 async function execCommand(command, options = {}) {
-  ({ default: chalk } = await import('chalk'));
+  ({ default: Log.chalk } = await import('chalk'));
 
   Log.info(`[${command}] start executing`);
 
@@ -138,5 +140,10 @@ async function execCommand(command, options = {}) {
 
 
 //-- 
+const start = Date.now();
 
-run();
+run()
+  .finally(() => {
+    const deltaSeconds = (Date.now() - start) / 1000;
+    Log.log(`[execution time] ${deltaSeconds} seconds`, 'green');
+  });
