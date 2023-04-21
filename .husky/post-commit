@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd /w/dev/blog
+cd /w/dev/blog/utils
 
-# npm run deploy
-start
+start node deploy-to-github-io.js
