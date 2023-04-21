@@ -40,32 +40,36 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-      { test: /\.css$/, use: getStyleLoaders() },
-      { test: /\.less$/, use: getStyleLoaders('less-loader') },
-      { test: /\.s[ac]ss$/, use: getStyleLoaders('sass-loader') },
-      { test: /\.styl$/, use: getStyleLoaders('stylus-loader') },
-      {
-        test: /\.(png|jpe?g|gif|webp|svg)$/,
-        type: 'asset',
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024
-          }
-        },
-        generator: {
-          filename: 'static/imgs/[hash:8][ext][query]',
-        },
-      },
-      {
-        test: /\.(ttf|woff2?|mp4|mp3|avi)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'static/media/[hash:8][ext][query]',
-        },
+        oneOf: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+          },
+          { test: /\.css$/, use: getStyleLoaders() },
+          { test: /\.less$/, use: getStyleLoaders('less-loader') },
+          { test: /\.s[ac]ss$/, use: getStyleLoaders('sass-loader') },
+          { test: /\.styl$/, use: getStyleLoaders('stylus-loader') },
+          {
+            test: /\.(png|jpe?g|gif|webp|svg)$/,
+            type: 'asset',
+            parser: {
+              dataUrlCondition: {
+                maxSize: 10 * 1024
+              }
+            },
+            generator: {
+              filename: 'static/imgs/[hash:8][ext][query]',
+            },
+          },
+          {
+            test: /\.(ttf|woff2?|mp4|mp3|avi)$/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'static/media/[hash:8][ext][query]',
+            },
+          },
+        ]
       },
     ],
   },
