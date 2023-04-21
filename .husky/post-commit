@@ -3,4 +3,5 @@
 
 cd /w/dev/blog
 
-npm run deploy
+# npm run deploy
+start
