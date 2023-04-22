@@ -20,6 +20,7 @@ body
 
 .page
   padding-left $sidebarWidth
+  padding-right $sidebarWidth
 
 .navbar
   position fixed
@@ -115,31 +116,32 @@ h1, h2, h3, h4, h5, h6
   line-height 1.25
 
   {$contentClass}:not(.custom) > &
-    margin-top (0.5rem - $navbarHeight)
-    padding-top ($navbarHeight + 1rem)
-    margin-bottom 0
+    margin-top: 1em;
+    margin-bottom: 1em;
 
     &:first-child
-      margin-top -1.5rem
       margin-bottom 1rem
 
       + p, + pre, + .custom-block
         margin-top 2rem
 
-  &:focus .header-anchor,
-  &:hover .header-anchor
-    opacity: 1
-
 h1
-  font-size 2.2rem
+  font-size 1.6em
+h2
+  font-size 1.4em
+h3
+  font-size 1.3em
+h4
+  font-size 1.2em
+h5
+  font-size 1.1em
+h6
+  font-size 1.0em
+
 
 h2
-  font-size 1.65rem
-  padding-bottom .3rem
+  padding-bottom 0.5em
   border-bottom 1px solid $borderColor
-
-h3
-  font-size 1.35rem
 
 a.header-anchor
   font-size 0.85em
@@ -159,6 +161,7 @@ code, kbd, .line-number
 
 p, ul, ol
   line-height 1.7
+
 
 hr
   border 0
