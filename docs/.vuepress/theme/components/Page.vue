@@ -3,7 +3,8 @@
     <slot name="top" />
 
     <Content class="theme-default-content" />
-    <PageEdit />
+
+    <PageEdit v-if="false" />
 
     <PageNav v-bind="{ sidebarItems }" />
 
