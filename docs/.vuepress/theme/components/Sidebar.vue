@@ -281,8 +281,6 @@ async function setSidebarExpandedGroupsByPaths(sidebarVm, expendedGroupPaths) {
 </script>
 
 <style lang="stylus">
-@require '../styles/vars';
-
 .sidebar
   ul
     padding 0

@@ -127,8 +127,6 @@ function renderExternal (h, to, text) {
 </script>
 
 <style lang="stylus">
-@require '../styles/vars';
-
 .sidebar .sidebar-sub-headers
   padding-left 1rem
   font-size 14px

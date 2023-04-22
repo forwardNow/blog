@@ -133,8 +133,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../styles/vars';
-
 .dropdown-wrapper
   cursor pointer
   .dropdown-title

@@ -93,8 +93,6 @@ function css (el, property) {
 </script>
 
 <style lang="stylus">
-@require '../styles/vars';
-
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 20px
 

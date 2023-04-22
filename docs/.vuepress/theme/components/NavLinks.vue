@@ -123,8 +123,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../styles/vars';
-
 .nav-links
   display inline-block
   a

@@ -90,8 +90,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../styles/vars';
-
 .home
   padding $navbarHeight 2rem 0
   max-width $homePageWidth

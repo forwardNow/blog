@@ -20,8 +20,6 @@
 </template>
 
 <style lang="stylus">
-@require '../styles/vars';
-
 .sidebar-button
   cursor pointer
   display none

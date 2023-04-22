@@ -146,7 +146,6 @@ function flatten (items, res) {
 </script>
 
 <style lang="stylus">
-@require '../styles/vars.styl'
 @require '../styles/wrapper.styl'
 
 .page-nav
