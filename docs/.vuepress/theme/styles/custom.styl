@@ -146,18 +146,37 @@
 
 .navbar
   .search-box
+    margin-right 8px
+    box-sizing border-box
+
     input
+      left: 1rem;
       border-radius 3px
       &::-webkit-input-placeholder
         color: #ccc
 
-.table-of-contents
-  display block
-.toc
-  display none
-
-@media screen and (min-width: 1450px)
-  .table-of-contents
-    display none
-  .toc
-    display block
+    input
+      position relative
+      padding: 0 0 0 2rem;
+      width 0
+      border-color transparent
+      cursor pointer
+      background-position 0.6rem center
+      box-sizing border-box
+      &:focus
+        left 0
+        width 12rem
+        cursor text
+  .home-link
+    display inline-flex
+    align-items center
+    height 'calc(%s - 1px)' % $navbarHeight
+    .logo
+      margin-right 6px
+      height 24px
+      min-width auto
+      vertical-align unset
+    .site-name
+      margin-top -4px
+      height 24px
+      line-height 24px

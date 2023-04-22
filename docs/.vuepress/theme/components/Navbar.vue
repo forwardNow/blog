@@ -93,7 +93,7 @@ function css (el, property) {
 </script>
 
 <style lang="stylus">
-$navbar-vertical-padding = 0.7rem
+$navbar-vertical-padding = 0
 $navbar-horizontal-padding = 20px
 
 .navbar
@@ -118,7 +118,7 @@ $navbar-horizontal-padding = 20px
     font-size 0.9rem
     position absolute
     right $navbar-horizontal-padding
-    top $navbar-vertical-padding
+    top 4px
     display flex
     .search-box
       flex: 0 0 auto
