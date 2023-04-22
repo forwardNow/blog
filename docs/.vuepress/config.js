@@ -67,18 +67,6 @@ module.exports = {
   },
 
   plugins: [
-    [
-      '@vuepress/last-updated',
-      {
-        transformer: (timestamp, lang) => {
-          moment.locale(lang);
-          const lastUpdateTime = moment(timestamp);
-          const fromNow = lastUpdateTime.fromNow();
-          const date = lastUpdateTime.format('YYYY-MM-DD HH:mm:ss')
-          return `${date} ( ${fromNow} )`;
-        }
-      }
-    ],
     '@vuepress/plugin-nprogress',
     'vuepress-plugin-smooth-scroll',
   ]
