@@ -58,7 +58,8 @@ body
 {$contentClass}:not(.custom)
   @extend $wrapper
   > *:first-child
-    margin-top $navbarHeight
+    //margin-top $navbarHeight
+    margin-top -1rem
 
   a:hover
     color lighten($accentColor, 30%)
@@ -115,6 +116,10 @@ strong
 h1, h2, h3, h4, h5, h6
   font-weight 500
   line-height 1.25
+
+  &:focus .header-anchor,
+  &:hover .header-anchor
+    opacity: 1
 
   {$contentClass}:not(.custom) > &
     //margin-top: 1em;
