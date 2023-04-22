@@ -6,9 +6,9 @@
     <p class="inner">
       <span
         v-if="prev"
-        class="prev"
+        class="page-nav-item prev"
       >
-        ←
+        <span>上一篇:</span>
         <a
           v-if="prev.type === 'external'"
           class="prev"
@@ -32,8 +32,9 @@
 
       <span
         v-if="next"
-        class="next"
+        class="page-nav-item next"
       >
+        <span>下一篇:</span>
         <a
           v-if="next.type === 'external'"
           :href="next.path"
@@ -51,7 +52,6 @@
         >
           {{ next.title || next.path }}
         </RouterLink>
-        →
       </span>
     </p>
   </div>
@@ -150,14 +150,21 @@ function flatten (items, res) {
 
 .page-nav
   @extend $wrapper
-  padding-top 1rem
-  padding-bottom 0
+  padding-top 32px
+  padding-bottom 180px
+  font-size 14px
   .inner
-    min-height 2rem
-    margin-top 0
+    padding-top 16px
     border-top 1px solid $borderColor
-    padding-top 1rem
-    overflow auto // clear float
-  .next
-    float right
+  .page-nav-item
+    display flex
+    align-items center
+    line-height 2
+    span
+      color: #888
+    a
+      margin-left 8px
+      &:hover
+        color lighten($accentColor, 30%)
+        text-decoration underline
 </style>
