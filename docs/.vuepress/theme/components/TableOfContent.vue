@@ -57,17 +57,17 @@ export default {
   },
   methods: {
     handleScroll() {
-      const id = this.getFirstHeaderId();
+      const firstHeaderId = this.getFirstHeaderId();
 
-      if (!id) {
+      if (!firstHeaderId) {
         return;
       }
 
-      const tocLink = this.getTocLinkByHeaderId(id);
+      const tocLink = this.getTocLinkByHeaderId(firstHeaderId);
 
       this.scrollToCenterOfParent(tocLink);
 
-      this.activeId = id;
+      this.activeId = firstHeaderId;
     },
 
     getFirstHeaderId() {
@@ -111,21 +111,21 @@ export default {
     },
 
     getFirstHeaderInViewport() {
-      const titleElements = this.getHeaderElements();
-      let topTitleElt = null;
+      const headerElements = this.getHeaderElements();
+      let topHeaderElement = null;
 
-      for (let i = 0, len = titleElements.length; i < len; i++) {
-        const elt = titleElements[i];
+      for (let i = 0, len = headerElements.length; i < len; i++) {
+        const headerElement = headerElements[i];
 
-        const topInViewport = elt.getBoundingClientRect().top;
+        const topInViewport = headerElement.getBoundingClientRect().top;
 
         if (topInViewport > 0 && topInViewport < 40) {
-          topTitleElt = elt;
+          topHeaderElement = headerElement;
           break;
         }
       }
 
-      return topTitleElt;
+      return topHeaderElement;
     },
 
     getHeaderElements() {
