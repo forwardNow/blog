@@ -106,12 +106,12 @@ function buildMenus(filePaths) {
       return;
     }
 
+    menus.push(menu);
+
     if (isDirectory(filePath)) {
       const childFilePaths = getFilePathsOfDir(filePath);
       menu.children = buildMenus(childFilePaths);
     }
-
-    menus.push(menu);
   });
 
   return menus;
@@ -163,14 +163,19 @@ function isDirectory(filePath) {
 
 function getFilePathsOfDir(dirPath) {
   const filenames = fs.readdirSync(dirPath, { encoding: 'utf8' })
-  sortFilenames(filenames);
+  sortFilenames(filenames, dirPath);
   return filenames.map((filename) => path.join(dirPath, filename))
 }
 
-function sortFilenames(filenames) {
+function sortFilenames(filenames, dirPath) {
+  sortFilenamesByNum(filenames);
+  sortFilenamesByDir(filenames, dirPath);
+}
+
+function sortFilenamesByNum(filenames) {
   const regex = /[a-zA-Z]*([0-9]+)\./;
 
-  const getNum = (filename) => {
+  const getNumFromFilename = (filename) => {
     const results = regex.exec(filename);
 
     if (!results) {
@@ -181,14 +186,37 @@ function sortFilenames(filenames) {
   };
 
   filenames.sort((name1, name2) => {
-    const num1 = getNum(name1);
-    const num2 = getNum(name2);
+    const num1 = getNumFromFilename(name1);
+    const num2 = getNumFromFilename(name2);
 
-    if (!getNum(name1)) {
+    if (!num1) {
       return 0;
     }
 
     return num1 - num2;
+  });
+}
+
+function sortFilenamesByDir(filenames, dirPath) {
+  filenames.sort((filename1, filename2) => {
+    const isDirOfFile1 = isDirectory(path.join(dirPath, filename1));
+    const isDirOfFile2 = isDirectory(path.join(dirPath, filename2));
+
+    if (isDirOfFile1 && isDirOfFile2) {
+      return 0;
+    }
+
+    if (!isDirOfFile1 && !isDirOfFile2) {
+      return 0;
+    }
+
+    if (isDirOfFile1) {
+      return -1;
+    }
+
+    if (isDirOfFile2) {
+      return 1
+    }
   });
 }
 
@@ -199,4 +227,4 @@ function getDocPath(filePath) {
   return docPath;
 }
 
-// console.log(JSON.stringify(buildMenus(ROOTS), null, 4));
+console.log(JSON.stringify(buildMenus(ROOTS), null, 4));
