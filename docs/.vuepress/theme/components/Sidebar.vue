@@ -2,9 +2,9 @@
   <aside class="sidebar">
 
     <ActionIconGroup>
-      <ActionIcon @click.native="handleClickLocate"><IconLocate /></ActionIcon>
-      <ActionIcon @click.native="handleClickExpandAll"><IconExpandAll /></ActionIcon>
-      <ActionIcon @click.native="handleClickCollapseAll"><IconCollapseAll /></ActionIcon>
+      <ActionIcon @click.native="handleClickLocate" title="Select Opened File"><IconLocate /></ActionIcon>
+      <ActionIcon @click.native="handleClickExpandAll" title="Expand All"><IconExpandAll /></ActionIcon>
+      <ActionIcon @click.native="handleClickCollapseAll" title="Collapse All"><IconCollapseAll /></ActionIcon>
     </ActionIconGroup>
 
     <NavLinks />
