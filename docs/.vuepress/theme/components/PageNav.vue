@@ -9,25 +9,16 @@
         class="page-nav-item prev"
       >
         <span>上一篇:</span>
-        <a
-          v-if="prev.type === 'external'"
-          class="prev"
-          :href="prev.path"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Breadcrumb
+          :titles="getTitles(this.prev)"
         >
-          {{ prev.title || prev.path }}
-
-          <OutboundLink />
-        </a>
-
-        <RouterLink
-          v-else
-          class="prev"
-          :to="prev.path"
-        >
-          {{ prev.title || prev.path }}
-        </RouterLink>
+          <RouterLink
+            class="prev"
+            :to="prev.path"
+          >
+            {{ this.prev.title }}
+          </RouterLink>
+        </Breadcrumb>
       </span>
 
       <span
@@ -35,23 +26,15 @@
         class="page-nav-item next"
       >
         <span>下一篇:</span>
-        <a
-          v-if="next.type === 'external'"
-          :href="next.path"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Breadcrumb
+          :titles="getTitles(this.next)"
         >
-          {{ next.title || next.path }}
-
-          <OutboundLink />
-        </a>
-
-        <RouterLink
-          v-else
-          :to="next.path"
-        >
-          {{ next.title || next.path }}
-        </RouterLink>
+          <RouterLink
+            :to="next.path"
+          >
+            {{ this.next.title }}
+          </RouterLink>
+        </Breadcrumb>
       </span>
     </p>
   </div>
@@ -61,11 +44,14 @@
 import { resolvePage } from '../util'
 import isString from 'lodash/isString'
 import isNil from 'lodash/isNil'
+import Breadcrumb from "./Breadcrumb.vue";
 
 export default {
   name: 'PageNav',
 
   props: ['sidebarItems'],
+
+  components: { Breadcrumb },
 
   computed: {
     prev () {
@@ -74,8 +60,23 @@ export default {
 
     next () {
       return resolvePageLink(LINK_TYPES.NEXT, this)
+    },
+  },
+
+  methods: {
+    getTitles(item) {
+      return item.relativePath.split('/').slice(0, -1)
     }
   }
+}
+
+function getTitle(path) {
+  const index = path.lastIndexOf('.md');
+  if (index === -1) {
+    return path;
+  }
+
+  return path.substring(0, index);
 }
 
 function resolvePrev (page, items) {
@@ -160,10 +161,10 @@ function flatten (items, res) {
     display flex
     align-items center
     line-height 2
-    span
+    > span
       color: #888
+      margin-right 8px
     a
-      margin-left 8px
       &:hover
         color lighten($accentColor, 30%)
         text-decoration underline

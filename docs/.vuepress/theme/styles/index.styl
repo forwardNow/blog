@@ -20,7 +20,7 @@ body
 
 .page
   padding-left $sidebarWidth
-  padding-right $sidebarWidth
+  padding-right $tocWidth
 
 .navbar
   position fixed
@@ -117,8 +117,10 @@ h1, h2, h3, h4, h5, h6
   line-height 1.25
 
   {$contentClass}:not(.custom) > &
-    margin-top: 1em;
-    margin-bottom: 1em;
+    //margin-top: 1em;
+    //margin-bottom: 1em;
+    margin-top (0.5rem - $navbarHeight)
+    padding-top ($navbarHeight + 1rem)
 
     &:first-child
       margin-bottom 1rem

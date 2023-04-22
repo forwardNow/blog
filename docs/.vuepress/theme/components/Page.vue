@@ -8,6 +8,8 @@
 
     <PageNav v-bind="{ sidebarItems }" />
 
+    <TableOfContent />
+
     <slot name="bottom" />
   </main>
 </template>
@@ -15,9 +17,10 @@
 <script>
 import PageEdit from './PageEdit.vue'
 import PageNav from './PageNav.vue'
+import TableOfContent from './TableOfContent.vue'
 
 export default {
-  components: { PageEdit, PageNav },
+  components: { PageEdit, PageNav, TableOfContent },
   props: ['sidebarItems']
 }
 </script>
