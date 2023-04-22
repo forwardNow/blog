@@ -40,6 +40,7 @@ module.exports = {
 
   title: 'Blog',
   description: 'Blog',
+
   markdown: {
     lineNumbers: false,
     toc: {
@@ -47,7 +48,14 @@ module.exports = {
     }
   },
   themeConfig: {
+    logo: '/logo.png',
+
+    nav: [
+      // { text: 'GitHub', link: 'https://github.com/forwardNow', target:'_blank' }
+    ],
+
     searchPlaceholder: 'Search',
+
     sidebar: [
       // ['/', '介绍'],
 
