@@ -42,6 +42,9 @@ module.exports = {
   description: 'Blog',
   markdown: {
     lineNumbers: false,
+    toc: {
+      includeLevel: [2, 3]
+    }
   },
   themeConfig: {
     searchPlaceholder: 'Search',
@@ -68,7 +71,7 @@ module.exports = {
 
   plugins: [
     '@vuepress/plugin-nprogress',
-    'vuepress-plugin-smooth-scroll',
+    // 'vuepress-plugin-smooth-scroll',
   ]
 }
 
