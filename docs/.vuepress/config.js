@@ -44,6 +44,7 @@ module.exports = {
     lineNumbers: false,
   },
   themeConfig: {
+    searchPlaceholder: 'Search',
     sidebar: [
       // ['/', '介绍'],
 
