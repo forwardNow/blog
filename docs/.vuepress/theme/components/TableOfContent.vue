@@ -190,7 +190,7 @@ export default {
 .toc
   display none
 
-@media screen and (min-width: 1440px)
+@media screen and (min-width: 1366px)
   .table-of-contents
     display none
   .toc
