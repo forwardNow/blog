@@ -45,6 +45,10 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/,
             loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+            }
           },
           { test: /\.css$/, use: getStyleLoaders() },
           { test: /\.less$/, use: getStyleLoaders('less-loader') },
