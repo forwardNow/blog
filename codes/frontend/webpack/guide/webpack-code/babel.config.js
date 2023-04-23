@@ -9,5 +9,5 @@ module.exports = {
       @babel/preset-flow for Flow
   */
   presets: [ '@babel/preset-env' ],
-  plugins: []
+  plugins: [ '@babel/plugin-transform-runtime' ]
 };

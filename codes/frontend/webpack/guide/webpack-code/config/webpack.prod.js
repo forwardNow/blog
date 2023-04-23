@@ -106,7 +106,6 @@ module.exports = {
       // 指定输出文件名
       filename: 'static/css/main.css',
     }),
-
   ],
 
   optimization: {
