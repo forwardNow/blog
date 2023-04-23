@@ -1,8 +1,13 @@
 const path = require('path');
+const os = require('os');
+
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
+const THREADS = os.cpus().length - 1;
 
 const ROOT_PATH = path.join(__dirname, '../');
 
@@ -44,11 +49,20 @@ module.exports = {
           {
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-              cacheCompression: false,
-            }
+            use: [
+              {
+                loader: 'thread-loader',
+                options: { workers: THREADS },
+              },
+              {
+                loader: 'babel-loader',
+                options: {
+                  cacheDirectory: true,
+                  cacheCompression: false,
+                }
+              }
+            ],
+            
           },
           { test: /\.css$/, use: getStyleLoaders() },
           { test: /\.less$/, use: getStyleLoaders('less-loader') },
@@ -81,6 +95,7 @@ module.exports = {
   plugins: [
     new ESLintWebpackPlugin({
       context: path.resolve(ROOT_PATH, './src'),
+      threads: THREADS,
     }),
 
     new HtmlWebpackPlugin({
@@ -92,6 +107,15 @@ module.exports = {
       filename: 'static/css/main.css',
     }),
 
-    new CssMinimizerPlugin(),
   ],
+
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+
+      new TerserPlugin({
+        parallel: THREADS,
+      }),
+    ],
+  },
 };
