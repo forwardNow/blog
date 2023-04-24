@@ -2,10 +2,15 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: #161B29;
 }
 .fn-loading .fn-box {
-  animation: fn-keyframe-box 2s 15s ease;
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #161B29;
 }
 .fn-loading .fn-box-inner {
   animation: fn-keyframe-box-inner 2s ease;
@@ -24,7 +29,7 @@
 }
 .fn-loading .fn-progress {
   position: absolute;
-  left: 0;
+  left: -0.8vw;
   right: 0;
   top: 0;
   bottom: 0;
@@ -175,7 +180,7 @@
     left: -4vw;
   }
   100% {
-    left: 0;
+    left: -0.8vw;
   }
 }
 @keyframes fn-keyframe-box-inner {
@@ -184,14 +189,6 @@
   }
   to {
     opacity: 1;
-  }
-}
-@keyframes fn-keyframe-box {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
 /*# sourceMappingURL=loading.css.map */
