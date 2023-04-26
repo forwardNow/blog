@@ -9,7 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
 
-const THREADS = os.cpus().length - 1;
+const THREADS = 1; // os.cpus().length - 1;
 
 const ROOT_PATH = path.join(__dirname, '../');
 
@@ -42,7 +42,7 @@ module.exports = {
     path: path.resolve(ROOT_PATH, './dist'),
     filename: 'static/js/main.js',
     chunkFilename: 'static/js/[name].js',
-    assetModuleFilename: 'static/media/[hash:8][ext][query]',
+    assetModuleFilename: 'static/media/[name].[hash:8][ext][query]',
     clean: true,
   },
 
