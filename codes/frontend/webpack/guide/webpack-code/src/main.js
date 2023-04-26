@@ -8,7 +8,6 @@ import './style/4.scss';
 import './style/5.styl';
 
 import './fonts/iconfont.css';
-import division from './js/division';
 
 console.log( sum(1, 2, 3) );
 console.log( subtract(10, 9) );

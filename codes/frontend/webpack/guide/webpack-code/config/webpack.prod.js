@@ -40,9 +40,9 @@ module.exports = {
 
   output: {
     path: path.resolve(ROOT_PATH, './dist'),
-    filename: 'static/js/main.js',
-    chunkFilename: 'static/js/[name].js',
-    assetModuleFilename: 'static/media/[name].[hash:8][ext][query]',
+    filename: 'static/js/[name].[contenthash:8].js',
+    chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
+    assetModuleFilename: 'static/media/[name].[hash][ext]',
     clean: true,
   },
 
@@ -108,7 +108,8 @@ module.exports = {
 
     new MiniCssExtractPlugin({
       // 指定输出文件名
-      filename: 'static/css/main.css',
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
     }),
 
     new PreloadWebpackPlugin({
@@ -152,5 +153,9 @@ module.exports = {
         },
       }),
     ],
+
+    runtimeChunk: {
+      name: (entrypoint) => `runtime~${entrypoint.name}`,
+    },
   },
 };
