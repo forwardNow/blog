@@ -41,6 +41,7 @@ module.exports = {
     path: path.resolve(ROOT_PATH, './dist'),
     filename: 'static/js/main.js',
     chunkFilename: 'static/js/[name].js',
+    assetModuleFilename: 'static/media/[hash:8][ext][query]',
     clean: true,
   },
 
@@ -78,16 +79,16 @@ module.exports = {
                 maxSize: 10 * 1024
               }
             },
-            generator: {
-              filename: 'static/imgs/[hash:8][ext][query]',
-            },
+            // generator: {
+            //   filename: 'static/imgs/[hash:8][ext][query]',
+            // },
           },
           {
             test: /\.(ttf|woff2?|mp4|mp3|avi)$/,
             type: 'asset/resource',
-            generator: {
-              filename: 'static/media/[hash:8][ext][query]',
-            },
+            // generator: {
+            //   filename: 'static/media/[hash:8][ext][query]',
+            // },
           },
         ]
       },
