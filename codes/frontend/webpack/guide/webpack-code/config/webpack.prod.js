@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
 
 const THREADS = os.cpus().length - 1;
 
@@ -108,6 +109,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       // 指定输出文件名
       filename: 'static/css/main.css',
+    }),
+
+    new PreloadWebpackPlugin({
+      rel: 'prefetch',
     }),
   ],
 
