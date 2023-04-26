@@ -19,6 +19,9 @@ console.log('xxxx')
 //   module.hot.accept('./js/sum');
 // }
 
-import('./js/division').then(({default: divide}) => {
+import(
+  /* webpackChunkName: "division" */
+  './js/division'
+).then(({default: divide}) => {
   console.log(divide(4, 2));
 })

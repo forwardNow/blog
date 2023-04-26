@@ -36,10 +36,11 @@ module.exports = {
   devtool: 'source-map',
 
   entry: path.resolve(ROOT_PATH, './src/main.js'),
-  
+
   output: {
     path: path.resolve(ROOT_PATH, './dist'),
-    filename: 'static/js/main.js', 
+    filename: 'static/js/main.js',
+    chunkFilename: 'static/js/[name].js',
     clean: true,
   },
 
@@ -63,7 +64,7 @@ module.exports = {
                 }
               }
             ],
-            
+
           },
           { test: /\.css$/, use: getStyleLoaders() },
           { test: /\.less$/, use: getStyleLoaders('less-loader') },
@@ -92,7 +93,7 @@ module.exports = {
       },
     ],
   },
-  
+
   plugins: [
     new ESLintWebpackPlugin({
       context: path.resolve(ROOT_PATH, './src'),
