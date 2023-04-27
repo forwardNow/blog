@@ -9,10 +9,13 @@ module.exports = {
       @babel/preset-flow for Flow
   */
   presets: [
-    [
-      '@babel/preset-env',
-      { useBuiltIns: 'usage', corejs: { version: '3', proposals: true } },
-    ]
+    ['@babel/preset-env', {
+      useBuiltIns: 'usage',
+      corejs: {
+        version: '3',
+        proposals: true
+      }
+    }]
   ],
   plugins: [ '@babel/plugin-transform-runtime' ]
 };
