@@ -8,6 +8,11 @@ module.exports = {
       @babel/preset-react for React
       @babel/preset-flow for Flow
   */
-  presets: [ '@babel/preset-env' ],
+  presets: [
+    [
+      '@babel/preset-env',
+      { useBuiltIns: 'usage', corejs: { version: '3', proposals: true } },
+    ]
+  ],
   plugins: [ '@babel/plugin-transform-runtime' ]
 };

@@ -24,3 +24,13 @@ import(
 ).then(({default: divide}) => {
   console.log(divide(4, 2));
 })
+
+const promise = Promise.resolve();
+promise.then(() => {
+  console.log("hello promise");
+});
+
+class Student {
+}
+
+new Student();
