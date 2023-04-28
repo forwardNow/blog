@@ -824,7 +824,24 @@ proj/
 
 App.vue:
 
-<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-08-hooks/App.vue
+```html
+<!--vue3-proj-by-cli/src-08-hooks/App.vue-->
+<template>
+  <h1>鼠标点击位置：{{ `(${point.x}, ${point.y})` }}</h1>
+</template>
+
+<script>
+import usePoint from './hooks/usePoint';
+
+export default {
+  setup() {
+    const point = usePoint();
+    
+    return { point };
+  }
+}
+</script>
+```
 
 usePoint.js:
 
