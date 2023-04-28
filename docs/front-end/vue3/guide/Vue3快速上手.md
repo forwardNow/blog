@@ -845,7 +845,30 @@ export default {
 
 usePoint.js:
 
-<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-08-hooks/hooks/usePoint.js
+```javascript
+/*vue3-proj-by-cli/src-08-hooks/hooks/usePoint.js*/
+import { reactive, onMounted, onBeforeUnmount } from 'vue';
+
+export default function usePoint() {
+  const point = reactive({ x: 0, y: 0 });
+
+  const listener = (event) => {
+    const { pageX, pageY } = event;
+    point.x = pageX;
+    point.y = pageY;
+  };
+
+  onMounted(() => {
+    window.addEventListener('click', listener);
+  });
+  
+  onBeforeUnmount(() => {
+    window.removeEventListener('click', listener);
+  });
+
+  return point;
+}
+```
 
 ### 5.12. toRef & toRefs
 
@@ -866,7 +889,43 @@ const name = toRef(student, 'name');
 
 示例：
 
-<<< @/codes/frontend/vue3/guide/vue3-proj-by-cli/src-09-ref/ToRefTest.vue
+```html
+<!--vue3-proj-by-cli/src-09-ref/ToRefTest.vue-->
+<template>
+  <p>{{ student }}</p>
+  <p>{{ name }} - {{ age }} - {{ classesTotal }}</p>
+  <p>
+    <button @click="age++">age+1</button>
+    <button @click="classesTotal++">total+1</button>
+  </p>
+</template>
+
+<script>
+import { reactive, toRef } from 'vue';
+
+export default {
+  setup() {
+    const student = reactive({
+      name: '张三',
+      age: 18,
+      school: {
+        classes: {
+          total: 10
+        }
+      }
+    });
+
+    // ObjectRefImpl { ..., value }, value 指向 student.name
+    const name = toRef(student, 'name');
+
+    const age = toRef(student, 'age');
+    const classesTotal = toRef(student.school.classes, 'total');
+
+    return { student, name, age, classesTotal };
+  }
+}
+</script>
+```
 
 
 #### 5.12.2. toRefs
