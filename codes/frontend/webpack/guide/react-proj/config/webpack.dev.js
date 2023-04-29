@@ -1,5 +1,7 @@
 const path = require("path");
 
+const ESLintWebpackPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const getStyleLoaders = (preProcessor) => {
   return [
     'style-loader',
@@ -73,5 +75,15 @@ module.exports = {
         ]
       },
     ]
-  }
+  },
+
+  plugins: [
+    new ESLintWebpackPlugin({
+      context: path.resolve('../src'),
+    }),
+
+    new HtmlWebpackPlugin({
+      template: path.resolve('../public/index.html'),
+    }),
+  ]
 };
