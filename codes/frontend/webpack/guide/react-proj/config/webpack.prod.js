@@ -33,7 +33,7 @@ module.exports = {
   entry: path.resolve(__dirname, '../src/main.js'),
 
   output: {
-    path: path.resolve('../dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'static/js/[name].[contenthash:8].js',
     chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
     assetModuleFilename: 'static/media/[name].[hash][ext][query]',
