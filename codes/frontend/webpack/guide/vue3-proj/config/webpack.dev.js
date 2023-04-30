@@ -49,11 +49,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
         oneOf: [
-          {
-            test: /\.vue$/,
-            loader: 'vue-loader'
-          },
           {
             test: /\.js$/,
             exclude: /node_modules/,
