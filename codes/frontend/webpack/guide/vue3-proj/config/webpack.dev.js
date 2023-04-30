@@ -1,5 +1,6 @@
 const path = require("path");
 
+const { DefinePlugin } = require("webpack");
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
@@ -99,6 +100,12 @@ module.exports = {
     }),
 
     new VueLoaderPlugin(),
+
+    new DefinePlugin({
+      // 解决 vue3 页面警告的问题
+      __VUE_OPTIONS_API__: true,    // 选项式 API
+      __VUE_PROD_DEVTOOLS__: false, // 生产环境是否启用 devtools
+    }),
   ],
 
   optimization: {
