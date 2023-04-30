@@ -7,7 +7,6 @@
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js",
-
     "_dev": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
     "_build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js"
   },
@@ -48,6 +47,7 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
+    "antd": "^4.24.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.0"

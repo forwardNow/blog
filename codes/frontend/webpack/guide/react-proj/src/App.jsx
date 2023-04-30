@@ -1,5 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import {Link, Routes, Route} from 'react-router-dom';
+import { Button } from 'antd'
+import 'antd/dist/antd.less';
 
 import Home from './pages/home';
 // import About from './pages/about';
@@ -10,6 +12,7 @@ function App() {
   return (
     <div>
       <h1>App</h1>
+      <div><Button type="primary">按钮</Button></div>
       <ul>
         <li>
           <Link to="/home">Home</Link>
