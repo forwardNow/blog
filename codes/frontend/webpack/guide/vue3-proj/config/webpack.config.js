@@ -1,19 +1,21 @@
-const path = require('path');
+const path = require("path");
 
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+
+const { DefinePlugin } = require("webpack");
+const { VueLoaderPlugin } = require('vue-loader');
 
 const isProd = process.env.NODE_ENV === 'production';
 
 const getStyleLoaders = (preProcessor) => {
   return [
-    isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+    isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader',
     'css-loader',
     {
       loader: 'postcss-loader',
@@ -25,20 +27,7 @@ const getStyleLoaders = (preProcessor) => {
         },
       },
     },
-    preProcessor && {
-      loader: preProcessor,
-      options: preProcessor === 'less-loader' ?
-        {
-          lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
-            modifyVars: {
-              'primary-color': '#1DA57A',
-              'link-color': '#1DA57A',
-              'border-radius-base': '2px',
-            },
-            javascriptEnabled: true,
-          },
-        } : {}
-    },
+    preProcessor,
   ].filter(Boolean);
 };
 
@@ -65,15 +54,19 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.wasm'],
+    extensions: ['.js', '.vue', '.json', '.wasm'],
   },
 
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
         oneOf: [
           {
-            test: /\.jsx?$/,
+            test: /\.js$/,
             exclude: /node_modules/,
             use: [
               {
@@ -81,17 +74,14 @@ module.exports = {
                 options: {
                   cacheDirectory: true,
                   cacheCompression: false,
-                  plugins: [
-                    !isProd && 'react-refresh/babel'
-                  ].filter(Boolean),
                 }
               }
             ],
           },
-          {test: /\.css$/, use: getStyleLoaders()},
-          {test: /\.less$/, use: getStyleLoaders('less-loader')},
-          {test: /\.s[ac]ss$/, use: getStyleLoaders('sass-loader')},
-          {test: /\.styl$/, use: getStyleLoaders('stylus-loader')},
+          { test: /\.css$/, use: getStyleLoaders() },
+          { test: /\.less$/, use: getStyleLoaders('less-loader') },
+          { test: /\.s[ac]ss$/, use: getStyleLoaders('sass-loader') },
+          { test: /\.styl$/, use: getStyleLoaders('stylus-loader') },
           {
             test: /\.(png|jpe?g|gif|webp|svg)$/,
             type: 'asset',
@@ -111,8 +101,6 @@ module.exports = {
   },
 
   plugins: [
-    !isProd && new ReactRefreshWebpackPlugin(),
-
     new ESLintWebpackPlugin({
       context: path.resolve(__dirname, '../src'),
     }),
@@ -141,42 +129,24 @@ module.exports = {
       ],
     }),
 
-  ].filter(Boolean),
+    new VueLoaderPlugin(),
 
-  // 关闭性能分析，提升打包速度
-  // performance: false,
+    new DefinePlugin({
+      // 解决 vue3 页面警告的问题
+      __VUE_OPTIONS_API__: true,    // 选项式 API
+      __VUE_PROD_DEVTOOLS__: false, // 生产环境是否启用 devtools
+    }),
+  ].filter(Boolean),
 
   optimization: {
     splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        // react react-dom react-router-dom
-        react: {
-          test: /[\\/]node_modules[\\/]react(.*)?[\\/]/,
-          name: "lib-react",
-          priority: 40,
-        },
-        // antd
-        antd: {
-          test: /[\\/]node_modules[\\/]antd[\\/]/,
-          name: "lib-antd",
-          priority: 30,
-        },
-        // others
-        libs: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "lib-others",
-          priority: 20,
-        },
-      },
+      chunks: "all",
     },
     runtimeChunk: {
       name: (entrypoint) => `runtime~${entrypoint.name}.js`,
     },
 
-    // 控制是否要进行压缩
     minimize: isProd,
-
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin(),
@@ -185,28 +155,15 @@ module.exports = {
           implementation: ImageMinimizerPlugin.imageminGenerate,
           options: {
             plugins: [
-              ['gifsicle', {interlaced: true}],
-              ['jpegtran', {progressive: true}],
-              ['optipng', {optimizationLevel: 5}],
-              [
-                'svgo',
-                {
-                  plugins: [
-                    'preset-default',
-                    'prefixIds',
-                    {
-                      name: 'sortAttrs',
-                      params: {
-                        xmlnsOrder: 'alphabetical',
-                      },
-                    },
-                  ],
-                },
-              ],
+              ['gifsicle', { interlaced: true }],
+              ['jpegtran', { progressive: true }],
+              ['optipng', { optimizationLevel: 5 }],
+              ['svgo', { plugins: [ 'preset-default', 'prefixIds', { name: 'sortAttrs', params: { xmlnsOrder: 'alphabetical' } } ] }],
             ],
           },
         },
       }),
+
     ],
   },
 };
