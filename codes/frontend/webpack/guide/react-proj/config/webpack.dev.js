@@ -2,6 +2,8 @@ const path = require("path");
 
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
 const getStyleLoaders = (preProcessor) => {
   return [
     'style-loader',
@@ -56,6 +58,7 @@ module.exports = {
                 options: {
                   cacheDirectory: true,
                   cacheCompression: false,
+                  plugins: [ 'react-refresh/babel' ],
                 }
               }
             ],
@@ -90,5 +93,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
     }),
+
+    new ReactRefreshWebpackPlugin(),
   ]
 };
