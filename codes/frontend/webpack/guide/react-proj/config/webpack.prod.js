@@ -37,7 +37,7 @@ module.exports = {
     filename: 'static/js/[name].[contenthash:8].js',
     chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
     assetModuleFilename: 'static/media/[name].[hash][ext][query]',
-    clear: true,
+    clean: true,
   },
 
   resolve: {
