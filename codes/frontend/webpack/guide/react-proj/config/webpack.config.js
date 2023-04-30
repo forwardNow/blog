@@ -143,6 +143,9 @@ module.exports = {
 
   ].filter(Boolean),
 
+  // 关闭性能分析，提升打包速度
+  // performance: false,
+
   optimization: {
     splitChunks: {
       chunks: 'all',
