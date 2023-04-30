@@ -146,6 +146,26 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      cacheGroups: {
+        // react react-dom react-router-dom
+        react: {
+          test: /[\\/]node_modules[\\/]react(.*)?[\\/]/,
+          name: "lib-react",
+          priority: 40,
+        },
+        // antd
+        antd: {
+          test: /[\\/]node_modules[\\/]antd[\\/]/,
+          name: "lib-antd",
+          priority: 30,
+        },
+        // others
+        libs: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "lib-others",
+          priority: 20,
+        },
+      },
     },
     runtimeChunk: {
       name: (entrypoint) => `runtime~${entrypoint.name}.js`,
