@@ -1,8 +1,9 @@
 const path = require("path");
 
-const { DefinePlugin } = require("webpack");
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const { DefinePlugin } = require("webpack");
 const { VueLoaderPlugin } = require('vue-loader');
 
 const getStyleLoaders = (preProcessor) => {

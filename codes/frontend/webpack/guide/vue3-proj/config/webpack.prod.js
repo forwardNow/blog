@@ -8,6 +8,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
+const { DefinePlugin } = require("webpack");
+const { VueLoaderPlugin } = require('vue-loader');
+
 const getStyleLoaders = (preProcessor) => {
   return [
     MiniCssExtractPlugin.loader,
@@ -41,15 +44,19 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.wasm'],
+    extensions: ['.js', '.vue', '.json', '.wasm'],
   },
 
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
         oneOf: [
           {
-            test: /\.jsx?$/,
+            test: /\.js$/,
             exclude: /node_modules/,
             use: [
               {
@@ -112,6 +119,13 @@ module.exports = {
       ],
     }),
 
+    new VueLoaderPlugin(),
+
+    new DefinePlugin({
+      // 解决 vue3 页面警告的问题
+      __VUE_OPTIONS_API__: true,    // 选项式 API
+      __VUE_PROD_DEVTOOLS__: false, // 生产环境是否启用 devtools
+    }),
   ],
 
   optimization: {
@@ -132,25 +146,12 @@ module.exports = {
               ['gifsicle', { interlaced: true }],
               ['jpegtran', { progressive: true }],
               ['optipng', { optimizationLevel: 5 }],
-              [
-                'svgo',
-                {
-                  plugins: [
-                    'preset-default',
-                    'prefixIds',
-                    {
-                      name: 'sortAttrs',
-                      params: {
-                        xmlnsOrder: 'alphabetical',
-                      },
-                    },
-                  ],
-                },
-              ],
+              ['svgo', { plugins: [ 'preset-default', 'prefixIds', { name: 'sortAttrs', params: { xmlnsOrder: 'alphabetical' } } ] }],
             ],
           },
         },
       }),
+
     ],
   },
 };
