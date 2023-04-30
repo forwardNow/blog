@@ -26,7 +26,8 @@ module.exports = {
   devServer: {
     host: 'localhost',
     port: '3000',
-    open: true, // 自动打开浏览器
+    open: true,
+    hot: true,
   },
 
   entry: path.resolve(__dirname, '../src/main.js'),
@@ -38,12 +39,16 @@ module.exports = {
     assetModuleFilename: 'static/media/[name].[hash][ext][query]',
   },
 
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.wasm'],
+  },
+
   module: {
     rules: [
       {
         oneOf: [
           {
-            test: /\.js$/,
+            test: /\.jsx?$/,
             exclude: /node_modules/,
             use: [
               {
@@ -79,11 +84,11 @@ module.exports = {
 
   plugins: [
     new ESLintWebpackPlugin({
-      context: path.resolve('../src'),
+      context: path.resolve(__dirname, '../src'),
     }),
 
     new HtmlWebpackPlugin({
-      template: path.resolve('../public/index.html'),
+      template: path.resolve(__dirname, '../public/index.html'),
     }),
   ]
 };
