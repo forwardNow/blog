@@ -2,11 +2,14 @@ const path = require("path");
 
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const getStyleLoaders = (preProcessor) => {
   return [
-    'style-loader',
+    MiniCssExtractPlugin.loader,
     'css-loader',
     {
       loader: 'postcss-loader',
@@ -23,15 +26,8 @@ const getStyleLoaders = (preProcessor) => {
 };
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-source-map',
-  devServer: {
-    host: 'localhost',
-    port: '3000',
-    open: true,
-    hot: true,
-    historyApiFallback: true,
-  },
+  mode: 'production',
+  devtool: 'source-map',
 
   entry: path.resolve(__dirname, '../src/main.js'),
 
@@ -40,6 +36,7 @@ module.exports = {
     filename: 'static/js/[name].[contenthash:8].js',
     chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
     assetModuleFilename: 'static/media/[name].[hash][ext][query]',
+    clear: true,
   },
 
   resolve: {
@@ -59,7 +56,6 @@ module.exports = {
                 options: {
                   cacheDirectory: true,
                   cacheCompression: false,
-                  plugins: [ 'react-refresh/babel' ],
                 }
               }
             ],
@@ -95,7 +91,10 @@ module.exports = {
       template: path.resolve(__dirname, '../public/index.html'),
     }),
 
-    new ReactRefreshWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+    }),
   ],
 
   optimization: {
@@ -105,5 +104,36 @@ module.exports = {
     runtimeChunk: {
       name: (entrypoint) => `runtime~${entrypoint.name}.js`,
     },
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin(),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminGenerate,
+          options: {
+            plugins: [
+              ['gifsicle', { interlaced: true }],
+              ['jpegtran', { progressive: true }],
+              ['optipng', { optimizationLevel: 5 }],
+              [
+                'svgo',
+                {
+                  plugins: [
+                    'preset-default',
+                    'prefixIds',
+                    {
+                      name: 'sortAttrs',
+                      params: {
+                        xmlnsOrder: 'alphabetical',
+                      },
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+      }),
+    ],
   },
 };
