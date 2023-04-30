@@ -75,7 +75,10 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: {
+          cacheDirectory: path.resolve(__dirname, "../node_modules/.cache/vue-loader"),
+        },
       },
       {
         oneOf: [
@@ -165,6 +168,23 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: "all",
+      cacheGroups: {
+        vue: {
+          test: /[\\/]node_modules[\\/]vue(.*)?[\\/]/,
+          name: "lib-vue",
+          priority: 40,
+        },
+        elementPlus: {
+          test: /[\\/]node_modules[\\/]element-plus[\\/]/,
+          name: "lib-element-plus",
+          priority: 30,
+        },
+        others: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "lib-others",
+          priority: 20,
+        },
+      },
     },
     runtimeChunk: {
       name: (entrypoint) => `runtime~${entrypoint.name}.js`,

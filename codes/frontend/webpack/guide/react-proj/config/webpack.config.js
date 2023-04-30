@@ -163,7 +163,7 @@ module.exports = {
           name: "lib-antd",
         },
         // others
-        libs: {
+        others: {
           priority: 20,
           test: /[\\/]node_modules[\\/]/,
           name: "lib-others",
