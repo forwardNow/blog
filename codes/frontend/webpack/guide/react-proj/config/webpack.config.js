@@ -152,21 +152,21 @@ module.exports = {
       cacheGroups: {
         // react react-dom react-router-dom
         react: {
+          priority: 40,
           test: /[\\/]node_modules[\\/]react(.*)?[\\/]/,
           name: "lib-react",
-          priority: 40,
         },
         // antd
         antd: {
+          priority: 30,
           test: /[\\/]node_modules[\\/]antd[\\/]/,
           name: "lib-antd",
-          priority: 30,
         },
         // others
         libs: {
+          priority: 20,
           test: /[\\/]node_modules[\\/]/,
           name: "lib-others",
-          priority: 20,
         },
       },
     },
