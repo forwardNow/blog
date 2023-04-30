@@ -11,6 +11,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 const { DefinePlugin } = require("webpack");
 const { VueLoaderPlugin } = require('vue-loader');
 
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
+const ElementPlus = require('unplugin-element-plus/webpack')
+
 const isProd = process.env.NODE_ENV === 'production';
 
 const getStyleLoaders = (preProcessor) => {
@@ -27,7 +32,13 @@ const getStyleLoaders = (preProcessor) => {
         },
       },
     },
-    preProcessor,
+    preProcessor && {
+      loader: preProcessor,
+      options: preProcessor === "sass-loader" ?
+        {
+          additionalData: `@use "@/styles/element/index.scss" as *;`,
+        } : {}
+    },
   ].filter(Boolean);
 };
 
@@ -55,6 +66,9 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.vue', '.json', '.wasm'],
+    alias: {
+      '@': path.resolve(__dirname, '../src'),
+    },
   },
 
   module: {
@@ -135,6 +149,16 @@ module.exports = {
       // 解决 vue3 页面警告的问题
       __VUE_OPTIONS_API__: true,    // 选项式 API
       __VUE_PROD_DEVTOOLS__: false, // 生产环境是否启用 devtools
+    }),
+
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+    ElementPlus({
+      useSource: true,
     }),
   ].filter(Boolean),
 
