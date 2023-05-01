@@ -3,7 +3,7 @@
       <div class="toc__head">本章目录</div>
       <div class="toc__body">
         <a
-          v-for="(item) in headers"
+          v-for="(item) in allHeaders"
           :key="item.slug"
           class="toc__item"
           :class="{ 'toc__item_active': item.slug === activeId }"
@@ -39,7 +39,14 @@ export default {
 
   data() {
     return {
-      activeId: null
+      activeId: null,
+      allHeaders: [
+        // {
+        //   level:2
+        //   slug:"_1-loader"
+        //   title:"1. loader"
+        // }
+      ],
     };
   },
   computed: {
@@ -51,9 +58,12 @@ export default {
     }
   },
   watch: {
-    $route() {
-      this.headerElements = null;
-    },
+    $route: {
+      immediate: true,
+      handler() {
+        this.resetToc();
+      },
+    }
   },
   methods: {
     handleScroll() {
@@ -131,10 +141,48 @@ export default {
     getHeaderElements() {
       if (!this.headerElements) {
         this.headerElements = document
-          .querySelectorAll('.theme-default-content > h2, .theme-default-content > h3')
+          .querySelectorAll(
+            '.theme-default-content > h2' +
+            ', .theme-default-content > h3' +
+            ', .theme-default-content > h4' +
+            ', .theme-default-content > h5' +
+            ''
+          )
       }
       return this.headerElements;
-    }
+    },
+
+    async resetToc() {
+      this.headerElements = null;
+
+      await this.$nextTick();
+
+      const headerElements = this.getHeaderElements();
+
+      /*
+        allHeaders: [
+          // {
+          //   level:2
+          //   slug:"_1-loader"
+          //   title:"1. loader"
+          // }
+        ],
+       */
+      let allHeaders = [];
+
+      for (let i = 0; i < headerElements.length; i++) {
+        const header = headerElements[i];
+        const { tagName, id, textContent} = header;
+
+        const level = parseInt(tagName.toLocaleLowerCase().replace('h', ''));
+        const slug = id;
+        const title = textContent.replace(/^#\s*/, '');
+
+        allHeaders.push({  level, slug, title });
+      }
+
+      this.allHeaders = allHeaders;
+    },
   },
 }
 
