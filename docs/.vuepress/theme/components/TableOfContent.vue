@@ -23,6 +23,8 @@ import throttle from 'lodash.throttle';
 export default {
   name: 'TableOfContent',
   mounted() {
+    this.resetToc();
+
     this.listener = throttle(this.handleScroll, 16);
 
     document.addEventListener('scroll', this.listener);
@@ -59,9 +61,10 @@ export default {
   },
   watch: {
     $route: {
-      immediate: true,
       handler() {
-        this.resetToc();
+        this.$nextTick(() => {
+          this.resetToc();
+        });
       },
     }
   },
@@ -140,22 +143,19 @@ export default {
 
     getHeaderElements() {
       if (!this.headerElements) {
-        this.headerElements = document
-          .querySelectorAll(
+        this.headerElements = document.querySelectorAll(
             '.theme-default-content > h2' +
             ', .theme-default-content > h3' +
             ', .theme-default-content > h4' +
             ', .theme-default-content > h5' +
             ''
-          )
+          );
       }
       return this.headerElements;
     },
 
-    async resetToc() {
+    resetToc() {
       this.headerElements = null;
-
-      await this.$nextTick();
 
       const headerElements = this.getHeaderElements();
 
