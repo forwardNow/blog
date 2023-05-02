@@ -19,7 +19,14 @@ module.exports = {
       //   test: /\.js$/,
       //   use: ['./loaders/03.pitch-loader-1.js', './loaders/03.pitch-loader-2.js', './loaders/03.pitch-loader-3.js']
       // }
-      { test: /\.js$/, loader: './loaders/04.clean-log-loader.js' },
+      // { test: /\.js$/, loader: './loaders/04.clean-log-loader.js' },
+      {
+        test: /\.js$/,
+        loader: './loaders/05.copyright-loader.js',
+        options: {
+          author: '吴钦飞',
+        }
+      },
 
     ],
   },
