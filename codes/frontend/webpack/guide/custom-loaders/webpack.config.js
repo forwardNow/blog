@@ -15,10 +15,12 @@ module.exports = {
       //   test: /\.js$/,
       //   use: ['./loaders/01.sync-loader.js', './loaders/02.async-loader.js']
       // },
-      {
-        test: /\.js$/,
-        use: ['./loaders/03.pitch-loader-1.js', './loaders/03.pitch-loader-2.js', './loaders/03.pitch-loader-3.js']
-      }
+      // {
+      //   test: /\.js$/,
+      //   use: ['./loaders/03.pitch-loader-1.js', './loaders/03.pitch-loader-2.js', './loaders/03.pitch-loader-3.js']
+      // }
+      { test: /\.js$/, loader: './loaders/04.clean-log-loader.js' },
+
     ],
   },
   plugins: [
