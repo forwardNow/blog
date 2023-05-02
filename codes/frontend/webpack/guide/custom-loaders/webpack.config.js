@@ -10,7 +10,11 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.js$/, loader: './loaders/my-first-loader.js' }
+      // { test: /\.js$/, loader: './loaders/my-first-loader.js' }
+      {
+        test: /\.js$/,
+        use: ['./loaders/01.sync-loader.js', './loaders/02.async-loader.js']
+      }
     ],
   },
   plugins: [
