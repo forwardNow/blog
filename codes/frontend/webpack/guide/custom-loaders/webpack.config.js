@@ -41,14 +41,16 @@ module.exports = {
       //   }
       // },
 
-      {
-        test: /\.(png|jpe?g|gif)$/,
-        loader: './loaders/07.file-loader.js',
-        // webpack5 默认会处理 asset 资源，
-        // 组织 Asset Module 处理 asset 资源
-        type: 'javascript/auto',
-      },
-      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
+      // {
+      //   test: /\.(png|jpe?g|gif)$/,
+      //   loader: './loaders/07.file-loader.js',
+      //   // webpack5 默认会处理 asset 资源，
+      //   // 组织 Asset Module 处理 asset 资源
+      //   type: 'javascript/auto',
+      // },
+      // { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
+
+      { test: /\.less$/, use: [ './loaders/08.style-loader.js', 'css-loader', 'less-loader' ] },
     ],
   },
   plugins: [
