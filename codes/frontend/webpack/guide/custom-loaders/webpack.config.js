@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MyFirstPlugin = require('./plugins/01.my-first-plugin');
+const RegHooksPlugin = require('./plugins/02-reg-hooks-plugin');
 
 module.exports = {
   mode: 'development',
@@ -59,6 +60,8 @@ module.exports = {
       template: resolve(__dirname, 'public/index.html'),
     }),
 
-    new MyFirstPlugin(),
+    // new MyFirstPlugin(),
+
+    new RegHooksPlugin(),
   ]
 };
