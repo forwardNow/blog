@@ -1,4 +1,4 @@
-import './css/style.less';
+// import './css/style.less';
 
 console.log('hello, loader!');
 

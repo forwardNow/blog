@@ -1,5 +1,6 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MyFirstPlugin = require('./plugins/01.my-first-plugin');
 
 module.exports = {
   mode: 'development',
@@ -50,12 +51,14 @@ module.exports = {
       // },
       // { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
 
-      { test: /\.less$/, use: [ './loaders/08.style-loader.js', 'css-loader', 'less-loader' ] },
+      // { test: /\.less$/, use: [ './loaders/08.style-loader.js', 'css-loader', 'less-loader' ] },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, 'public/index.html'),
     }),
+
+    new MyFirstPlugin(),
   ]
 };
