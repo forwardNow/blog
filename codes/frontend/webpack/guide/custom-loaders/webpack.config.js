@@ -3,9 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MyFirstPlugin = require('./plugins/01.my-first-plugin');
 const RegHooksPlugin = require('./plugins/02.reg-hooks-plugin');
 const DebugPlugin = require('./plugins/03.debug-plugin');
+const CopyrightPlugin = require('./plugins/04.copyright-plugin');
 
 module.exports = {
-  mode: 'development',
+  // mode: 'development',
+  mode: 'production',
   entry: './src/main.js',
   output: {
     path: resolve(__dirname, './dist'),
@@ -65,6 +67,11 @@ module.exports = {
 
     // new RegHooksPlugin(),
 
-    new DebugPlugin(),
+    // new DebugPlugin(),
+
+    new CopyrightPlugin({
+      author: '吴钦飞',
+      extensions: ['.js', '.css'],
+    }),
   ]
 };
