@@ -4,6 +4,7 @@ const MyFirstPlugin = require('./plugins/01.my-first-plugin');
 const RegHooksPlugin = require('./plugins/02.reg-hooks-plugin');
 const DebugPlugin = require('./plugins/03.debug-plugin');
 const CopyrightPlugin = require('./plugins/04.copyright-plugin');
+const CleanPlugin = require('./plugins/05.clean-plugin');
 
 module.exports = {
   // mode: 'development',
@@ -12,7 +13,7 @@ module.exports = {
   output: {
     path: resolve(__dirname, './dist'),
     filename: 'js/[name].js',
-    clean: true,
+    // clean: true,
   },
   module: {
     rules: [
@@ -69,9 +70,11 @@ module.exports = {
 
     // new DebugPlugin(),
 
-    new CopyrightPlugin({
-      author: '吴钦飞',
-      extensions: ['.js', '.css'],
-    }),
+    // new CopyrightPlugin({
+    //   author: '吴钦飞',
+    //   extensions: ['.js', '.css'],
+    // }),
+
+    new CleanPlugin(),
   ]
 };
