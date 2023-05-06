@@ -5,6 +5,7 @@ const RegHooksPlugin = require('./plugins/02.reg-hooks-plugin');
 const DebugPlugin = require('./plugins/03.debug-plugin');
 const CopyrightPlugin = require('./plugins/04.copyright-plugin');
 const CleanPlugin = require('./plugins/05.clean-plugin');
+const AnalyzePlugin = require('./plugins/06.analyze-plugin');
 
 module.exports = {
   // mode: 'development',
@@ -13,7 +14,7 @@ module.exports = {
   output: {
     path: resolve(__dirname, './dist'),
     filename: 'js/[name].js',
-    // clean: true,
+    clean: true,
   },
   module: {
     rules: [
@@ -75,6 +76,8 @@ module.exports = {
     //   extensions: ['.js', '.css'],
     // }),
 
-    new CleanPlugin(),
+    // new CleanPlugin(),
+
+    new AnalyzePlugin(),
   ]
 };
