@@ -61,7 +61,7 @@ async function update(dates) {
     await execCommand(`echo "${moment}" >> ${FILE_PATH}`, { cwd: STUDY_REPO_PATH });
     await execCommand(`git add -A"`, { cwd: STUDY_REPO_PATH });
     await execCommand(`git commit -am "update all"`, { cwd: STUDY_REPO_PATH });
-    await execCommand(`set GIT_COMMITTER_DATE=${date} && git commit --amend --date="${date}" -m "update""`, { cwd: STUDY_REPO_PATH });
+    await execCommand(`set GIT_COMMITTER_DATE=${date} && git commit --amend --date="${date}" -m "update"`, { cwd: STUDY_REPO_PATH });
 
     count += 1;
 
