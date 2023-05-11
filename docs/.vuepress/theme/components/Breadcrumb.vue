@@ -24,12 +24,12 @@ export default {
 .breadcrumb {
   display: flex;
   align-items: center;
+  flex-flow: wrap;
   color: #888;
 }
 .breadcrumb__item {
   display: flex;
   align-items: center;
-  flex-flow: wrap;
 }
 .breadcrumb-item__title {
 
