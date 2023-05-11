@@ -29,6 +29,7 @@ export default {
 .breadcrumb__item {
   display: flex;
   align-items: center;
+  flex-flow: wrap;
 }
 .breadcrumb-item__title {
 

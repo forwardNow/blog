@@ -159,11 +159,12 @@ function flatten (items, res) {
     border-top 1px solid $borderColor
   .page-nav-item
     display flex
-    align-items center
+    //align-items center
     line-height 2
     > span
-      color: #888
+      flex: 0 0 auto;
       margin-right 8px
+      color: #888
     a
       &:hover
         color lighten($accentColor, 30%)
