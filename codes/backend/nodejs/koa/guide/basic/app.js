@@ -1,11 +1,13 @@
 const Koa = require('koa');
 const Router = require('@koa/router');
 const { koaBody } = require('koa-body');
+const koaStatic = require('koa-static');
 
 const app = new Koa();
 const router = new Router();
 
 router.get('/', (ctx, next) => {
+  ctx.body = 'hello, koa2'
 });
 
 /*
@@ -21,12 +23,12 @@ router.get('/', (ctx, next) => {
   }
  */
 router.get('/getUser', (ctx, next) => {
-    const { query } = ctx.request;
+  const { query } = ctx.request;
 
-    // { id: '1' }
-    console.log('ctx.request.query: ', query);
+  // { id: '1' }
+  console.log('ctx.request.query: ', query);
 
-    ctx.response.body = { id: 1, name: '张三' };
+  ctx.response.body = { id: 1, name: '张三' };
 })
 
 /*
@@ -42,12 +44,12 @@ router.get('/getUser', (ctx, next) => {
   }
  */
 router.get('/user/:id', (ctx, next) => {
-    const { params } = ctx;
+  const { params } = ctx;
 
-    // { id: '2' }
-    console.log('ctx.params: ', params);
+  // { id: '2' }
+  console.log('ctx.params: ', params);
 
-    ctx.response.body = { id: 2, name: '李四' };
+  ctx.response.body = { id: 2, name: '李四' };
 })
 
 /*
@@ -69,20 +71,20 @@ router.get('/user/:id', (ctx, next) => {
   需要使用 koa-body 中间件，否则 ctx.request.body 为 undefined
  */
 router.post('/updateUser', (ctx, next) => {
-    const { body } = ctx.request
+  const { body } = ctx.request
 
-    // { id: 3, name: '王五' }
-    console.log('ctx.request.body: ', body)
+  // { id: 3, name: '王五' }
+  console.log('ctx.request.body: ', body)
 
-    ctx.response.body = body;
+  ctx.response.body = body;
 });
 
 app
-    .use(koaBody())
-    // .use(jsonResultMiddleware)
-    .use(router.routes())
-    .use(router.allowedMethods());
+  .use(koaStatic(__dirname))
+  .use(koaBody())
+  .use(router.routes())
+  .use(router.allowedMethods());
 
 app.listen(3000, () => {
-    console.log('server is started: http://localhost:3000')
+  console.log('server is started: http://localhost:3000')
 });
