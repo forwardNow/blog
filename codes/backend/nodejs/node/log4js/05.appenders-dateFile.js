@@ -5,7 +5,10 @@ log4js.configure({
     app: {
       type: 'dateFile',
       filename: './logs/app.log',
-      pattern: 'yyyy-MM-dd-hh-mm-ss'  // 秒级
+      pattern: 'yyyy-MM-dd-hh-mm-ss',  // 秒级
+      keepFileExt: true, // file.log.2017-05-30 -> file.2017-05-30.log
+      alwaysIncludePattern: true, // 当前文件名包含 pattern
+      numBackups: 3
     },
   },
   categories: {
@@ -18,17 +21,18 @@ log4js.configure({
 
 const logger = log4js.getLogger();
 
-setTimeout(() => logger.info(1), 0);
-setTimeout(() => logger.warn(2), 1000);
-setTimeout(() => logger.error(3), 2000);
-setTimeout(() => logger.error(4), 3000);
-setTimeout(() => logger.error(5), 4000);
+logger.info(1)
+setTimeout(() => logger.warn(2), 1100);
+setTimeout(() => logger.error(3), 2200);
+setTimeout(() => logger.error(4), 3300);
+setTimeout(() => logger.error(5), 4400);
 
 /* 输出：
 
 logs/
-  access-log.log
-  access-log.log.1
-  access-log.log.2
+  app.2023-06-17-12-38-59.log
+  app.2023-06-17-12-39-01.log
+  app.2023-06-17-12-39-02.log
+  app.2023-06-17-12-39-03.log
 
  */
