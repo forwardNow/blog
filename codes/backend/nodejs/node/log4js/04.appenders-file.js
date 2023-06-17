@@ -5,9 +5,10 @@ log4js.configure({
   appenders: {
     access: {
       type: 'file',
-      filename: './logs/access-log.log',
+      filename: './logs/access.log',
       maxLogSize: '1K',  // 单个文件最大尺寸，超过后自动创建新文件
-      backups: 2         // 旧文件的最大数量，不包含当前文件
+      backups: 2,        // 旧文件的最大数量，不包含当前文件
+      keepFileExt: true,
     },
   },
   categories: {
@@ -30,8 +31,8 @@ logger.info(content);
 /* 输出：
 
 logs/
-  access-log.log
-  access-log.log.1
-  access-log.log.2
+  access.1.log
+  access.2.log
+  access.log
 
  */
