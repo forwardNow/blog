@@ -7,7 +7,7 @@ log4js.configure({
   categories: {
     default: {
       appenders: ['out'],
-      level: log4js.levels.INFO.levelStr,
+      level: log4js.levels.INFO,
     }
   }
 });
