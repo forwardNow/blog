@@ -1,70 +1,98 @@
-/*
-https://api.bilibili.com/x/web-interface/wbi/view?aid=807451085&w_rid=def4f859edefd4a75d624c8fa5b63d1d
-*/
+import axios from 'axios';
+import dayjs from 'dayjs';
+import objectSupport from 'dayjs/plugin/objectSupport';
 
+dayjs.extend(objectSupport);
 
 const plan = {
   partCountPerDay: 10,
   startIndexOfParts: 38,
   startDateOfPlan: Date.now(),
 }
-function main() {
-  const videoParts = getVideoParts();
-  buildTable(videoParts, partCountPerDay, startIndexOfParts, startDateOfPlan);
-}
-
-function getVideoParts() {
-  /*
-  <div id="multi_page">
-    <ul class="list-box">
-      <li class="">
-        <a href="/video/BV1834y1676P?p=1" class="router-link-active" title="Day1.学习目标">
-          <div class="clickitem">
-            <div class="link-content">
-              <img src="//s1.hdslb.com/bfs/static/jinkela/video/asserts/playing.gif" style="display: none;">
-              <span class="page-num">P1</span>
-              <span class="part">Day1.学习目标</span>
-            </div>
-            <div class="duration">01:39</div>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  */
-  return Array.from(document.querySelectorAll('#multi_page .list-box .router-link-active .clickitem'))
-    .map((elt) => {
-      const [ linkContentElt, durationElt] = elt.children;
-      const [, pageNumElt, partElt] = linkContentElt.children;
-      const pageNum = pageNumElt.textContent;
-      const part = partElt.textContent;
-      const duration = durationElt.textContent;
-
-      return { pageNum, part, duration };
-    });
-}
 
 /**
- * @param videoParts {array}
- * @param partCountPerDay {number} 每天看几个（part）
- * @param startIndexOfParts {number} 从第几个 part 开始
- * @param startDateOfPlan {number} 计划开始时间，单位 毫秒数（timestamp）
+ * 根据官网 API 获取 video parts
+ * https://api.bilibili.com/x/web-interface/wbi/view?aid=807451085&w_rid=def4f859edefd4a75d624c8fa5b63d1d
  */
-function buildTable(videoParts, partCountPerDay, startIndexOfParts, startDateOfPlan) {
-  const header = '' 
+async function getVideoParts(): Promise<VideoPart[]> {
+  const url = 'https://api.bilibili.com/x/web-interface/wbi/view';
+  const params = {
+    aid: '807451085',
+    w_rid: 'def4f859edefd4a75d624c8fa5b63d1d'
+  };
+
+  const result: VideoResponse = await axios.get(url, { params }).then((res) => res.data);
+
+  if (result.code !== 0) {
+    return [];
+  }
+
+  return result.data.pages;
+}
+
+function buildTable(videoParts: VideoPart[]) {
+  const header = ''
     + '| page num | part | duration | plan date | finish date | desc |\n'
     + '| -------- | ---- | -------- | --------- | ----------- | ---- |\n';
 
   let result = header;
 
-  videoParts.forEach(({ pageNum, part, duration }, index) => {
+  const {
+    startDateOfPlan,
+    partCountPerDay,
+    startIndexOfParts,
+  } = plan;
+
+  videoParts.forEach(({ page, part, duration }) => {
     const planDate = '';
     const finishDate = '';
     const desc = ' '
 
+    const fmtDuration = dayjs({ seconds: duration }).format('mm:ss')
 
-    const row  = `| ${pageNum} | ${ part } | ${ duration } | ${planDate} | ${finishDate} | ${ desc } |\n`;
+    const row  = `| ${page} | ${ part } | ${ fmtDuration } | ${planDate} | ${finishDate} | ${ desc } |\n`;
 
     result += `${row}`
   });
+
+  return result;
 }
+
+async function main() {
+  const videoParts = await getVideoParts();
+  const result = buildTable(videoParts);
+
+  console.log(result);
+}
+
+// main().then();
+
+
+//#region types
+interface VideoResponse {
+  code: number,
+  message: string,
+  data: VideoData,
+}
+
+interface VideoData {
+  pages: VideoPart[],
+}
+
+/**
+ * @example
+ *
+ * {
+ *   "page": 1,
+ *   "part": "Day1.学习目标",
+ *   "duration": 99,
+ * }
+ */
+interface VideoPart {
+  // from 1
+  page: number,
+  part: string,
+  // seconds
+  duration: number,
+}
+//#endregion
