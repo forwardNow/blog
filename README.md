@@ -8,8 +8,6 @@
 
 此文档使用 [vue-press](https://vuepress.vuejs.org/zh/) 构建。
 
-可访问 [http://192.168.1.155:60000/](http://192.168.1.155:60000/) 查看，如不能访问请自行构建并在本机启动。
-
 ## 3. 运行
 
 1.安装 node.js: 下载并安装 [node.js v16.13.1](https://nodejs.org/dist/v16.13.1/node-v16.13.1-x64.msi)。
