@@ -23,6 +23,7 @@
   "dependencies": {
     "archiver": "^5.3.0",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.8",
     "ejs": "^3.1.8",
     "express": "^4.17.2",
     "lodash.throttle": "^4.1.1",
