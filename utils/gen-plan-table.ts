@@ -4,27 +4,36 @@ import objectSupport from 'dayjs/plugin/objectSupport';
 
 dayjs.extend(objectSupport);
 
-const plan = {
-  partCountPerDay: 10,
-  /** from 1 */
-  startIndexOfParts: 39,
-  startDateOfPlan: Date.now(),
-}
+const CONFIG = {
+  // https://api.bilibili.com/x/web-interface/wbi/view?aid=807451085&w_rid=def4f859edefd4a75d624c8fa5b63d1d
+  request: {
+    url: 'https://api.bilibili.com/x/web-interface/wbi/view',
+    method: 'get',
+    params: {
+      aid: '807451085',
+      w_rid: 'def4f859edefd4a75d624c8fa5b63d1d'
+    }
+  },
+  plan: {
+    /** 每天看几个视频 */
+    partCountPerDay: 10,
+    /** 从第几个视频开始看，从 1 开始 */
+    startIndexOfParts: 39,
+    /** 计划开始日期，Unix 时间戳 */
+    startDateOfPlan: Date.now(),
+  }
+};
 
 const NONE_PLACEHOLDER = ' - ';
 
-/**
- * 根据官网 API 获取 video parts
- * https://api.bilibili.com/x/web-interface/wbi/view?aid=807451085&w_rid=def4f859edefd4a75d624c8fa5b63d1d
- */
-async function getVideoParts(): Promise<VideoPart[]> {
-  const url = 'https://api.bilibili.com/x/web-interface/wbi/view';
-  const params = {
-    aid: '807451085',
-    w_rid: 'def4f859edefd4a75d624c8fa5b63d1d'
-  };
+async function generatePlanTable() {
+  const videoParts = await getVideoParts();
+  const result = buildTable(videoParts);
+  console.log(result);
+}
 
-  const result: VideoResponse = await axios.get(url, { params }).then((res) => res.data);
+async function getVideoParts(): Promise<VideoPart[]> {
+  const result: VideoResponse = await axios.request(CONFIG.request).then((res) => res.data);
 
   if (result.code !== 0) {
     return [];
@@ -35,7 +44,7 @@ async function getVideoParts(): Promise<VideoPart[]> {
 
 function buildTable(videoParts: VideoPart[]) {
   const header = ''
-    + '| page num | part | duration | plan date | finish date | desc |\n'
+    + '| 索引 | 名称 | 时长 | 计划完成日期 | 实际完成日期 | 说明 |\n'
     + '| -------- | ---- | -------- | --------- | ----------- | ---- |\n';
 
   let result = header;
@@ -44,7 +53,7 @@ function buildTable(videoParts: VideoPart[]) {
     startDateOfPlan,
     partCountPerDay,
     startIndexOfParts,
-  } = plan;
+  } = CONFIG.plan;
 
   const startDate = dayjs(startDateOfPlan);
 
@@ -69,14 +78,8 @@ function buildTable(videoParts: VideoPart[]) {
   return result;
 }
 
-async function main() {
-  const videoParts = await getVideoParts();
-  const result = buildTable(videoParts);
 
-  console.log(result);
-}
-
-main().then();
+generatePlanTable();
 
 
 //#region types
