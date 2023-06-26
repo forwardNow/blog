@@ -30,7 +30,7 @@ logger.error('hello, log4js');
 
 输出：
 
-![](./images/log4js/01-first.png)
+![](./images/01-first.png)
 
 ## 3. 核心
 
