@@ -6,9 +6,12 @@ dayjs.extend(objectSupport);
 
 const plan = {
   partCountPerDay: 10,
-  startIndexOfParts: 38,
+  /** from 1 */
+  startIndexOfParts: 39,
   startDateOfPlan: Date.now(),
 }
+
+const NONE_PLACEHOLDER = ' - ';
 
 /**
  * 根据官网 API 获取 video parts
@@ -43,12 +46,20 @@ function buildTable(videoParts: VideoPart[]) {
     startIndexOfParts,
   } = plan;
 
-  videoParts.forEach(({ page, part, duration }) => {
-    const planDate = '';
-    const finishDate = '';
-    const desc = ' '
+  const startDate = dayjs(startDateOfPlan);
 
-    const fmtDuration = dayjs({ seconds: duration }).format('mm:ss')
+  videoParts.forEach(({ page, part, duration }) => {
+    let planDate = NONE_PLACEHOLDER;
+    const finishDate = NONE_PLACEHOLDER;
+    const desc = NONE_PLACEHOLDER;
+
+    const fmtDuration = dayjs({ seconds: duration }).format('mm:ss');
+
+    if (page >= startIndexOfParts) {
+      const index = page - startIndexOfParts; // 第几条数据
+      const pageNum = Math.floor(index / partCountPerDay + 1); // 第几条数据在第几页
+      planDate = startDate.add(pageNum - 1, 'days').format('YYYY-MM-DD');
+    }
 
     const row  = `| ${page} | ${ part } | ${ fmtDuration } | ${planDate} | ${finishDate} | ${ desc } |\n`;
 
@@ -65,7 +76,7 @@ async function main() {
   console.log(result);
 }
 
-// main().then();
+main().then();
 
 
 //#region types
@@ -89,10 +100,10 @@ interface VideoData {
  * }
  */
 interface VideoPart {
-  // from 1
+  /** starting from 1 */ 
   page: number,
   part: string,
-  // seconds
+  /** unit seconds */ 
   duration: number,
 }
 //#endregion
