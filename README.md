@@ -1,4 +1,4 @@
-# 知识库
+# blog
 
 ## 1. 编撰
 
@@ -8,21 +8,7 @@
 
 此文档使用 [vue-press](https://vuepress.vuejs.org/zh/) 构建。
 
-## 3. 运行
+## 3. 访问
 
-1.安装 node.js: 下载并安装 [node.js v16.13.1](https://nodejs.org/dist/v16.13.1/node-v16.13.1-x64.msi)。
+[https://forwardnow.github.io/](https://forwardnow.github.io/)
 
-2.安装项目依赖
-
-```shell
-# 切换到项目根目录后，执行以下指令
-npm ci
-```
-
-3.启动服务器
-
-```shell
-npm run docs:dev
-```
-
-4.访问： [http://localhost:60000/](http://localhost:60000/)
