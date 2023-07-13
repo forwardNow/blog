@@ -226,7 +226,7 @@
 | 第 2 章 JavaScript 常见语法 | 7 ~ 23 | 2023-07-13 | <span class="text-success">2023-07-12</span>  |  √  |
 | 第 3 章 JavaScript 新语法特性 | 24 ~ 88 | 2023-07-14 | <span class="text-success">2023-07-12</span>  |  √  |
 | 第 4 章 TypeScript 项目构成 | 89 ~ 107 | 2023-07-15 | <span class="text-success">2023-07-12</span>  |  √  |
-| 第 5 章 快速创建 TypeScript 项目 | 108 ~ 116 | 2023-07-16 | - | - | 
+| 第 5 章 快速创建 TypeScript 项目 | 108 ~ 116 | 2023-07-16 | <span class="text-success">2023-07-13</span>  |  √  |
 | 第 6 章 TypeScript 类型系统 | 117 ~ 230 | 2023-07-17 | - | - | 
 | 第 7 章 关于 JSX | 231 ~ 240 | 2023-07-18 | - | - | 
 | 第 8 章 TypeScript 编译选项设置 | 241 ~ 246 | 2023-07-19 | - | - | 
