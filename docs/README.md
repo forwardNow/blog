@@ -35,8 +35,8 @@
 | 第 5 章 快速创建 TypeScript 项目 | 108 ~ 116 | 2023-07-16 | <span class="text-success">2023-07-13</span>  |  √  |
 | 第 6 章 TypeScript 类型系统 | 117 ~ 230 | 2023-07-17 | <span class="text-success">2023-07-15</span>  |  √  |
 | 第 7 章 关于 JSX | 231 ~ 240 | 2023-07-18 | <span class="text-success">2023-07-15</span>  |  √  |
-| 第 8 章 TypeScript 编译选项设置 | 241 ~ 246 | 2023-07-19 | - | - | 
-| 第 9 章 TypeScript 错误处理 | 247 ~ 251 | 2023-07-20 | - | - | 
+| 第 8 章 TypeScript 编译选项设置 | 241 ~ 246 | 2023-07-19 | <span class="text-success">2023-07-15</span>  |  √  |
+| 第 9 章 TypeScript 错误处理 | 247 ~ 251 | 2023-07-20 | <span class="text-success">2023-07-15</span>  |  √  |
 | 第 10 章 开发与测试工具 | 252 ~ 265 | 2023-07-21 | - | - | 
 | 第 11 章 提示与建议 | 266 ~ 299 | 2023-07-22 | - | - | 
 | 第 12 章 TypeScript 代码风格指南与代码约定 | 300 ~ 307 | 2023-07-23 | - | - | 
