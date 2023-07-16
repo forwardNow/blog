@@ -25,6 +25,8 @@
 
 ### 2.2. 《深入理解TypeScript》
 
+![./others/images/01-book-ts.jpg](./others/images/01-book-ts.jpg)
+
 说明：
 
 | 类别 | 说明 |
@@ -35,9 +37,6 @@
 | 出版社 | 电子工业出版社 |
 | 版次 | 2020年 1 月 第 1 版 |
 | 印次 | 2021 年 1 月 第 4 次印刷 |
-
-书籍：
-
 
 
 计划：
@@ -64,6 +63,8 @@
 * 很多地方讲得不清不楚，有一定 TS 基础的都看得非常烦躁
 
 ### 2.3. 《正则表达式必知必会》
+
+![./others/images/02-book-regex.jpg](./others/images/02-book-regex.jpg)
 
 说明：
 
