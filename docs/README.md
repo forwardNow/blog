@@ -23,7 +23,7 @@
 * 非常详细、完整
 * 适合新手
 
-### 2.2. 《深入理解TypeScript》
+### 2.2. 《深入理解TypeScript》√
 
 ![./others/images/01-book-ts.jpg](./others/images/01-book-ts.jpg)
 
