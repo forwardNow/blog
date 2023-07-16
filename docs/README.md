@@ -39,5 +39,5 @@
 | 第 9 章 TypeScript 错误处理 | 247 ~ 251 | 2023-07-20 | <span class="text-success">2023-07-15</span>  |  √  |
 | 第 10 章 开发与测试工具 | 252 ~ 265 | 2023-07-21 | <span class="text-success">2023-07-15</span>  |  √  |
 | 第 11 章 提示与建议 | 266 ~ 299 | 2023-07-22 | <span class="text-success">2023-07-16</span>  |  √  |
-| 第 12 章 TypeScript 代码风格指南与代码约定 | 300 ~ 307 | 2023-07-23 | - | - | 
+| 第 12 章 TypeScript 代码风格指南与代码约定 | 300 ~ 307 | 2023-07-23 | <span class="text-success">2023-07-16</span>  |  √  |
 | 第 13 章 TypeScript 编译原理 | 308 ~ 348 | 2023-07-24 | - | - | 
