@@ -62,7 +62,7 @@
 * 不建议购买与阅读
 * 很多地方讲得不清不楚，有一定 TS 基础的都看得非常烦躁
 
-### 2.3. 《正则表达式必知必会》
+### 2.3. 《正则表达式必知必会》√
 
 ![./others/images/02-book-regex.jpg](./others/images/02-book-regex.jpg)
 
