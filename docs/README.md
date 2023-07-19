@@ -18,6 +18,10 @@
 
 * [./others/plan/01.微信小程序-计划.md](./others/plan/01.微信小程序-计划.md)
 
+笔记：
+
+* [front-end/wechart/min-program/guide](./front-end/wechart/min-program/guide/01.微信小程序-起步.md)
+
 总结：
 
 * 非常详细、完整
@@ -57,6 +61,10 @@
 | 第 12 章 TypeScript 代码风格指南与代码约定 | 300 ~ 307 | 2023-07-23 | <span class="text-success">2023-07-16</span>  |  √  |
 | 第 13 章 TypeScript 编译原理 | 308 ~ 348 | 2023-07-24 | <span class="text-success">2023-07-16</span>  |  √  |
 
+笔记：
+
+* [front-end/typescript/深入理解TypeScript](./front-end/typescript/深入理解TypeScript/01.为什么要使用TypeScript.md)
+
 总结：
 
 * 不建议购买与阅读
@@ -93,6 +101,10 @@
 | 第 10 章 嵌入式条件 | 90 ~ 96 | 2023-07-20 | <span class="text-success">2023-07-20</span>  |  √  |
 | 第 11 章 常见正则 | 97 ~ 113 | 2023-07-20 | <span class="text-success">2023-07-20</span>  |  √  |
 
+笔记：
+
+* [books/正则表达式必知必会](./books/02.正则表达式必知必会.md)
+
 总结：
 
 * 言简意赅，适合初学者
@@ -126,3 +138,7 @@
 | 第 8 章 JSON 与 NoSQL | 77 ~ 90 | 2023-07-22 | - | - | 
 | 第 9 章 服务端的 JSON  | 91 ~ 104 | 2023-07-23 | - | - | 
 | 第 10 章 总结  | 105 ~ 109 | 2023-07-23 | - | - | 
+
+笔记：
+
+* [books/JSON必知必会](./books/03.JSON必知必会.md)
