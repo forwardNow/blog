@@ -187,3 +187,23 @@
 笔记：
 
 * [front-end/vue/vue3/vue.js设计与实现](./front-end/vue/vue3/vue.js设计与实现/第01章.权衡的艺术.md)
+
+### 2.6. egg.js
+
+说明：
+
+* 视频地址：[Egg.js入门视频教程 - 200分钟学会Egg.js框架 掌握全栈开发( 完结)](https://www.bilibili.com/video/BV1s3411C71V/)
+* [Egg.js快速入门 200分钟掌握企业级框架开发和应用](https://jspang.com/article/79)
+
+笔记：
+
+* [back-end/nodejs/egg/guide](./back-end/nodejs/egg/guide/01.egg.js快速开始.md)
+
+总结：
+
+* 非常详细、完整
+* 适合新手
+
+### 2.7. 《代码整洁之道》
+
+TODO
