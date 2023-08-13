@@ -2,30 +2,30 @@ const { exec } = require("child_process");
 const moment = require('moment');
 const path = require('path');
 
-function run(start, stop) {
-  const dates = getDates(start, stop);
+function run(start, stop, { randomIntervalDays = [1, 3], randomCommits = [1, 10] } = {}) {
+  const dates = getDates(start, stop, { randomIntervalDays, randomCommits });
 
   // console.log(dates);
   update(dates);
 }
 
-function getDates(from, to) {
+function getDates(from, to, { randomIntervalDays, randomCommits }) {
   const dates = [];
   const start = moment(from);
   const end = moment(to);
 
   let curr = start;
-  let commitCount = 0;
+  let repeatTimes = 1;
 
   while(curr.isBefore(end)) {
     dates.push(formatDate(curr));
 
-    commitCount -= 1;
+    repeatTimes -= 1;
 
-    if (commitCount <= 0) {
-      const intervalDays = getRandomNum(1, 3);
+    if (repeatTimes <= 0) {
+      const intervalDays = getRandomNum(...randomIntervalDays);
       curr = curr.add(intervalDays, 'days');
-      commitCount = getRandomNum(1, 10);
+      repeatTimes = getRandomNum(...randomCommits);
     }
   }
 
@@ -110,7 +110,8 @@ function execCommand(command, options = {}) {
 // run('2014-01-01', '2014-02-01');
 // run('2014-02-01', '2014-03-01');
 // run('2014-03-01', '2014-04-01');
-run('2023-05-27', '2023-06-13');
+// run('2023-05-27', '2023-06-13');
+run('2023-07-30', '2023-08-13', { randomIntervalDays: [1, 1], randomCommits: [1, 1] });
 
 /*
 echo "xxx" >> ./UE4/books/test.txt
