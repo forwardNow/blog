@@ -16,6 +16,7 @@ const ROOTS = [
   'software',
   'hardware',
   'health',
+  'ui',
   'others',
 ].map((dir) => path.resolve(__dirname, '../', dir));
 
