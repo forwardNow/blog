@@ -10,7 +10,6 @@ const ROOTS = [
   'back-end',
   'books',
   'algorithm',
-  'server',
   'os',
   'software',
   'health',
