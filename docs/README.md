@@ -29,7 +29,7 @@
 
 ### 2.2. 《深入理解TypeScript》√
 
-![./others/images/01-book-ts.jpg](./others/images/01-book-ts.jpg)
+![./books/images/01-book-ts.jpg](./books/images/01-book-ts.jpg)
 
 说明：
 
@@ -72,7 +72,7 @@
 
 ### 2.3. 《正则表达式必知必会》√
 
-![./others/images/02-book-regex.jpg](./others/images/02-book-regex.jpg)
+![./books/images/02-book-regex.jpg](./books/images/02-book-regex.jpg)
 
 说明：
 
@@ -111,7 +111,7 @@
 
 ### 2.4. 《JSON 必知必会》√
 
-![./others/images/03-book-json.jpg](./others/images/03-book-json.jpg)
+![./books/images/03-book-json.jpg](./books/images/03-book-json.jpg)
 
 说明：
 
@@ -149,7 +149,7 @@
 
 ### 2.5. 《Vue.js 设计与实现》
 
-![./others/images/04-book-vue.js.jpg](./others/images/04-book-vue.js.jpg)
+![./books/images/04-book-vue.js.jpg](./books/images/04-book-vue.js.jpg)
 
 说明：
 
