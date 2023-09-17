@@ -8,12 +8,13 @@ const moment = require('moment')
 const ROOTS = [
   'front-end',
   'back-end',
-  'books',
-  'algorithm',
-  'os',
-  'software',
-  'health',
   'ui',
+  'vcs',
+  'algorithm',
+  'software',
+  'os',
+  'books',
+  'health',
   'others',
 ].map((dir) => path.resolve(__dirname, '../', dir));
 
