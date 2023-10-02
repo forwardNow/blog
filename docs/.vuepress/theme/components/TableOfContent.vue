@@ -18,14 +18,12 @@
   </div>
 </template>
 <script>
-import throttle from 'lodash.throttle';
-
 export default {
   name: 'TableOfContent',
   mounted() {
     this.resetToc();
 
-    this.listener = throttle(this.handleScroll, 16);
+    this.listener = this.handleScroll;
 
     document.addEventListener('scroll', this.listener);
 
@@ -69,7 +67,7 @@ export default {
     }
   },
   methods: {
-    handleScroll() {
+    handleScroll(event) {
       const firstHeaderId = this.getFirstHeaderId();
 
       if (!firstHeaderId) {
@@ -108,14 +106,20 @@ export default {
     scrollToCenterOfParent(target) {
       const parent = target.parentElement;
 
-      // 元素的高度
+      // 父元素的高度
       const parentHeight = parent.clientHeight;
 
       // 滚动条在 y 轴移动的距离
       const parentScrollTop = parent.scrollTop;
-
+      
       // 元素 与 父元素顶部 的距离
       const targetOffsetTop = target.offsetTop;
+  
+      // console.log(`parentHeight = ${parentHeight}; parentScrollTop = ${parentScrollTop}; targetOffsetTop = ${targetOffsetTop}`)
+
+      if (targetOffsetTop - parentScrollTop < parentHeight) {
+        return;
+      }
 
       // tocItem 垂直居中需要 toc 滚动的高度
       const parentScrollY = targetOffsetTop - parentHeight / 2;
@@ -190,8 +194,8 @@ export default {
 <style lang="stylus">
 .toc
   position fixed
-  top ($navbarHeight + 0.5rem)
-  right 0.5rem
+  top ($navbarHeight + 0.25rem)
+  right 0.25rem
   bottom 0
   width $tocWidth
   line-height 1.6
@@ -216,7 +220,7 @@ export default {
   overflow-y auto
 
   &::-webkit-scrollbar {
-    display none
+    // display none
   }
 
 .toc__item
