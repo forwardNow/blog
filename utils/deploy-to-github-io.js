@@ -69,7 +69,7 @@ function copyDistToGithubIo() {
 }
 
 async function pushGithubIo() {
-  await execCommand('git pull', { cwd: GITHUB_IO_PATH });
+  await execCommand('git pull', { cwd: GITHUB_IO_PATH }).catch((e) => console.log(e));
 
   const addCommand = 'git config core.autocrlf false && git add -A';
 
