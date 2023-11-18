@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2023-11-18 15:04:15
+@modify date 2023-11-18 16:26:29
 @desc [description]
 #endregion-->
 
@@ -215,7 +215,7 @@
 
 ### 2.7. 《前端工程化 体系设计与实践》
 
-![./books/images/03-book-json.jpg](./books/images/03-book-json.jpg)
+![./books/images/03-book-json.jpg](./books/images/05-book-fe-engineering.jpg)
 
 说明：
 
