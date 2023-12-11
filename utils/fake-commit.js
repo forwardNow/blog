@@ -123,7 +123,8 @@ function execCommand(command, options = {}) {
 // run('2023-11-03', '2023-11-06', { randomIntervalDays: [1, 1], randomCommits: [1, 3] });
 // run('2023-11-11', '2023-11-13', { randomIntervalDays: [1, 1], randomCommits: [1, 3] });
 // run('2023-11-25', '2023-11-27', { randomIntervalDays: [1, 1], randomCommits: [1, 10] });
-run('2023-11-27', '2023-12-04', { randomIntervalDays: [1, 1], randomCommits: [1, 10] });
+// run('2023-11-27', '2023-12-04', { randomIntervalDays: [1, 1], randomCommits: [1, 10] });
+run('2023-12-04', '2023-12-11', { randomIntervalDays: [1, 1], randomCommits: [1, 10] });
 
 /*
 echo "xxx" >> ./UE4/books/test.txt
