@@ -42,6 +42,21 @@ module.exports = {
   title: 'Blog',
   description: 'Blog',
 
+  configureWebpack: (config, isServer) => {
+    if (!isServer) {
+      // mutate the config for client
+      // console.log(JSON.stringify(config, null, 4))
+
+      // "output": {
+      //   "path": "W:\\dev\\blog\\docs\\.vuepress\\dist",
+      //     "filename": "assets/js/[name].[chunkhash:8].js",
+      //     "publicPath": "/"
+      // },
+
+      config.output.filename = 'assets/js/[name].[contenthash:8].js'
+    }
+  },
+
   markdown: {
     lineNumbers: false,
     toc: {
@@ -81,6 +96,14 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-nprogress',
     // 'vuepress-plugin-smooth-scroll',
+
+    [
+      'vuepress-plugin-sitemap',
+      {
+        hostname: 'https://forwardnow.github.io'
+      }
+    ]
+
   ]
 }
 
