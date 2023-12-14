@@ -30,8 +30,9 @@
     "moment": "^2.29.1"
   },
   "devDependencies": {
-    "chalk": "^5.2.0",
+    "chalk": "^2.4.2",
     "vuepress": "1.9.2",
+    "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-plugin-smooth-scroll": "0.0.10"
   }
 }
