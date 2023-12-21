@@ -5,12 +5,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const targetDir = 'software/jetbrains';
+const targetDir = 'back-end/nodejs/npm';
 const docsPath = path.join(__dirname, '../docs', targetDir);
 
+
 const files = [
-  '01.idea快捷键.md',
-  '01.webstorm.md',
+  '01.npm安装私有git包.md',
+  '02.npm安装本地电脑的包.md',
+  '02.npm常用命令.md',
+  '03.npx的使用.md',
+  '04.npm镜像源管理-nrm.md',
+  '05.限制项目的node版本.md',
 ];
 
 files.forEach((originFilename, index) => {
