@@ -90,7 +90,7 @@ log4js.configure({
   categories: {
     default: {
       appenders: ['out'],
-      level: log4js.levels.INFO.levelStr,
+      level: log4js.levels.INFO.levelStr, // >= info 级别的才会进入 default
     }
   }
 });
@@ -106,7 +106,8 @@ logger.info('info');
 
 说明：
 
-* 对日志进行分组（分类）
+* 对日志进行分类
+* 通过 `log4js.getLogger(category = 'default')` 来获取指类别的实例
 
 源码：
 
@@ -136,6 +137,7 @@ export interface Configuration {
 const log4js = require('log4js');
 
 log4js.configure({
+  // 输出方式
   appenders: {
     out: {
       type: 'stdout'
@@ -145,6 +147,8 @@ log4js.configure({
       filename: 'logs/app.log'
     },
   },
+
+  // 日志类别
   categories: {
     default: {
       appenders: ['out'],
