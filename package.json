@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "deploy": "node ./utils/deploy-to-github-io.js",
+    "docs:dev": "cross-env NODE_OPTIONS=--max_old_space_size=8096 vuepress dev docs",
+    "docs:build": "cross-env NODE_OPTIONS=--max_old_space_size=8096 vuepress build docs",
+    "deploy": "cross-env NODE_OPTIONS=--max_old_space_size=8096 node ./utils/deploy-to-github-io.js",
     "server": "node ./utils/server.js"
   },
   "repository": {
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "chalk": "^2.4.2",
+    "cross-env": "^7.0.3",
     "vuepress": "1.9.2",
     "vuepress-plugin-sitemap": "^2.3.1",
     "vuepress-plugin-smooth-scroll": "0.0.10"
