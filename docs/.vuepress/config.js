@@ -15,6 +15,7 @@ const ROOTS = [
   'os',
   'books',
   'health',
+  'character',
   'others',
 ].map((dir) => path.resolve(__dirname, '../', dir));
 
