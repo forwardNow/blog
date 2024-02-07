@@ -5,17 +5,19 @@
 const fs = require('fs');
 const path = require('path');
 
-const targetDir = 'back-end/nodejs/npm';
+const targetDir = 'front-end/libs/ui';
 const docsPath = path.join(__dirname, '../docs', targetDir);
 
 
 const files = [
-  '01.npm安装私有git包.md',
-  '02.npm安装本地电脑的包.md',
-  '02.npm常用命令.md',
-  '03.npx的使用.md',
-  '04.npm镜像源管理-nrm.md',
-  '05.限制项目的node版本.md',
+  '04.monaco-editor.md',
+  '13.viewerjs-图片预览.md',
+  '15.nprogress-进度条.md',
+  '18.swiper-轮播图.md',
+  '19.vue-qr-二维码.md',
+  '20.clipboard.js-复制到剪贴板.md',
+  '21.sweetalert2-弹出层基本使用.md',
+  '22.maker.js-svg库.md',
 ];
 
 files.forEach((originFilename, index) => {
