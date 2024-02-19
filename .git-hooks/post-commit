@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-cd /w/dev/blog/utils
-
-start node deploy-to-github-io.js &
-
