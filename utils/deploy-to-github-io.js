@@ -4,7 +4,7 @@ const { exec } = require("child_process");
 const moment = require('moment');
 
 const BLOG_PATH = path.resolve(__dirname, '../');
-const GITHUB_IO_PATH = path.resolve(BLOG_PATH, '../forwardNow.github.io');
+const GITHUB_IO_PATH = path.resolve(BLOG_PATH, '../forwardNow.github.io/blog');
 
 const BLOG_DIST_PATH = path.resolve(BLOG_PATH, './docs/.vuepress/dist');
 
@@ -12,7 +12,7 @@ async function run()  {
   // build: blog
   await buildBlog();
 
-  // copy: blog/docs/.vuepress/dist/** -> forwardNow.github.io/
+  // copy: blog/docs/.vuepress/dist/** -> forwardNow.github.io/blog
   copyDistToGithubIo();
 
   // push: forwardNow.github.io
