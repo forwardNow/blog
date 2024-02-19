@@ -10,5 +10,5 @@
 
 ## 3. 访问
 
-[https://forwardnow.github.io/](https://forwardnow.github.io/)
+[https://forwardnow.github.io/blog](https://forwardnow.github.io/blog)
 
