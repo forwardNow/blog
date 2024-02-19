@@ -35,6 +35,7 @@ const IS_ALL_COLLAPSED = true;
 const IS_ALL_EXPAND = false;
 
 module.exports = {
+  base: '/blog/',
   port: 60000,
   head: [
     ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.min.js', defer: 'defer' }],
