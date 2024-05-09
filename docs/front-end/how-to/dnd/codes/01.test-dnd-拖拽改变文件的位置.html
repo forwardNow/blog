@@ -1,0 +1,60 @@
+<style>
+  #box {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+</style>
+
+<div id="box"></div>
+
+<script>
+const boxElement = document.querySelector('#box');
+
+let position = {
+  origin: { x: 0, y: 0 },
+  mousedown: { x: 0, y: 0 },
+  mousemove: { x: 0, y: 0 },
+};
+
+const update = () => {
+  const { origin: { x, y }, mousedown, mousemove } = position; 
+
+  const deltaX = mousemove.x - mousedown.x;
+  const deltaY = mousemove.y - mousedown.y;
+
+  boxElement.style.left = `${x + deltaX}px`;
+  boxElement.style.top = `${y + deltaY}px`;
+};
+
+const mousemoveHandler = (event) => {
+  const { x, y } = event;
+
+  position.mousemove.x = x;
+  position.mousemove.y = y;
+
+  update();
+};
+
+const mouseupHandler = () => {
+  boxElement.removeEventListener('mousemove', mousemoveHandler, false);
+  boxElement.removeEventListener('mouseup', mouseupHandler, false);
+};
+
+const mousedownHandler = (event) => {
+  position.mousedown.x = event.x;
+  position.mousedown.y = event.y;
+
+  const { x, y } = boxElement.getBoundingClientRect();
+  position.origin.x = x;
+  position.origin.y = y;
+
+  boxElement.addEventListener('mousemove', mousemoveHandler, false);
+  boxElement.addEventListener('mouseup', mouseupHandler, false);
+}
+
+boxElement.addEventListener('mousedown', mousedownHandler, false);
+</script>
