@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-06-11 12:26:40
+@modify date 2025-06-11 12:34:54
 @desc [description]
 #endregion-->
 
@@ -243,7 +243,7 @@
 
 * [books/前端工程化-体系设计与实践](./books/05.前端工程化-体系设计与实践)
 
-### 2.1. MySQL
+### 2.8. MySQL
 
 说明：
 
