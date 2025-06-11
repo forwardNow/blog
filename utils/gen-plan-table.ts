@@ -4,21 +4,22 @@ import objectSupport from 'dayjs/plugin/objectSupport';
 
 dayjs.extend(objectSupport);
 
+// 在网络面板搜索 aid w_rid 关键字
 const CONFIG = {
-  // https://api.bilibili.com/x/web-interface/wbi/view?aid=807451085&w_rid=def4f859edefd4a75d624c8fa5b63d1d
+  // https://api.bilibili.com/x/web-interface/wbi/view?aid=765670802&w_rid=764f98bc44d84a7284780803f62e64de
   request: {
     url: 'https://api.bilibili.com/x/web-interface/wbi/view',
     method: 'get',
     params: {
-      aid: '807451085',
-      w_rid: 'def4f859edefd4a75d624c8fa5b63d1d'
+      aid: '765670802',
+      w_rid: '764f98bc44d84a7284780803f62e64de'
     }
   },
   plan: {
     /** 每天看几个视频 */
-    partCountPerDay: 10,
+    partCountPerDay: 5,
     /** 从第几个视频开始看，从 1 开始 */
-    startIndexOfParts: 39,
+    startIndexOfParts: 24,
     /** 计划开始日期，Unix 时间戳 */
     startDateOfPlan: Date.now(),
   }

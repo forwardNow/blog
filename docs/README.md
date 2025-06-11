@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2023-11-20 10:02:09
+@modify date 2025-06-11 12:26:40
 @desc [description]
 #endregion-->
 
@@ -242,3 +242,17 @@
 笔记：
 
 * [books/前端工程化-体系设计与实践](./books/05.前端工程化-体系设计与实践)
+
+### 2.1. MySQL
+
+说明：
+
+* 视频地址：[黑马程序员 MySQL数据库入门到精通，从mysql安装到mysql高级、mysql优化全囊括](https://www.bilibili.com/video/BV1Kr4y1i7ru)
+
+计划：
+
+* [./others/plan/02.MySQL-计划.md](./others/plan/02.MySQL-计划.md)
+
+笔记：
+
+* [back-end/database/mysql//heima/01.MySQL-基础.md](./back-end/database/mysql//heima/01.MySQL-基础.md)
