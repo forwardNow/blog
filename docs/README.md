@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-06-14 20:44:51
+@modify date 2025-07-09 17:55:35
 @desc [description]
 #endregion-->
 
@@ -14,9 +14,50 @@
 
 项目仓库地址： [https://github.com/forwardNow/blog](https://github.com/forwardNow/blog)
 
-## 2. 学习计划
+## 2. 【进行中】学习计划
 
-### 2.1. 微信小程序 √
+### 2.1. SSM 框架
+
+说明：
+
+* 视频地址：[黑马程序员SSM框架教程_Spring+SpringMVC+Maven高级+SpringBoot+MyBatisPlus企业实用开发技术
+](https://www.bilibili.com/video/BV1Fi4y1S7ix)
+
+计划：
+
+* [./others/plan/03.SSM-计划.md](./others/plan/03.SSM-计划.md)
+
+笔记：
+
+* [back-end/java/ssm/heima/00.ssm.md](./back-end/java/ssm/heima/00.ssm.md)
+
+## 3. 【待规划】学习计划
+
+*  Java8 新特性
+*  MyBatis
+*  MyBatis Plus
+*  Redis
+*  MinIO
+*  Spring
+*  Vue3
+
+## 4. 【已完成】学习计划
+
+### 4.1. MySQL
+
+说明：
+
+* 视频地址：[黑马程序员 MySQL数据库入门到精通，从mysql安装到mysql高级、mysql优化全囊括](https://www.bilibili.com/video/BV1Kr4y1i7ru)
+
+计划：
+
+* [./others/plan/02.MySQL-计划.md](./others/plan/02.MySQL-计划.md)
+
+笔记：
+
+* [back-end/database/mysql/heima/01.MySQL-基础.md](./back-end/database/mysql/heima/01.MySQL-基础.md)
+
+### 4.2. 微信小程序 √
 
 说明：
 
@@ -35,7 +76,7 @@
 * 非常详细、完整
 * 适合新手
 
-### 2.2. 《深入理解TypeScript》√
+### 4.3. 《深入理解TypeScript》√
 
 ![./books/images/01-book-ts.jpg](./books/images/01-book-ts.jpg)
 
@@ -78,7 +119,7 @@
 * 不建议购买与阅读
 * 很多地方讲得不清不楚，有一定 TS 基础的都看得非常烦躁
 
-### 2.3. 《正则表达式必知必会》√
+### 4.4. 《正则表达式必知必会》√
 
 ![./books/images/02-book-regex.jpg](./books/images/02-book-regex.jpg)
 
@@ -117,7 +158,7 @@
 
 * 言简意赅，适合初学者
 
-### 2.4. 《JSON 必知必会》√
+### 4.5. 《JSON 必知必会》√
 
 ![./books/images/03-book-json.jpg](./books/images/03-book-json.jpg)
 
@@ -155,7 +196,7 @@
 
 * 作为凑单的书籍，读完后比想象中有收获，前半部分（前五章）不错，后半部分感觉有点水
 
-### 2.5. 《Vue.js 设计与实现》
+### 4.6. 《Vue.js 设计与实现》
 
 ![./books/images/04-book-vue.js.jpg](./books/images/04-book-vue.js.jpg)
 
@@ -196,7 +237,7 @@
 
 * [front-end/vue/vue3/vue.js设计与实现](./front-end/vue/vue3/vue.js设计与实现/第01章.权衡的艺术.md)
 
-### 2.6. egg.js
+### 4.7. egg.js
 
 说明：
 
@@ -212,7 +253,7 @@
 * 非常详细、完整
 * 适合新手
 
-### 2.7. 《前端工程化 体系设计与实践》
+### 4.8. 《前端工程化 体系设计与实践》
 
 ![./books/images/03-book-json.jpg](./books/images/05-book-fe-engineering.jpg)
 
@@ -242,45 +283,3 @@
 
 * [books/前端工程化-体系设计与实践](./books/05.前端工程化-体系设计与实践)
 
-### 2.8. MySQL
-
-说明：
-
-* 视频地址：[黑马程序员 MySQL数据库入门到精通，从mysql安装到mysql高级、mysql优化全囊括](https://www.bilibili.com/video/BV1Kr4y1i7ru)
-
-计划：
-
-* [./others/plan/02.MySQL-计划.md](./others/plan/02.MySQL-计划.md)
-
-笔记：
-
-* [back-end/database/mysql/heima/01.MySQL-基础.md](./back-end/database/mysql/heima/01.MySQL-基础.md)
-
-
-### 2.9. Java8 新特性
-
-TODO
-
-### 2.10. MyBatis
-
-TODO
-
-### 2.11. MyBatis Plus
-
-TODO
-
-### 2.12. Redis
-
-TODO
-
-### 2.13. MinIO
-
-TODO
-
-### 2.14. Spring
-
-TODO
-
-### 2.15. Vue3
-
-TODO

@@ -11,15 +11,15 @@ const CONFIG = {
     url: 'https://api.bilibili.com/x/web-interface/wbi/view',
     method: 'get',
     params: {
-      aid: '765670802',
-      w_rid: '764f98bc44d84a7284780803f62e64de'
+      aid: '553267404',
+      w_rid: '1190f7110a7359f021f66e2bcd09888f'
     }
   },
   plan: {
     /** 每天看几个视频 */
     partCountPerDay: 5,
     /** 从第几个视频开始看，从 1 开始 */
-    startIndexOfParts: 24,
+    startIndexOfParts: 1,
     /** 计划开始日期，Unix 时间戳 */
     startDateOfPlan: Date.now(),
   }
