@@ -6,13 +6,13 @@ dayjs.extend(objectSupport);
 
 // 在网络面板搜索 aid w_rid 关键字
 const CONFIG = {
-  // https://api.bilibili.com/x/web-interface/wbi/view?aid=765670802&w_rid=764f98bc44d84a7284780803f62e64de
+  // https://api.bilibili.com/x/web-interface/wbi/view?aid=1002763383&w_rid=691defbf7e431418565cfcff147903d3
   request: {
     url: 'https://api.bilibili.com/x/web-interface/wbi/view',
     method: 'get',
     params: {
-      aid: '553267404',
-      w_rid: '1190f7110a7359f021f66e2bcd09888f'
+      aid: '1002763383',
+      w_rid: '691defbf7e431418565cfcff147903d3'
     }
   },
   plan: {

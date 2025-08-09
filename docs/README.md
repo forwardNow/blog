@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-08-04 23:40:39
+@modify date 2025-08-09 14:20:45
 @desc [description]
 #endregion-->
 
@@ -16,7 +16,58 @@
 
 ## 2. 【进行中】学习计划
 
-### 2.1. SSM 框架
+### 2.1. MinIO
+
+说明：
+
+* 视频地址：[MinIO分布式文件存储,Spring Boot整合MinIO,MinIO集群,MinIO上传,MinIO下载](https://www.bilibili.com/video/BV1Gx4y1Y7Rg)
+
+计划：
+
+* [./others/plan/04.minio-计划.md](./others/plan/04.minio-计划.md)
+
+笔记：
+
+* [back-end/java/minio/power-node/00.minio.md](./back-end/java/minio/power-node/00.minio.md)
+
+## 3. 【待规划】学习计划
+
+*  MyBatis
+*  MyBatis Plus
+*  Spring
+*  Vue3
+
+### 3.1. Java8 新特性
+
+说明：
+
+* 视频地址：[JavaJDK新特性详解系列教程](https://www.bilibili.com/video/BV1zJ411R7uQ)
+
+计划：
+
+* [./others/plan/05.jdk8-features-计划.md](./others/plan/05.jdk8-features-计划.md)
+
+笔记：
+
+* [back-end/java/jdk/heima/00.jdk8-features.md](./back-end/java/jdk/heima/00.jdk8-features.md)
+
+### 3.2. Redis
+
+说明：
+
+* 视频地址：[黑马程序员Redis入门到实战教程，深度透析redis底层原理+redis分布式锁+企业解决方案+黑马点评实战项目](https://www.bilibili.com/video/BV1cr4y1671t)
+
+计划：
+
+* [./others/plan/04.redis.md](./others/plan/06.redis-计划.md)
+
+笔记：
+
+* [back-end/java/redis/heima/00.redis.md](./back-end/java/redis/heima/00.redis.md)
+
+## 4. 【已完成】学习计划
+
+### 4.1. SSM 框架
 
 说明：
 
@@ -31,47 +82,7 @@
 
 * [back-end/java/ssm/heima/00.ssm.md](./back-end/java/ssm/heima/00.ssm.md)
 
-## 3. 【待规划】学习计划
-
-*  Java8 新特性
-*  MyBatis
-*  MyBatis Plus
-*  Redis
-*  MinIO
-*  Spring
-*  Vue3
-
-### 3.1. Java8 新特性
-
-说明：
-
-* 视频地址：[JavaJDK新特性详解系列教程](https://www.bilibili.com/video/BV1zJ411R7uQ)
-
-计划：
-
-* [./others/plan/05.jdk8-features.md](./others/plan/05.jdk8-features.md)
-
-笔记：
-
-* [back-end/java/jdk/heima/00.jdk8-features.md](./back-end/java/jdk/heima/00.jdk8-features.md)
-
-### 3.2. Redis
-
-说明：
-
-* 视频地址：[黑马程序员Redis入门到实战教程，深度透析redis底层原理+redis分布式锁+企业解决方案+黑马点评实战项目](https://www.bilibili.com/video/BV1cr4y1671t)
-
-计划：
-
-* [./others/plan/04.redis.md](./others/plan/04.redis.md)
-
-笔记：
-
-* [back-end/java/redis/heima/00.redis.md](./back-end/java/redis/heima/00.redis.md)
-
-## 4. 【已完成】学习计划
-
-### 4.1. MySQL
+### 4.2. MySQL
 
 说明：
 
@@ -85,7 +96,7 @@
 
 * [back-end/database/mysql/heima/01.MySQL-基础.md](./back-end/database/mysql/heima/01.MySQL-基础.md)
 
-### 4.2. 微信小程序 √
+### 4.3. 微信小程序 √
 
 说明：
 
@@ -104,7 +115,7 @@
 * 非常详细、完整
 * 适合新手
 
-### 4.3. 《深入理解TypeScript》√
+### 4.4. 《深入理解TypeScript》√
 
 ![./books/images/01-book-ts.jpg](./books/images/01-book-ts.jpg)
 
@@ -128,7 +139,7 @@
 * 不建议购买与阅读
 * 很多地方讲得不清不楚，有一定 TS 基础的都看得非常烦躁
 
-### 4.4. 《正则表达式必知必会》√
+### 4.5. 《正则表达式必知必会》√
 
 ![./books/images/02-book-regex.jpg](./books/images/02-book-regex.jpg)
 
@@ -151,7 +162,7 @@
 
 * 言简意赅，适合初学者
 
-### 4.5. 《JSON 必知必会》√
+### 4.6. 《JSON 必知必会》√
 
 ![./books/images/03-book-json.jpg](./books/images/03-book-json.jpg)
 
