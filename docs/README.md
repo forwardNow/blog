@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-08-14 20:05:44
+@modify date 2025-08-14 22:20:11
 @desc [description]
 #endregion-->
 
@@ -51,7 +51,23 @@
 *  Spring
 *  Vue3
 
-### 3.1. Redis
+### 3.1. shiro
+
+说明：
+
+* 视频地址：[黑马程序员Java高级工程师技术栈-由浅入深掌握Shiro权限框架](https://www.bilibili.com/video/BV1j54y1t7jM)
+
+计划：
+
+* [./others/plan/07.shiro-计划.md](./others/plan/07.shiro-计划.md)
+
+笔记：
+
+* [back-end/java/shiro/heima/00.shiro.md](./back-end/java/shiro/heima/00.shiro.m)
+
+
+
+### 3.2. Redis
 
 说明：
 
@@ -59,7 +75,7 @@
 
 计划：
 
-* [./others/plan/04.redis.md](./others/plan/06.redis-计划.md)
+* [./others/plan/06.redis-计划.md](./others/plan/06.redis-计划.md)
 
 笔记：
 
