@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-08-09 14:20:45
+@modify date 2025-08-14 20:05:44
 @desc [description]
 #endregion-->
 
@@ -16,7 +16,21 @@
 
 ## 2. 【进行中】学习计划
 
-### 2.1. MinIO
+### 2.1. Java8 新特性
+
+说明：
+
+* 视频地址：[JavaJDK新特性详解系列教程](https://www.bilibili.com/video/BV1zJ411R7uQ)
+
+计划：
+
+* [./others/plan/05.jdk8-features-计划.md](./others/plan/05.jdk8-features-计划.md)
+
+笔记：
+
+* [back-end/java/jdk/heima/00.jdk8-features.md](./back-end/java/jdk/heima/00.jdk8-features.md)
+
+### 2.2. MinIO
 
 说明：
 
@@ -37,21 +51,7 @@
 *  Spring
 *  Vue3
 
-### 3.1. Java8 新特性
-
-说明：
-
-* 视频地址：[JavaJDK新特性详解系列教程](https://www.bilibili.com/video/BV1zJ411R7uQ)
-
-计划：
-
-* [./others/plan/05.jdk8-features-计划.md](./others/plan/05.jdk8-features-计划.md)
-
-笔记：
-
-* [back-end/java/jdk/heima/00.jdk8-features.md](./back-end/java/jdk/heima/00.jdk8-features.md)
-
-### 3.2. Redis
+### 3.1. Redis
 
 说明：
 
