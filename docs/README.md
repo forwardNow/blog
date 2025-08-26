@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-08-26 21:49:54
+@modify date 2025-08-26 22:00:51
 @desc [description]
 #endregion-->
 
@@ -16,19 +16,6 @@
 
 ## 2. 【进行中】学习计划
 
-### 2.1. Java 新特性
-
-说明：
-
-* 视频地址：[JavaJDK新特性详解系列教程](https://www.bilibili.com/video/BV1zJ411R7uQ)
-
-计划：
-
-* [./others/plan/05.jdk-features-计划.md](./others/plan/05.jdk-features-计划.md)
-
-笔记：
-
-* [back-end/java/jdk/heima/00.jdk-features](./back-end/java/jdk/heima/00.jdk-features)
 
 ## 3. 【待规划】学习计划
 
@@ -41,15 +28,15 @@
 
 说明：
 
-* 视频地址：[黑马程序员Java高级工程师技术栈-由浅入深掌握Shiro权限框架](https://www.bilibili.com/video/BV1j54y1t7jM)
+* 视频地址：[尚硅谷Shiro安全框架实例教程（4h深入掌握shiro）](https://www.bilibili.com/video/BV11e4y1n7BH)
 
 计划：
 
-* [./others/plan/07.shiro-计划.md](./others/plan/07.shiro-计划.md)
+* [./others/plan/06.shiro-计划.md](./others/plan/06.shiro-计划.md)
 
 笔记：
 
-* [back-end/java/shiro/heima/00.shiro.md](./back-end/java/shiro/heima/00.shiro.m)
+* [back-end/java/shiro/sgg/00.shiro.md](./back-end/java/shiro/sgg/00.shiro.md)
 
 
 ### 3.2. Redis
@@ -67,6 +54,20 @@
 * [back-end/java/redis/heima/00.redis.md](./back-end/java/redis/heima/00.redis.md)
 
 ## 4. 【已完成】学习计划
+
+### 2.1. Java 新特性
+
+说明：
+
+* 视频地址：[JavaJDK新特性详解系列教程](https://www.bilibili.com/video/BV1zJ411R7uQ)
+
+计划：
+
+* [./others/plan/05.jdk-features-计划.md](./others/plan/05.jdk-features-计划.md)
+
+笔记：
+
+* [back-end/java/jdk/heima/00.jdk-features](./back-end/java/jdk/heima/00.jdk-features)
 
 ### 2.2. MinIO
 

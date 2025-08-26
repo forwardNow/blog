@@ -5,14 +5,15 @@ import objectSupport from 'dayjs/plugin/objectSupport';
 dayjs.extend(objectSupport);
 
 // 在网络面板搜索 aid w_rid 关键字
+// 执行 .\node_modules\.bin\ts-node .\utils\gen-plan-table.ts
 const CONFIG = {
-  // https://api.bilibili.com/x/web-interface/wbi/view?aid=1002763383&w_rid=691defbf7e431418565cfcff147903d3
+  // https://api.bilibili.com/x/web-interface/wbi/view?aid=645940460&w_rid=d6aecb1324e23de4c7d282c4350d6ad4
   request: {
     url: 'https://api.bilibili.com/x/web-interface/wbi/view',
     method: 'get',
     params: {
-      aid: '1002763383',
-      w_rid: '691defbf7e431418565cfcff147903d3'
+      aid: '645940460',
+      w_rid: 'd6aecb1324e23de4c7d282c4350d6ad4'
     }
   },
   plan: {
