@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-08-14 22:20:11
+@modify date 2025-08-26 21:49:54
 @desc [description]
 #endregion-->
 
@@ -16,7 +16,7 @@
 
 ## 2. 【进行中】学习计划
 
-### 2.1. Java8 新特性
+### 2.1. Java 新特性
 
 说明：
 
@@ -24,25 +24,11 @@
 
 计划：
 
-* [./others/plan/05.jdk8-features-计划.md](./others/plan/05.jdk8-features-计划.md)
+* [./others/plan/05.jdk-features-计划.md](./others/plan/05.jdk-features-计划.md)
 
 笔记：
 
-* [back-end/java/jdk/heima/00.jdk8-features.md](./back-end/java/jdk/heima/00.jdk8-features.md)
-
-### 2.2. MinIO
-
-说明：
-
-* 视频地址：[MinIO分布式文件存储,Spring Boot整合MinIO,MinIO集群,MinIO上传,MinIO下载](https://www.bilibili.com/video/BV1Gx4y1Y7Rg)
-
-计划：
-
-* [./others/plan/04.minio-计划.md](./others/plan/04.minio-计划.md)
-
-笔记：
-
-* [back-end/java/minio/power-node/00.minio.md](./back-end/java/minio/power-node/00.minio.md)
+* [back-end/java/jdk/heima/00.jdk-features](./back-end/java/jdk/heima/00.jdk-features)
 
 ## 3. 【待规划】学习计划
 
@@ -66,7 +52,6 @@
 * [back-end/java/shiro/heima/00.shiro.md](./back-end/java/shiro/heima/00.shiro.m)
 
 
-
 ### 3.2. Redis
 
 说明：
@@ -82,6 +67,21 @@
 * [back-end/java/redis/heima/00.redis.md](./back-end/java/redis/heima/00.redis.md)
 
 ## 4. 【已完成】学习计划
+
+### 2.2. MinIO
+
+说明：
+
+* 视频地址：[MinIO分布式文件存储,Spring Boot整合MinIO,MinIO集群,MinIO上传,MinIO下载](https://www.bilibili.com/video/BV1Gx4y1Y7Rg)
+
+计划：
+
+* [./others/plan/04.minio-计划.md](./others/plan/04.minio-计划.md)
+
+笔记：
+
+* [back-end/java/minio/power-node/00.minio.md](./back-end/java/minio/power-node/00.minio.md)
+
 
 ### 4.1. SSM 框架
 
