@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-08-26 22:00:51
+@modify date 2025-08-27 21:01:34
 @desc [description]
 #endregion-->
 
@@ -16,15 +16,7 @@
 
 ## 2. 【进行中】学习计划
 
-
-## 3. 【待规划】学习计划
-
-*  MyBatis
-*  MyBatis Plus
-*  Spring
-*  Vue3
-
-### 3.1. shiro
+### 2.1. shiro
 
 说明：
 
@@ -38,8 +30,16 @@
 
 * [back-end/java/shiro/sgg/00.shiro.md](./back-end/java/shiro/sgg/00.shiro.md)
 
+## 3. 【待规划】学习计划
 
-### 3.2. Redis
+*  MyBatis
+*  MyBatis Plus
+*  Spring
+*  Vue3
+
+
+
+### 3.1. Redis
 
 说明：
 
@@ -55,7 +55,7 @@
 
 ## 4. 【已完成】学习计划
 
-### 2.1. Java 新特性
+### 4.1. Java 新特性
 
 说明：
 
@@ -69,7 +69,7 @@
 
 * [back-end/java/jdk/heima/00.jdk-features](./back-end/java/jdk/heima/00.jdk-features)
 
-### 2.2. MinIO
+### 4.2. MinIO
 
 说明：
 
@@ -84,7 +84,7 @@
 * [back-end/java/minio/power-node/00.minio.md](./back-end/java/minio/power-node/00.minio.md)
 
 
-### 4.1. SSM 框架
+### 4.3. SSM 框架
 
 说明：
 
@@ -99,7 +99,7 @@
 
 * [back-end/java/ssm/heima/00.ssm.md](./back-end/java/ssm/heima/00.ssm.md)
 
-### 4.2. MySQL
+### 4.4. MySQL
 
 说明：
 
@@ -113,7 +113,7 @@
 
 * [back-end/database/mysql/heima/01.MySQL-基础.md](./back-end/database/mysql/heima/01.MySQL-基础.md)
 
-### 4.3. 微信小程序 √
+### 4.5. 微信小程序 √
 
 说明：
 
@@ -132,7 +132,7 @@
 * 非常详细、完整
 * 适合新手
 
-### 4.4. 《深入理解TypeScript》√
+### 4.6. 《深入理解TypeScript》√
 
 ![./books/images/01-book-ts.jpg](./books/images/01-book-ts.jpg)
 
@@ -156,7 +156,7 @@
 * 不建议购买与阅读
 * 很多地方讲得不清不楚，有一定 TS 基础的都看得非常烦躁
 
-### 4.5. 《正则表达式必知必会》√
+### 4.7. 《正则表达式必知必会》√
 
 ![./books/images/02-book-regex.jpg](./books/images/02-book-regex.jpg)
 
@@ -179,7 +179,7 @@
 
 * 言简意赅，适合初学者
 
-### 4.6. 《JSON 必知必会》√
+### 4.8. 《JSON 必知必会》√
 
 ![./books/images/03-book-json.jpg](./books/images/03-book-json.jpg)
 
