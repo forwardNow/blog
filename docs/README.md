@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-08-27 21:01:34
+@modify date 2025-08-28 18:22:53
 @desc [description]
 #endregion-->
 
@@ -32,12 +32,12 @@
 
 ## 3. 【待规划】学习计划
 
-*  MyBatis
-*  MyBatis Plus
-*  Spring
-*  Vue3
-
-
+* MyBatis
+* MyBatis Plus
+* Spring
+* Vue3
+* Java 并发
+* Java 多线程
 
 ### 3.1. Redis
 
@@ -52,6 +52,18 @@
 笔记：
 
 * [back-end/java/redis/heima/00.redis.md](./back-end/java/redis/heima/00.redis.md)
+
+### 3.2. Java 并发
+
+说明：
+
+* 视频地址：[【Java并发】CompletableFuture](https://www.bilibili.com/video/BV1nA411g7d2)
+
+### 3.3. Java 多线程
+
+说明：
+
+* 视频地址：[黑马程序员深入学习Java并发编程，JUC并发编程全套教程](https://www.bilibili.com/video/BV16J411h7Rd)
 
 ## 4. 【已完成】学习计划
 
