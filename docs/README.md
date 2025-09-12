@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-08-28 18:22:53
+@modify date 2025-09-13 01:14:02
 @desc [description]
 #endregion-->
 
@@ -16,30 +16,7 @@
 
 ## 2. 【进行中】学习计划
 
-### 2.1. shiro
-
-说明：
-
-* 视频地址：[尚硅谷Shiro安全框架实例教程（4h深入掌握shiro）](https://www.bilibili.com/video/BV11e4y1n7BH)
-
-计划：
-
-* [./others/plan/06.shiro-计划.md](./others/plan/06.shiro-计划.md)
-
-笔记：
-
-* [back-end/java/shiro/sgg/00.shiro.md](./back-end/java/shiro/sgg/00.shiro.md)
-
-## 3. 【待规划】学习计划
-
-* MyBatis
-* MyBatis Plus
-* Spring
-* Vue3
-* Java 并发
-* Java 多线程
-
-### 3.1. Redis
+### 2.1. Redis
 
 说明：
 
@@ -53,13 +30,23 @@
 
 * [back-end/java/redis/heima/00.redis.md](./back-end/java/redis/heima/00.redis.md)
 
-### 3.2. Java 并发
+
+## 3. 【待规划】学习计划
+
+* MyBatis
+* MyBatis Plus
+* Spring
+* Vue3
+* Java 并发
+* Java 多线程
+
+### 3.1. Java 并发
 
 说明：
 
 * 视频地址：[【Java并发】CompletableFuture](https://www.bilibili.com/video/BV1nA411g7d2)
 
-### 3.3. Java 多线程
+### 3.2. Java 多线程
 
 说明：
 
@@ -67,7 +54,21 @@
 
 ## 4. 【已完成】学习计划
 
-### 4.1. Java 新特性
+### 4.1. shiro
+
+说明：
+
+* 视频地址：[尚硅谷Shiro安全框架实例教程（4h深入掌握shiro）](https://www.bilibili.com/video/BV11e4y1n7BH)
+
+计划：
+
+* [./others/plan/06.shiro-计划.md](./others/plan/06.shiro-计划.md)
+
+笔记：
+
+* [back-end/java/shiro/sgg/00.shiro.md](./back-end/java/shiro/sgg/00.shiro.md)
+
+### 4.2. Java 新特性
 
 说明：
 
@@ -81,7 +82,7 @@
 
 * [back-end/java/jdk/heima/00.jdk-features](./back-end/java/jdk/heima/00.jdk-features)
 
-### 4.2. MinIO
+### 4.3. MinIO
 
 说明：
 
@@ -96,7 +97,7 @@
 * [back-end/java/minio/power-node/00.minio.md](./back-end/java/minio/power-node/00.minio.md)
 
 
-### 4.3. SSM 框架
+### 4.4. SSM 框架
 
 说明：
 
@@ -111,7 +112,7 @@
 
 * [back-end/java/ssm/heima/00.ssm.md](./back-end/java/ssm/heima/00.ssm.md)
 
-### 4.4. MySQL
+### 4.5. MySQL
 
 说明：
 
@@ -125,7 +126,7 @@
 
 * [back-end/database/mysql/heima/01.MySQL-基础.md](./back-end/database/mysql/heima/01.MySQL-基础.md)
 
-### 4.5. 微信小程序 √
+### 4.6. 微信小程序 √
 
 说明：
 
@@ -144,7 +145,7 @@
 * 非常详细、完整
 * 适合新手
 
-### 4.6. 《深入理解TypeScript》√
+### 4.7. 《深入理解TypeScript》√
 
 ![./books/images/01-book-ts.jpg](./books/images/01-book-ts.jpg)
 
@@ -168,7 +169,7 @@
 * 不建议购买与阅读
 * 很多地方讲得不清不楚，有一定 TS 基础的都看得非常烦躁
 
-### 4.7. 《正则表达式必知必会》√
+### 4.8. 《正则表达式必知必会》√
 
 ![./books/images/02-book-regex.jpg](./books/images/02-book-regex.jpg)
 
@@ -191,7 +192,7 @@
 
 * 言简意赅，适合初学者
 
-### 4.8. 《JSON 必知必会》√
+### 4.9. 《JSON 必知必会》√
 
 ![./books/images/03-book-json.jpg](./books/images/03-book-json.jpg)
 
