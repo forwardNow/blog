@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-09-13 01:14:02
+@modify date 2025-09-22 17:48:11
 @desc [description]
 #endregion-->
 
@@ -39,14 +39,29 @@
 * Vue3
 * Java 并发
 * Java 多线程
+* Camunda 工作流
 
-### 3.1. Java 并发
+### 3.1. Camunda 工作流
+
+说明：
+
+* 视频地址：[2023最火工作流Camunda基础+进阶视频教程](https://www.bilibili.com/video/BV15h4y1g7Rj)
+
+计划：
+
+* [./others/plan/07.camunda-计划.md](./others/plan/07.camunda-计划.md)
+
+笔记：
+
+* [back-end/java/camunda/00.camunda.md](./back-end/java/camunda/00.camunda.md)
+
+### 3.2. Java 并发
 
 说明：
 
 * 视频地址：[【Java并发】CompletableFuture](https://www.bilibili.com/video/BV1nA411g7d2)
 
-### 3.2. Java 多线程
+### 3.3. Java 多线程
 
 说明：
 
