@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-09-22 17:48:11
+@modify date 2025-09-30 08:44:50
 @desc [description]
 #endregion-->
 
@@ -30,7 +30,6 @@
 
 * [back-end/java/redis/heima/00.redis.md](./back-end/java/redis/heima/00.redis.md)
 
-
 ## 3. 【待规划】学习计划
 
 * MyBatis
@@ -40,8 +39,23 @@
 * Java 并发
 * Java 多线程
 * Camunda 工作流
+* ThreadLocal
 
-### 3.1. Camunda 工作流
+### 3.1. ThreadLocal
+
+说明：
+
+* 视频地址：[黑马程序员Java基础教程由浅入深全面解析threadlocal](https://www.bilibili.com/video/BV1N741127FH)
+
+计划：
+
+* [./others/plan/08.threadlocal-计划.md](./others/plan/08.threadlocal-计划.md)
+
+笔记：
+
+* [back-end/java/threadlocal/00.threadlocal.md](./back-end/java/threadlocal/00.threadlocal.md)
+
+### 3.2. Camunda 工作流
 
 说明：
 
@@ -55,13 +69,13 @@
 
 * [back-end/java/camunda/00.camunda.md](./back-end/java/camunda/00.camunda.md)
 
-### 3.2. Java 并发
+### 3.3. Java 并发
 
 说明：
 
 * 视频地址：[【Java并发】CompletableFuture](https://www.bilibili.com/video/BV1nA411g7d2)
 
-### 3.3. Java 多线程
+### 3.4. Java 多线程
 
 说明：
 
