@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-09-30 08:44:50
+@modify date 2025-10-22 08:15:37
 @desc [description]
 #endregion-->
 
@@ -40,6 +40,21 @@
 * Java 多线程
 * Camunda 工作流
 * ThreadLocal
+* Druid
+
+### 3.1. Druid
+
+说明：
+
+* 视频地址：[druid连接池/sql监控/sql防火墙配置与原理](https://www.bilibili.com/video/BV1ih411n7Ps)
+
+计划：
+
+* [./others/plan/09.druid-计划.md](./others/plan/09.druid-计划.md)
+
+笔记：
+
+* [back-end/java/druid/01.druid-快速入门.md](./back-end/java/druid/01.druid-快速入门.md)
 
 ### 3.1. ThreadLocal
 

@@ -7,20 +7,20 @@ dayjs.extend(objectSupport);
 // 在网络面板搜索 aid w_rid 关键字
 // 执行 .\node_modules\.bin\ts-node .\utils\gen-plan-table.ts
 const CONFIG = {
-  // https://api.bilibili.com/x/web-interface/wbi/view?aid=645940460&w_rid=d6aecb1324e23de4c7d282c4350d6ad4
+  // https://api.bilibili.com/x/web-interface/wbi/view?aid=208204855&w_rid=894703aef6a5fb14707574b1d163b9b2
   request: {
     url: 'https://api.bilibili.com/x/web-interface/wbi/view',
     method: 'get',
     params: {
-      aid: '766995956',
-      w_rid: 'ee01e4ce8ad0732885d14dee43f36ce9'
+      aid: '208204855',
+      w_rid: '894703aef6a5fb14707574b1d163b9b2'
     }
   },
   plan: {
     /** 每天看几个视频 */
     partCountPerDay: 3,
     /** 从第几个视频开始看，从 1 开始 */
-    startIndexOfParts: 6,
+    startIndexOfParts: 1,
     /** 计划开始日期，Unix 时间戳 */
     startDateOfPlan: Date.now(),
   }
