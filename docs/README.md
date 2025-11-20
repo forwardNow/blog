@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-10-28 17:36:00
+@modify date 2025-11-20 22:12:40
 @desc [description]
 #endregion-->
 
@@ -42,7 +42,20 @@
 * ThreadLocal
 * Druid
 
-### 3.1. ThreadLocal
+### 3.1. MyBatis Plus
+
+说明：
+
+* 视频地址：[黑马程序员最新MybatisPlus全套视频教程，4小时快速精通mybatis-plus框架](https://www.bilibili.com/video/BV1Xu411A7tL)
+
+### 3.2. MyBatis
+
+说明：
+
+* 视频地址：[黑马mybatis教程全套视频教程，2天Mybatis框架从入门到精通](https://www.bilibili.com/video/BV1MT4y1k7wZ)
+
+
+### 3.3. ThreadLocal
 
 说明：
 
@@ -56,7 +69,7 @@
 
 * [back-end/java/threadlocal/00.threadlocal.md](./back-end/java/threadlocal/00.threadlocal.md)
 
-### 3.2. Camunda 工作流
+### 3.4. Camunda 工作流
 
 说明：
 
@@ -70,13 +83,13 @@
 
 * [back-end/java/camunda/00.camunda.md](./back-end/java/camunda/00.camunda.md)
 
-### 3.3. Java 并发
+### 3.5. Java 并发
 
 说明：
 
 * 视频地址：[【Java并发】CompletableFuture](https://www.bilibili.com/video/BV1nA411g7d2)
 
-### 3.4. Java 多线程
+### 3.6. Java 多线程
 
 说明：
 
