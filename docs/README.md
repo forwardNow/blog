@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2025-12-09 12:01:56
+@modify date 2025-12-09 12:23:57
 @desc [description]
 #endregion-->
 
@@ -16,7 +16,21 @@
 
 ## 2. 【进行中】学习计划
 
-### 2.1. Redis【暂停】
+### 2.1. SpringBoot2
+
+说明：
+
+* 视频地址：[黑马程序员SpringBoot2全套视频教程，springboot零基础到项目实战（spring boot2完整版）](https://www.bilibili.com/video/BV15b4y1a7yG)
+
+计划：
+
+* [./others/plan/11.SpringBoot教程-黑马-计划.md](./others/plan/11.SpringBoot教程-黑马-计划.md)
+
+笔记：
+
+* [back-end/java/springboot/heima/01.SpringBoot教程-黑马.md](./back-end/java/springboot/heima/01.SpringBoot教程-黑马.md)
+
+### 2.2. Redis【暂停】
 
 说明：
 
@@ -32,15 +46,13 @@
 
 ## 3. 【待规划】学习计划
 
-* MyBatis
-* MyBatis Plus
-* Spring
-* Vue3
-* Java 并发
 * Java 多线程
+* SpringCloud
+* SpringBoot3
+* MyBatis 
+* Spring
 * Camunda 工作流
-* ThreadLocal
-* Druid
+* Vue3
 
 ### 3.1. MyBatis
 

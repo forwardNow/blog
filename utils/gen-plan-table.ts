@@ -7,13 +7,13 @@ dayjs.extend(objectSupport);
 // 在网络面板搜索 aid w_rid 关键字
 // 执行 .\node_modules\.bin\ts-node .\utils\gen-plan-table.ts
 const CONFIG = {
-  // https://api.bilibili.com/x/web-interface/wbi/view?aid=208204855&w_rid=894703aef6a5fb14707574b1d163b9b2
+  // https://api.bilibili.com/x/web-interface/wbi/view?aid=633835873&w_rid=2bef0579b80850d73d047d067bb87db7
   request: {
     url: 'https://api.bilibili.com/x/web-interface/wbi/view',
     method: 'get',
     params: {
-      aid: '208204855',
-      w_rid: '894703aef6a5fb14707574b1d163b9b2'
+      aid: '633835873',
+      w_rid: '2bef0579b80850d73d047d067bb87db7'
     }
   },
   plan: {
