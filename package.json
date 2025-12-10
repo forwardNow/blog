@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "cross-env NODE_OPTIONS=--max_old_space_size=8096 vuepress dev docs",
-    "docs:build": "cross-env NODE_OPTIONS=--max_old_space_size=8096 vuepress build docs",
-    "deploy": "cross-env NODE_OPTIONS=--max_old_space_size=8096 node ./utils/deploy-to-github-io.js",
+    "docs:dev": "cross-env NODE_OPTIONS=--max_old_space_size=16000 vuepress dev docs",
+    "docs:build": "cross-env NODE_OPTIONS=--max_old_space_size=16000 vuepress build docs",
+    "deploy": "cross-env NODE_OPTIONS=--max_old_space_size=16000 node ./utils/deploy-to-github-io.js",
     "server": "node ./utils/server.js"
   },
   "repository": {
