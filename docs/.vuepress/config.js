@@ -83,12 +83,12 @@ module.exports = {
     '@vuepress/plugin-nprogress',
     // 'vuepress-plugin-smooth-scroll',
 
-    [
-      'vuepress-plugin-sitemap',
-      {
-        hostname: 'https://forwardnow.github.io'
-      }
-    ]
+    // [
+    //   'vuepress-plugin-sitemap',
+    //   {
+    //     hostname: 'https://forwardnow.github.io'
+    //   }
+    // ]
 
   ]
 }
