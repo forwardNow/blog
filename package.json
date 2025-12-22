@@ -33,8 +33,6 @@
     "chalk": "^2.4.2",
     "cross-env": "^7.0.3",
     "ts-node": "^10.9.2",
-    "vuepress": "1.9.2",
-    "vuepress-plugin-sitemap": "^2.3.1",
-    "vuepress-plugin-smooth-scroll": "0.0.10"
+    "vuepress": "1.9.2"
   }
 }
