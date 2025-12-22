@@ -4,8 +4,6 @@
 
     <Content class="theme-default-content" />
 
-    <PageEdit v-if="false" />
-
     <PageNav v-bind="{ sidebarItems }" />
 
     <TableOfContent />
