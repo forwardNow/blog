@@ -90,6 +90,9 @@ module.exports = {
     //   }
     // ]
 
+    // https://www.npmjs.com/package/vuepress-plugin-mermaidjs
+    // 百度: 使用 markdown 画图
+    'vuepress-plugin-mermaidjs',
   ]
 }
 
