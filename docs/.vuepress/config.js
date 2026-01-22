@@ -92,7 +92,8 @@ module.exports = {
 
     // https://www.npmjs.com/package/vuepress-plugin-mermaidjs
     // 百度: 使用 markdown 画图
-    'vuepress-plugin-mermaidjs',
+    // vue-press 1.x 使用 1.x 的插件版本
+    'vuepress-plugin-mermaidjs'
   ]
 }
 

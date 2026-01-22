@@ -34,6 +34,6 @@
     "cross-env": "^7.0.3",
     "ts-node": "^10.9.2",
     "vuepress": "1.9.2",
-    "vuepress-plugin-mermaidjs": "^2.0.0-beta.2"
+    "vuepress-plugin-mermaidjs": "^1.9.1"
   }
 }
