@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2026-02-04 17:04:53
+@modify date 2026-02-04 17:10:39
 @desc [description]
 #endregion-->
 
@@ -34,11 +34,9 @@
 
 ## 3. 【待规划】学习计划
 
-* SpringBoot3
-* MyBatis 
-* Spring
-* Camunda 工作流
-* Vue3
+Vue3
+
+LDAP
 
 ### 3.2. SpringCloud
 
