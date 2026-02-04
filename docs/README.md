@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2026-02-04 17:00:04
+@modify date 2026-02-04 17:04:53
 @desc [description]
 #endregion-->
 
@@ -34,12 +34,19 @@
 
 ## 3. 【待规划】学习计划
 
-* SpringCloud
 * SpringBoot3
 * MyBatis 
 * Spring
 * Camunda 工作流
 * Vue3
+
+### 3.2. SpringCloud
+
+视频: [SpringCloud+RabbitMQ+Docker+Redis+搜索+分布式，系统详解springcloud微服务技术栈课程|黑马程序员Java微服务](https://www.bilibili.com/video/BV1LQ4y127n4)
+
+计划: [./others/plan/13.SpringCloud-黑马-计划.md](./others/plan/13.SpringCloud-黑马-计划.md)
+
+笔记: [back-end/java/spring/springcloud/01.SpringCloud-黑马-教程.md](./back-end/java/spring/springcloud/01.SpringCloud-黑马-教程.md)
 
 ### 3.1. MyBatis
 
