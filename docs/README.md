@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2026-01-18 07:35:14
+@modify date 2026-02-04 17:00:04
 @desc [description]
 #endregion-->
 
@@ -61,7 +61,7 @@
 
 计划: [./others/plan/11.SpringBoot教程-黑马-计划.md](./others/plan/11.SpringBoot教程-黑马-计划.md)
 
-笔记: [back-end/java/springboot/heima/01.SpringBoot教程-黑马.md](./back-end/java/springboot/heima/01.SpringBoot教程-黑马.md)
+笔记: [back-end/java/spring/springboot/01.SpringBoot教程-黑马.md](./back-end/java/spring/springboot/01.SpringBoot教程-黑马.md)
 
 ### 4.2. FreeMarker
 
@@ -97,7 +97,7 @@
 
 计划: [./others/plan/09.druid-计划.md](./others/plan/09.druid-计划.md)
 
-笔记: [back-end/java/druid/01.druid-快速入门.md](./back-end/java/druid/01.druid-快速入门.md)
+笔记: [back-end/java/libs/druid/01.druid-快速入门.md](./back-end/java/libs/druid/01.druid-快速入门.md)
 
 ### 4.7. shiro
 
@@ -105,7 +105,7 @@
 
 计划: [./others/plan/06.shiro-计划.md](./others/plan/06.shiro-计划.md)
 
-笔记: [back-end/java/shiro/sgg/00.shiro.md](./back-end/java/shiro/sgg/00.shiro.md)
+笔记: [back-end/java/libs/shiro/sgg/00.shiro.md](./back-end/java/libs/shiro/sgg/00.shiro.md)
 
 ### 4.8. Java 新特性
 
@@ -121,7 +121,7 @@
 
 计划: [./others/plan/04.minio-计划.md](./others/plan/04.minio-计划.md)
 
-笔记: [back-end/java/minio/power-node/00.minio.md](./back-end/java/minio/power-node/00.minio.md)
+笔记: [back-end/java/libs/minio/00.minio-动力节点.md](./back-end/java/libs/minio/00.minio-动力节点.md)
 
 ### 4.10. SSM 框架
 
@@ -129,7 +129,7 @@
 
 计划: [./others/plan/03.SSM-计划.md](./others/plan/03.SSM-计划.md)
 
-笔记: [back-end/java/ssm/heima/00.ssm.md](./back-end/java/ssm/heima/00.ssm.md)
+笔记: [back-end/java/spring/ssm/00.ssm.md](./back-end/java/spring/ssm/00.ssm.md)
 
 ### 4.11. MySQL
 
