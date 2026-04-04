@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2026-02-13 20:53:13
+@modify date 2026-04-04 11:52:59
 @desc [description]
 #endregion-->
 
@@ -16,7 +16,11 @@
 
 ## 2. 【进行中】学习计划
 
-### 2.1. SpringCloud
+### 2.1. MyBatis
+
+笔记: [back-end/java/libs/mybatis/02.MyBatis-尚硅谷-教程.md](./back-end/java/libs/mybatis/02.MyBatis-尚硅谷-教程.md)
+
+### 2.2. SpringCloud【暂停】
 
 视频: [SpringCloud+RabbitMQ+Docker+Redis+搜索+分布式，系统详解springcloud微服务技术栈课程|黑马程序员Java微服务](https://www.bilibili.com/video/BV1LQ4y127n4)
 
@@ -24,7 +28,7 @@
 
 笔记: [back-end/java/spring/springcloud/01.SpringCloud-黑马-教程.md](./back-end/java/spring/springcloud/01.SpringCloud-黑马-教程.md)
 
-### 2.2. Redis【暂停】
+### 2.3. Redis【暂停】
 
 视频: [黑马程序员Redis入门到实战教程，深度透析redis底层原理+redis分布式锁+企业解决方案+黑马点评实战项目](https://www.bilibili.com/video/BV1cr4y1671t)
 
@@ -38,11 +42,7 @@ Vue3
 
 LDAP
 
-### 3.1. MyBatis
-
-视频: [黑马mybatis教程全套视频教程，2天Mybatis框架从入门到精通](https://www.bilibili.com/video/BV1MT4y1k7wZ)
-
-### 3.2. Camunda 工作流
+### 3.1. Camunda 工作流
 
 视频: [2023最火工作流Camunda基础+进阶视频教程](https://www.bilibili.com/video/BV15h4y1g7Rj)
 

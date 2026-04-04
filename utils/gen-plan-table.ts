@@ -12,8 +12,8 @@ const CONFIG = {
     url: 'https://api.bilibili.com/x/web-interface/wbi/view',
     method: 'get',
     params: {
-      aid: '717242269',
-      w_rid: 'a95a8be56d983719c4630ad2c4d58202'
+      aid: '894307478',
+      w_rid: '0180a833db1d9a57dcbd967a42b74874'
     }
   },
   plan: {
