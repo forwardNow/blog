@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2026-04-04 11:52:59
+@modify date 2026-04-20 18:06:30
 @desc [description]
 #endregion-->
 
@@ -37,6 +37,10 @@
 笔记: [back-end/java/redis/heima/00.redis.md](./back-end/java/redis/heima/00.redis.md)
 
 ## 3. 【待规划】学习计划
+
+SpringAI
+
+MyBatisPlus
 
 Vue3
 
