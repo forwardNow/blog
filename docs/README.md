@@ -2,7 +2,7 @@
 @author 吴钦飞
 @email wuqinfei@qq.com
 @create date 2023-11-18 15:04:12
-@modify date 2026-04-21 14:27:25
+@modify date 2026-04-21 15:54:31
 @desc [description]
 #endregion-->
 
@@ -16,7 +16,7 @@
 
 ## 2. 【进行中】学习计划
 
-### 2.1. MyBatis
+### 2.1. MyBatisPlus
 
 笔记: [back-end/java/libs/mybatis-plus/04.MyBatisPlus-尚硅谷-教程.md](./back-end/java/libs/mybatis-plus/04.MyBatisPlus-尚硅谷-教程.md)
 
